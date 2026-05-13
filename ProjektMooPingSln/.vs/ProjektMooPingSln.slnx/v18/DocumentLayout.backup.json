@@ -1,66 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Mooping Gaming\\ProjektMooPingSln\\",
+  "WorkspaceRootPath": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\menudetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\menudetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\resources\\raw\\masterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|d:\\github\\projektmooping\\projektmoopingsln\\projektmooping\\resources\\raw\\masterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\resources\\raw\\masterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\maingamepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\maingamepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\popuppage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\popuppage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\popuppage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\popuppage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\services\\localizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\services\\localizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\discoverpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\discoverpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\discoverpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\discoverpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\editdetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\editdetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\viewmodel\\ingredientviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\viewmodel\\ingredientviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\services\\saveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\services\\saveservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\services\\recipeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\services\\recipeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|e:\\mooping gaming\\projektmoopingsln\\projektmooping\\view\\maingamepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\maingamepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,191 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MenuDetailPage.xaml.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\MenuDetailPage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\MenuDetailPage.xaml.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\MenuDetailPage.xaml.cs",
-              "RelativeToolTip": "ProjektMooPing\\View\\MenuDetailPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T19:00:58.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "MasterData.json",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Resources\\Raw\\MasterData.json",
+              "DocumentMoniker": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\Resources\\Raw\\MasterData.json",
               "RelativeDocumentMoniker": "ProjektMooPing\\Resources\\Raw\\MasterData.json",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Resources\\Raw\\MasterData.json",
+              "ToolTip": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\Resources\\Raw\\MasterData.json",
               "RelativeToolTip": "ProjektMooPing\\Resources\\Raw\\MasterData.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAIgQAAAAAAAAAAAAAMgQAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-13T18:58:55.105Z",
+              "WhenOpened": "2026-05-13T19:53:16.113Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PopupPage.xaml",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\PopupPage.xaml",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml",
-              "RelativeToolTip": "ProjektMooPing\\View\\PopupPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-13T18:34:39.502Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LocalizationService.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Services\\LocalizationService.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\Services\\LocalizationService.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Services\\LocalizationService.cs",
-              "RelativeToolTip": "ProjektMooPing\\Services\\LocalizationService.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAwwGcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T10:31:27.03Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PopupPage.xaml.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "RelativeToolTip": "ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowDIAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T09:32:05.76Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DiscoverPage.xaml.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\DiscoverPage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\DiscoverPage.xaml.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\DiscoverPage.xaml.cs",
-              "RelativeToolTip": "ProjektMooPing\\View\\DiscoverPage.xaml.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAmwJIAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T09:31:31.304Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DiscoverPage.xaml",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\DiscoverPage.xaml",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\DiscoverPage.xaml",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\DiscoverPage.xaml",
-              "RelativeToolTip": "ProjektMooPing\\View\\DiscoverPage.xaml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-13T09:31:22.568Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Question.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Models\\Question.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\Models\\Question.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Models\\Question.cs",
-              "RelativeToolTip": "ProjektMooPing\\Models\\Question.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T09:31:14.062Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EditDetailPage.xaml.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\EditDetailPage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\EditDetailPage.xaml.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\EditDetailPage.xaml.cs",
-              "RelativeToolTip": "ProjektMooPing\\View\\EditDetailPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T09:25:42.93Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainGamePage.xaml",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\MainGamePage.xaml",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\MainGamePage.xaml",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\MainGamePage.xaml",
-              "RelativeToolTip": "ProjektMooPing\\View\\MainGamePage.xaml",
-              "ViewState": "AgIAAC8BAAAAAAAAAAAMwIQBAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-13T09:10:25.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IngredientViewModel.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\ViewModel\\IngredientViewModel.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\ViewModel\\IngredientViewModel.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\ViewModel\\IngredientViewModel.cs",
-              "RelativeToolTip": "ProjektMooPing\\ViewModel\\IngredientViewModel.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T08:15:42.76Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SaveService.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Services\\SaveService.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\Services\\SaveService.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Services\\SaveService.cs",
-              "RelativeToolTip": "ProjektMooPing\\Services\\SaveService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T08:09:51.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Ingredient.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Models\\Ingredient.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\Models\\Ingredient.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Models\\Ingredient.cs",
-              "RelativeToolTip": "ProjektMooPing\\Models\\Ingredient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T08:15:21.154Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MainGamePage.xaml.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\MainGamePage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\MainGamePage.xaml.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\View\\MainGamePage.xaml.cs",
-              "RelativeToolTip": "ProjektMooPing\\View\\MainGamePage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T19:33:07.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "RecipeService.cs",
-              "DocumentMoniker": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Services\\RecipeService.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\Services\\RecipeService.cs",
-              "ToolTip": "E:\\Mooping Gaming\\ProjektMooPingSln\\ProjektMooPing\\Services\\RecipeService.cs",
-              "RelativeToolTip": "ProjektMooPing\\Services\\RecipeService.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAkwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T19:20:54.752Z"
             }
           ]
         }
