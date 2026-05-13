@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|d:\\github\\projektmooping\\projektmoopingsln\\projektmooping\\view\\popuppage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\popuppage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|d:\\github\\projektmooping\\projektmoopingsln\\projektmooping\\view\\popuppage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\view\\popuppage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,37 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PopupPage.xaml.cs",
-              "DocumentMoniker": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "ToolTip": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "RelativeToolTip": "ProjektMooPing\\View\\PopupPage.xaml.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwEUAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T22:25:16.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PopupPage.xaml",
-              "DocumentMoniker": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml",
-              "RelativeDocumentMoniker": "ProjektMooPing\\View\\PopupPage.xaml",
-              "ToolTip": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\View\\PopupPage.xaml",
-              "RelativeToolTip": "ProjektMooPing\\View\\PopupPage.xaml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-13T22:24:43.497Z",
-              "EditorCaption": ""
             }
           ]
         }

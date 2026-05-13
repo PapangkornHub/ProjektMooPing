@@ -279,7 +279,10 @@
       "DailyRent": 0,
       "MinTraffic": 3,
       "MaxTraffic": 5,
-      "ImagePath": "wall_rural"
+      "ImagePath": "wall_rural",
+      "RequiredRating": 0,
+      "DogLucky": "Lucky of Simplicity",
+      "DogLuckyTh": "ลัคกี้แห่งความเรียบง่าย"
     },
     {
       "Id": 2,
@@ -288,52 +291,70 @@
       "DailyRent": 150,
       "MinTraffic": 6,
       "MaxTraffic": 9,
-      "ImagePath": "wall_marketgarden"
+      "ImagePath": "wall_marketgarden",
+      "RequiredRating": 200,
+      "DogLucky": "Lucky of Negotiation",
+      "DogLuckyTh": "ลัคกี้แห่งการเจรจา"
     },
     {
       "Id": 3,
-      "LocName": "School",
-      "LocNameTh": "โรงเรียน",
+      "LocName": "Footpath",
+      "LocNameTh": "ริมทางเท้า",
       "DailyRent": 300,
       "MinTraffic": 8,
       "MaxTraffic": 12,
-      "ImagePath": "wall_school"
+      "ImagePath": "wall_footpath",
+      "RequiredRating": 500,
+      "DogLucky": "Lucky of Resilience",
+      "DogLuckyTh": "ลัคกี้แห่งความทรหด"
     },
     {
       "Id": 4,
-      "LocName": "Footpath",
-      "LocNameTh": "ริมทางเท้า",
+      "LocName": "School",
+      "LocNameTh": "โรงเรียน",
       "DailyRent": 450,
       "MinTraffic": 10,
       "MaxTraffic": 14,
-      "ImagePath": "wall_footpath"
+      "ImagePath": "wall_school",
+      "RequiredRating": 900,
+      "DogLucky": "Lucky of Mischief",
+      "DogLuckyTh": "ลัคกี้แห่งความซุกซน"
     },
     {
       "Id": 5,
-      "LocName": "Office",
-      "LocNameTh": "สำนักงาน",
+      "LocName": "Mall",
+      "LocNameTh": "ห้างสรรพสินค้า",
       "DailyRent": 650,
       "MinTraffic": 12,
       "MaxTraffic": 16,
-      "ImagePath": "wall_office"
+      "ImagePath": "wall_mall",
+      "RequiredRating": 1500,
+      "DogLucky": "Lucky of Civilization",
+      "DogLuckyTh": "ลัคกี้แห่งความศิวิไลซ์"
     },
     {
       "Id": 6,
-      "LocName": "Beach",
-      "LocNameTh": "ชายหาด",
+      "LocName": "Office",
+      "LocNameTh": "สำนักงาน",
       "DailyRent": 800,
       "MinTraffic": 13,
       "MaxTraffic": 17,
-      "ImagePath": "wall_beach"
+      "ImagePath": "wall_office",
+      "RequiredRating": 2300,
+      "DogLucky": "Lucky of Endurance",
+      "DogLuckyTh": "ลัคกี้แห่งความอดทน"
     },
     {
       "Id": 7,
-      "LocName": "Mall",
-      "LocNameTh": "ห้างสรรพสินค้า",
+      "LocName": "Beach",
+      "LocNameTh": "ชายหาด",
       "DailyRent": 1000,
       "MinTraffic": 14,
       "MaxTraffic": 18,
-      "ImagePath": "wall_mall"
+      "ImagePath": "wall_beach",
+      "RequiredRating": 3300,
+      "DogLucky": "Lucky of Longing",
+      "DogLuckyTh": "ลัคกี้แห่งการโหยหา"
     },
     {
       "Id": 8,
@@ -342,7 +363,10 @@
       "DailyRent": 1200,
       "MinTraffic": 15,
       "MaxTraffic": 19,
-      "ImagePath": "wall_amuse"
+      "ImagePath": "wall_amuse",
+      "RequiredRating": 4500,
+      "DogLucky": "Lucky of Euphoria",
+      "DogLuckyTh": "ลัคกี้แห่งความหรรษา"
     },
     {
       "Id": 9,
@@ -351,7 +375,10 @@
       "DailyRent": 1350,
       "MinTraffic": 16,
       "MaxTraffic": 20,
-      "ImagePath": "wall_resort"
+      "ImagePath": "wall_resort",
+      "RequiredRating": 6000,
+      "DogLucky": "Lucky of Letting Go",
+      "DogLuckyTh": "ลัคกี้แห่งการปล่อยวาง"
     },
     {
       "Id": 10,
@@ -360,7 +387,10 @@
       "DailyRent": 1500,
       "MinTraffic": 18,
       "MaxTraffic": 20,
-      "ImagePath": "wall_villainhouse"
+      "ImagePath": "wall_villainhouse",
+      "RequiredRating": 7200,
+      "DogLucky": "Lucky of Success",
+      "DogLuckyTh": "ลัคกี้แห่งความสำเร็จ"
     }
   ],
   "Quizzes": [

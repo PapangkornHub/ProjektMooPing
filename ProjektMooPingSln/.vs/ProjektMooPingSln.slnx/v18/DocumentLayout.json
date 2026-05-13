@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|d:\\github\\projektmooping\\projektmoopingsln\\projektmooping\\resources\\raw\\masterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30334831-3D8B-66C1-B77D-165F9B2CDDC2}|ProjektMooPing\\ProjektMooPing.csproj|solutionrelative:projektmooping\\resources\\raw\\masterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,24 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MasterData.json",
-              "DocumentMoniker": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\Resources\\Raw\\MasterData.json",
-              "RelativeDocumentMoniker": "ProjektMooPing\\Resources\\Raw\\MasterData.json",
-              "ToolTip": "D:\\Github\\ProjektMooPing\\ProjektMooPingSln\\ProjektMooPing\\Resources\\Raw\\MasterData.json",
-              "RelativeToolTip": "ProjektMooPing\\Resources\\Raw\\MasterData.json",
-              "ViewState": "AgIAAE0BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-13T22:26:45.444Z",
-              "EditorCaption": ""
             }
           ]
         }
