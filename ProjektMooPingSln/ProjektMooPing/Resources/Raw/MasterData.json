@@ -283,21 +283,84 @@
     },
     {
       "Id": 2,
-      "LocName": "Footpath",
-      "LocNameTh": "ริมทางเท้า",
-      "DailyRent": 200,
-      "MinTraffic": 8,
-      "MaxTraffic": 12,
-      "ImagePath": "wall_footpath"
+      "LocName": "Market",
+      "LocNameTh": "ตลาด",
+      "DailyRent": 150,
+      "MinTraffic": 6,
+      "MaxTraffic": 9,
+      "ImagePath": "wall_marketgarden"
     },
     {
       "Id": 3,
+      "LocName": "School",
+      "LocNameTh": "โรงเรียน",
+      "DailyRent": 300,
+      "MinTraffic": 8,
+      "MaxTraffic": 12,
+      "ImagePath": "wall_school"
+    },
+    {
+      "Id": 4,
+      "LocName": "Footpath",
+      "LocNameTh": "ริมทางเท้า",
+      "DailyRent": 450,
+      "MinTraffic": 10,
+      "MaxTraffic": 14,
+      "ImagePath": "wall_footpath"
+    },
+    {
+      "Id": 5,
+      "LocName": "Office",
+      "LocNameTh": "สำนักงาน",
+      "DailyRent": 650,
+      "MinTraffic": 12,
+      "MaxTraffic": 16,
+      "ImagePath": "wall_office"
+    },
+    {
+      "Id": 6,
+      "LocName": "Beach",
+      "LocNameTh": "ชายหาด",
+      "DailyRent": 800,
+      "MinTraffic": 13,
+      "MaxTraffic": 17,
+      "ImagePath": "wall_beach"
+    },
+    {
+      "Id": 7,
       "LocName": "Mall",
       "LocNameTh": "ห้างสรรพสินค้า",
-      "DailyRent": 500,
-      "MinTraffic": 15,
-      "MaxTraffic": 20,
+      "DailyRent": 1000,
+      "MinTraffic": 14,
+      "MaxTraffic": 18,
       "ImagePath": "wall_mall"
+    },
+    {
+      "Id": 8,
+      "LocName": "Amusement Park",
+      "LocNameTh": "สวนสนุก",
+      "DailyRent": 1200,
+      "MinTraffic": 15,
+      "MaxTraffic": 19,
+      "ImagePath": "wall_amuse"
+    },
+    {
+      "Id": 9,
+      "LocName": "Resort",
+      "LocNameTh": "รีสอร์ท",
+      "DailyRent": 1350,
+      "MinTraffic": 16,
+      "MaxTraffic": 20,
+      "ImagePath": "wall_resort"
+    },
+    {
+      "Id": 10,
+      "LocName": "The Tycoon's Castle",
+      "LocNameTh": "ปราสาทเจ้าสัว",
+      "DailyRent": 1500,
+      "MinTraffic": 18,
+      "MaxTraffic": 20,
+      "ImagePath": "wall_villainhouse"
     }
   ],
   "Quizzes": [
