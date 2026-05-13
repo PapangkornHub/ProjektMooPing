@@ -1,0 +1,4305 @@
+{
+  "Ingredients": [
+    {
+      "Id": 1,
+      "Name": "Pork Shoulder",
+      "NameTh": "เนื้อสะโพกหมู",
+      "Category": "Meat",
+      "BaseCost": 15,
+      "BasePopularity": 75,
+      "Icon": "🥩"
+    },
+    {
+      "Id": 2,
+      "Name": "Pork Belly",
+      "NameTh": "หมูสามชั้น",
+      "Category": "Meat",
+      "BaseCost": 18,
+      "BasePopularity": 80,
+      "Icon": "🥓"
+    },
+    {
+      "Id": 3,
+      "Name": "Pork Fat",
+      "NameTh": "มันหมู",
+      "Category": "Meat",
+      "BaseCost": 5,
+      "BasePopularity": 55,
+      "Icon": "⚪"
+    },
+    {
+      "Id": 4,
+      "Name": "Chicken Breast",
+      "NameTh": "อกไก่",
+      "Category": "Meat",
+      "BaseCost": 10,
+      "BasePopularity": 35,
+      "Icon": "🐔"
+    },
+    {
+      "Id": 5,
+      "Name": "Beef Striploin",
+      "NameTh": "เนื้อสันนอก",
+      "Category": "Meat",
+      "BaseCost": 25,
+      "BasePopularity": 60,
+      "Icon": "🐮"
+    },
+    {
+      "Id": 6,
+      "Name": "Pork Liver",
+      "NameTh": "ตับหมู",
+      "Category": "Meat",
+      "BaseCost": 12,
+      "BasePopularity": 20,
+      "Icon": "🍖"
+    },
+    {
+      "Id": 7,
+      "Name": "Thai Garlic",
+      "NameTh": "กระเทียมไทย",
+      "Category": "Spice",
+      "BaseCost": 5,
+      "BasePopularity": 50,
+      "Icon": "🧄"
+    },
+    {
+      "Id": 8,
+      "Name": "Coriander Root",
+      "NameTh": "รากผักชี",
+      "Category": "Spice",
+      "BaseCost": 8,
+      "BasePopularity": 55,
+      "Icon": "🌿"
+    },
+    {
+      "Id": 9,
+      "Name": "Black Pepper",
+      "NameTh": "พริกไทยดำ",
+      "Category": "Spice",
+      "BaseCost": 7,
+      "BasePopularity": 40,
+      "Icon": "🧂"
+    },
+    {
+      "Id": 10,
+      "Name": "White Pepper",
+      "NameTh": "พริกไทยขาว",
+      "Category": "Spice",
+      "BaseCost": 9,
+      "BasePopularity": 45,
+      "Icon": "⚪"
+    },
+    {
+      "Id": 11,
+      "Name": "Chili Flakes",
+      "NameTh": "พริกป่น",
+      "Category": "Spice",
+      "BaseCost": 4,
+      "BasePopularity": 65,
+      "Icon": "🌶️"
+    },
+    {
+      "Id": 12,
+      "Name": "Lemongrass",
+      "NameTh": "ตะไคร้",
+      "Category": "Spice",
+      "BaseCost": 3,
+      "BasePopularity": 15,
+      "Icon": "🌱"
+    },
+    {
+      "Id": 13,
+      "Name": "Fish Sauce",
+      "NameTh": "น้ำปลา",
+      "Category": "Seasoning",
+      "BaseCost": 5,
+      "BasePopularity": 60,
+      "Icon": "🐟"
+    },
+    {
+      "Id": 14,
+      "Name": "Light Soy Sauce",
+      "NameTh": "ซีอิ๊วขาว",
+      "Category": "Seasoning",
+      "BaseCost": 6,
+      "BasePopularity": 50,
+      "Icon": "🧪"
+    },
+    {
+      "Id": 15,
+      "Name": "Oyster Sauce",
+      "NameTh": "ซอสหอยนางรม",
+      "Category": "Seasoning",
+      "BaseCost": 8,
+      "BasePopularity": 65,
+      "Icon": "🦪"
+    },
+    {
+      "Id": 16,
+      "Name": "Dark Sweet Soy Sauce",
+      "NameTh": "ซีอิ๊วดำ",
+      "Category": "Seasoning",
+      "BaseCost": 7,
+      "BasePopularity": 30,
+      "Icon": "🌑"
+    },
+    {
+      "Id": 17,
+      "Name": "Palm Sugar",
+      "NameTh": "น้ำตาลปี๊บ",
+      "Category": "Seasoning",
+      "BaseCost": 10,
+      "BasePopularity": 75,
+      "Icon": "🥥"
+    },
+    {
+      "Id": 18,
+      "Name": "Monosodium Glutamate",
+      "NameTh": "ผงชูรส",
+      "Category": "Seasoning",
+      "BaseCost": 2,
+      "BasePopularity": 80,
+      "Icon": "✨"
+    },
+    {
+      "Id": 19,
+      "Name": "Coconut Milk",
+      "NameTh": "กะทิ",
+      "Category": "Marinade",
+      "BaseCost": 12,
+      "BasePopularity": 70,
+      "Icon": "🥥"
+    },
+    {
+      "Id": 20,
+      "Name": "Evaporated Milk",
+      "NameTh": "นมข้นจืด",
+      "Category": "Marinade",
+      "BaseCost": 10,
+      "BasePopularity": 65,
+      "Icon": "🥛"
+    },
+    {
+      "Id": 21,
+      "Name": "Baking Soda",
+      "NameTh": "เบกกิ้งโซดา",
+      "Category": "Marinade",
+      "BaseCost": 3,
+      "BasePopularity": 5,
+      "Icon": "🧪"
+    },
+    {
+      "Id": 22,
+      "Name": "Sesame Oil",
+      "NameTh": "น้ำมันงา",
+      "Category": "Marinade",
+      "BaseCost": 15,
+      "BasePopularity": 40,
+      "Icon": "🏺"
+    },
+    {
+      "Id": 23,
+      "Name": "Wild Honey",
+      "NameTh": "น้ำผึ้งป่า",
+      "Category": "Marinade",
+      "BaseCost": 20,
+      "BasePopularity": 55,
+      "Icon": "🍯"
+    },
+    {
+      "Id": 24,
+      "Name": "Pineapple Juice",
+      "NameTh": "น้ำสับปะรด",
+      "Category": "Marinade",
+      "BaseCost": 8,
+      "BasePopularity": 10,
+      "Icon": "🍍"
+    },
+    {
+      "Id": 25,
+      "Name": "Sticky Rice",
+      "NameTh": "ข้าวเหนียว",
+      "Category": "Side",
+      "BaseCost": 5,
+      "BasePopularity": 80,
+      "Icon": "🍚"
+    },
+    {
+      "Id": 26,
+      "Name": "Jaew Dipping Sauce",
+      "NameTh": "น้ำจิ้มแจ่ว",
+      "Category": "Side",
+      "BaseCost": 7,
+      "BasePopularity": 75,
+      "Icon": "🥣"
+    },
+    {
+      "Id": 27,
+      "Name": "Fresh Cucumber",
+      "NameTh": "แตงกวาสด",
+      "Category": "Side",
+      "BaseCost": 2,
+      "BasePopularity": 25,
+      "Icon": "🥒"
+    },
+    {
+      "Id": 28,
+      "Name": "Pickled Ginger",
+      "NameTh": "ขิงดอง",
+      "Category": "Side",
+      "BaseCost": 6,
+      "BasePopularity": 15,
+      "Icon": "🍥"
+    },
+    {
+      "Id": 29,
+      "Name": "Fried Garlic",
+      "NameTh": "กระเทียมเจียว",
+      "Category": "Side",
+      "BaseCost": 4,
+      "BasePopularity": 45,
+      "Icon": "🧄"
+    },
+    {
+      "Id": 30,
+      "Name": "Fresh Coriander",
+      "NameTh": "ผักชีสด",
+      "Category": "Side",
+      "BaseCost": 2,
+      "BasePopularity": 10,
+      "Icon": "🌿"
+    }
+  ],
+  "Locations": [
+    {
+      "Id": 1,
+      "LocName": "Rural",
+      "LocNameTh": "ชนบท",
+      "DailyRent": 0,
+      "MinTraffic": 3,
+      "MaxTraffic": 5,
+      "ImagePath": "wall_rural"
+    },
+    {
+      "Id": 2,
+      "LocName": "Footpath",
+      "LocNameTh": "ริมทางเท้า",
+      "DailyRent": 200,
+      "MinTraffic": 8,
+      "MaxTraffic": 12,
+      "ImagePath": "wall_footpath"
+    },
+    {
+      "Id": 3,
+      "LocName": "Mall",
+      "LocNameTh": "ห้างสรรพสินค้า",
+      "DailyRent": 500,
+      "MinTraffic": 15,
+      "MaxTraffic": 20,
+      "ImagePath": "wall_mall"
+    }
+  ],
+  "Quizzes": [
+    {
+      "Id": 1,
+      "Question": "Which planet is known as the Red Planet?",
+      "Choices": [
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Saturn"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Mars appears red because of iron oxide (rust) on its surface.",
+      "QuestionTh": "ดาวเคราะห์ดวงใดที่รู้จักกันในชื่อ 'ดาวแดง'?",
+      "ChoicesTh": [
+        "ดาวศุกร์",
+        "ดาวอังคาร",
+        "ดาวพฤหัสบดี",
+        "ดาวเสาร์"
+      ],
+      "TriviaTh": "ดาวอังคารมีสีแดงเพราะมีเหล็กออกไซด์ (สนิม) อยู่บนพื้นผิว"
+    },
+    {
+      "Id": 2,
+      "Question": "Who painted the Mona Lisa?",
+      "Choices": [
+        "Vincent van Gogh",
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Claude Monet"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Leonardo da Vinci was a polymath of the Renaissance; it took him several years to paint this masterpiece.",
+      "QuestionTh": "ใครเป็นผู้วาดภาพโมนาลิซา?",
+      "ChoicesTh": [
+        "วินเซนต์ แวน โก๊ะ",
+        "เลโอนาร์โด ดา วินชี",
+        "ปาโบล ปีกัสโซ",
+        "โคลด โมเน"
+      ],
+      "TriviaTh": "เลโอนาร์โด ดา วินชีเป็นปราชญ์แห่งยุคเรอเนสซองส์ ใช้เวลาหลายปีในการวาดภาพนี้"
+    },
+    {
+      "Id": 3,
+      "Question": "What is the chemical symbol for Gold?",
+      "Choices": [
+        "Gd",
+        "Ag",
+        "Au",
+        "Pb"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The symbol 'Au' comes from the Latin word for gold, 'Aurum'.",
+      "QuestionTh": "สัญลักษณ์ทางเคมีของทองคำคืออะไร?",
+      "ChoicesTh": [
+        "Gd",
+        "Ag",
+        "Au",
+        "Pb"
+      ],
+      "TriviaTh": "สัญลักษณ์ 'Au' มาจากคำในภาษาละตินว่า 'Aurum' ซึ่งแปลว่าทองคำ"
+    },
+    {
+      "Id": 4,
+      "Question": "In which year did World War II end?",
+      "Choices": [
+        "1943",
+        "1944",
+        "1945",
+        "1946"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The war ended officially on September 2, 1945, after Japan signed the surrender documents.",
+      "QuestionTh": "สงครามโลกครั้งที่ 2 สิ้นสุดในปีใด?",
+      "ChoicesTh": [
+        "1943",
+        "1944",
+        "1945",
+        "1946"
+      ],
+      "TriviaTh": "สงครามสิ้นสุดอย่างเป็นทางการในวันที่ 2 กันยายน 1945 หลังจากญี่ปุ่นลงนามยอมแพ้"
+    },
+    {
+      "Id": 5,
+      "Question": "What is the largest mammal in the world?",
+      "Choices": [
+        "African Elephant",
+        "Blue Whale",
+        "Great White Shark",
+        "Giraffe"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "A Blue Whale's tongue alone can weigh as much as an entire elephant!",
+      "QuestionTh": "สัตว์เลี้ยงลูกด้วยนมที่ใหญ่ที่สุดในโลกคืออะไร?",
+      "ChoicesTh": [
+        "ช้างแอฟริกา",
+        "วาฬสีน้ำเงิน",
+        "ฉลามขาวยักษ์",
+        "ยีราฟ"
+      ],
+      "TriviaTh": "ลิ้นของวาฬสีน้ำเงินเพียงอย่างเดียวหนักพอๆ กับช้างทั้งตัว!"
+    },
+    {
+      "Id": 6,
+      "Question": "Who was the first President of the United States?",
+      "Choices": [
+        "Thomas Jefferson",
+        "Abraham Lincoln",
+        "George Washington",
+        "John Adams"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Washington is the only US President to have been elected unanimously by the Electoral College.",
+      "QuestionTh": "ใครเป็นประธานาธิบดีคนแรกของสหรัฐอเมริกา?",
+      "ChoicesTh": [
+        "โทมัส เจฟเฟอร์สัน",
+        "อับราฮัม ลินคอล์น",
+        "จอร์จ วอชิงตัน",
+        "จอห์น อดัมส์"
+      ],
+      "TriviaTh": "วอชิงตันเป็นประธานาธิบดีสหรัฐฯ คนเดียวที่ได้รับเลือกโดยเอกฉันท์จาก Electoral College"
+    },
+    {
+      "Id": 7,
+      "Question": "What is the hardest natural substance on Earth?",
+      "Choices": [
+        "Gold",
+        "Iron",
+        "Diamond",
+        "Quartz"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Diamonds are made of pure carbon arranged in an extremely strong crystal structure.",
+      "QuestionTh": "สารธรรมชาติที่แข็งที่สุดในโลกคืออะไร?",
+      "ChoicesTh": [
+        "ทอง",
+        "เหล็ก",
+        "เพชร",
+        "ควอตซ์"
+      ],
+      "TriviaTh": "เพชรทำจากคาร์บอนบริสุทธิ์ที่เรียงตัวในโครงสร้างผลึกที่แข็งแกร่งอย่างยิ่ง"
+    },
+    {
+      "Id": 8,
+      "Question": "Which country is famous for the Great Barrier Reef?",
+      "Choices": [
+        "Australia",
+        "Brazil",
+        "Indonesia",
+        "South Africa"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "It is the world's largest coral reef system and can be seen from outer space.",
+      "QuestionTh": "ประเทศใดที่มีชื่อเสียงจากแนวปะการัง Great Barrier Reef?",
+      "ChoicesTh": [
+        "ออสเตรเลีย",
+        "บราซิล",
+        "อินโดนีเซีย",
+        "แอฟริกาใต้"
+      ],
+      "TriviaTh": "เป็นระบบแนวปะการังที่ใหญ่ที่สุดในโลกและสามารถมองเห็นได้จากอวกาศ"
+    },
+    {
+      "Id": 9,
+      "Question": "How many continents are there on Earth?",
+      "Choices": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The seven continents are Asia, Africa, North America, South America, Antarctica, Europe, and Australia.",
+      "QuestionTh": "โลกมีทวีปกี่ทวีป?",
+      "ChoicesTh": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "TriviaTh": "ทั้งเจ็ดทวีปได้แก่ เอเชีย แอฟริกา อเมริกาเหนือ อเมริกาใต้ แอนตาร์กติกา ยุโรป และออสเตรเลีย"
+    },
+    {
+      "Id": 10,
+      "Question": "Which element has the atomic number 1?",
+      "Choices": [
+        "Helium",
+        "Oxygen",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Hydrogen is the most abundant chemical substance in the universe.",
+      "QuestionTh": "ธาตุใดมีเลขอะตอม 1?",
+      "ChoicesTh": [
+        "ฮีเลียม",
+        "ออกซิเจน",
+        "ไนโตรเจน",
+        "ไฮโดรเจน"
+      ],
+      "TriviaTh": "ไฮโดรเจนเป็นสารเคมีที่พบมากที่สุดในจักรวาล"
+    },
+    {
+      "Id": 11,
+      "Question": "Who wrote 'Romeo and Juliet'?",
+      "Choices": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Mark Twain",
+        "Jane Austen"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Shakespeare is often called the 'Bard of Avon' and wrote 39 plays.",
+      "QuestionTh": "ใครเขียน 'โรมิโอและจูเลียต'?",
+      "ChoicesTh": [
+        "ชาร์ลส์ ดิกเกนส์",
+        "วิลเลียม เชกสเปียร์",
+        "มาร์ก ทเวน",
+        "เจน ออสเตน"
+      ],
+      "TriviaTh": "เชกสเปียร์มักถูกเรียกว่า 'Bard of Avon' และเขียนบทละครไว้ 39 เรื่อง"
+    },
+    {
+      "Id": 12,
+      "Question": "What is the capital city of Japan?",
+      "Choices": [
+        "Osaka",
+        "Kyoto",
+        "Tokyo",
+        "Nagoya"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Tokyo was originally a small fishing village named Edo.",
+      "QuestionTh": "เมืองหลวงของญี่ปุ่นคือเมืองใด?",
+      "ChoicesTh": [
+        "โอซาก้า",
+        "เกียวโต",
+        "โตเกียว",
+        "นาโกย่า"
+      ],
+      "TriviaTh": "โตเกียวเดิมเป็นหมู่บ้านชาวประมงเล็กๆ ชื่อว่า เอโดะ"
+    },
+    {
+      "Id": 13,
+      "Question": "What gas do plants absorb from the atmosphere for photosynthesis?",
+      "Choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Hydrogen"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Plants use sunlight and CO2 to produce glucose and release oxygen as a byproduct.",
+      "QuestionTh": "พืชดูดซับก๊าซใดจากอากาศสำหรับการสังเคราะห์ด้วยแสง?",
+      "ChoicesTh": [
+        "ออกซิเจน",
+        "ไนโตรเจน",
+        "คาร์บอนไดออกไซด์",
+        "ไฮโดรเจน"
+      ],
+      "TriviaTh": "พืชใช้แสงแดดและ CO2 เพื่อผลิตกลูโคสและปล่อยออกซิเจนเป็นผลพลอยได้"
+    },
+    {
+      "Id": 14,
+      "Question": "Which ancient civilization built the Pyramids of Giza?",
+      "Choices": [
+        "Romans",
+        "Maya",
+        "Egyptians",
+        "Greeks"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Great Pyramid was the tallest man-made structure in the world for over 3,800 years.",
+      "QuestionTh": "อารยธรรมโบราณใดสร้างพีระมิดแห่งกิซ่า?",
+      "ChoicesTh": [
+        "ชาวโรมัน",
+        "ชาวมายา",
+        "ชาวอียิปต์",
+        "ชาวกรีก"
+      ],
+      "TriviaTh": "พีระมิดมหาสร้างเป็นสิ่งก่อสร้างที่สูงที่สุดที่มนุษย์สร้างขึ้นเป็นเวลากว่า 3,800 ปี"
+    },
+    {
+      "Id": 15,
+      "Question": "What is the boiling point of water at sea level?",
+      "Choices": [
+        "90°C",
+        "100°C",
+        "110°C",
+        "120°C"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Boiling point decreases as altitude increases because atmospheric pressure is lower.",
+      "QuestionTh": "จุดเดือดของน้ำที่ระดับน้ำทะเลคือเท่าไร?",
+      "ChoicesTh": [
+        "90°C",
+        "100°C",
+        "110°C",
+        "120°C"
+      ],
+      "TriviaTh": "จุดเดือดจะลดลงเมื่อระดับความสูงเพิ่มขึ้น เนื่องจากความดันบรรยากาศต่ำกว่า"
+    },
+    {
+      "Id": 16,
+      "Question": "Who is known as the 'Father of Computers'?",
+      "Choices": [
+        "Alan Turing",
+        "Charles Babbage",
+        "Bill Gates",
+        "Steve Jobs"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Charles Babbage designed the Analytical Engine, the first design for a general-purpose computer.",
+      "QuestionTh": "ใครได้รับการขนานนามว่า 'บิดาแห่งคอมพิวเตอร์'?",
+      "ChoicesTh": [
+        "อลัน ทัวริง",
+        "ชาร์ลส์ แบบเบจ",
+        "บิล เกตส์",
+        "สตีฟ จ็อบส์"
+      ],
+      "TriviaTh": "ชาร์ลส์ แบบเบจออกแบบ Analytical Engine ซึ่งเป็นแบบแรกของคอมพิวเตอร์อเนกประสงค์"
+    },
+    {
+      "Id": 17,
+      "Question": "What is the smallest prime number?",
+      "Choices": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Two is also the only even prime number.",
+      "QuestionTh": "จำนวนเฉพาะที่เล็กที่สุดคือเท่าไร?",
+      "ChoicesTh": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "TriviaTh": "สองยังเป็นจำนวนเฉพาะชนิดคู่เพียงจำนวนเดียว"
+    },
+    {
+      "Id": 18,
+      "Question": "Which organ in the human body is responsible for pumping blood?",
+      "Choices": [
+        "Lungs",
+        "Brain",
+        "Heart",
+        "Liver"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "An average heart beats about 100,000 times a day.",
+      "QuestionTh": "อวัยวะใดในร่างกายมนุษย์ทำหน้าที่สูบฉีดเลือด?",
+      "ChoicesTh": [
+        "ปอด",
+        "สมอง",
+        "หัวใจ",
+        "ตับ"
+      ],
+      "TriviaTh": "หัวใจเฉลี่ยเต้นประมาณ 100,000 ครั้งต่อวัน"
+    },
+    {
+      "Id": 19,
+      "Question": "In which country did the Industrial Revolution begin?",
+      "Choices": [
+        "France",
+        "USA",
+        "Germany",
+        "Great Britain"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "It began in Britain in the late 1700s, driven by coal and steam power.",
+      "QuestionTh": "การปฏิวัติอุตสาหกรรมเริ่มต้นในประเทศใด?",
+      "ChoicesTh": [
+        "ฝรั่งเศส",
+        "สหรัฐอเมริกา",
+        "เยอรมนี",
+        "บริเตนใหญ่"
+      ],
+      "TriviaTh": "เริ่มต้นในบริเตนช่วงปลายทศวรรษ 1700 ขับเคลื่อนด้วยถ่านหินและพลังไอน้ำ"
+    },
+    {
+      "Id": 20,
+      "Question": "What is the currency used in the United Kingdom?",
+      "Choices": [
+        "Euro",
+        "Dollar",
+        "Pound Sterling",
+        "Yen"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The British Pound is the oldest currency in continuous use.",
+      "QuestionTh": "สกุลเงินที่ใช้ในสหราชอาณาจักรคืออะไร?",
+      "ChoicesTh": [
+        "ยูโร",
+        "ดอลลาร์",
+        "ปอนด์สเตอร์ลิง",
+        "เยน"
+      ],
+      "TriviaTh": "ปอนด์อังกฤษเป็นสกุลเงินที่ใช้ต่อเนื่องมายาวนานที่สุด"
+    },
+    {
+      "Id": 21,
+      "Question": "Which is the longest river in the world?",
+      "Choices": [
+        "Amazon",
+        "Nile",
+        "Yangtze",
+        "Mississippi"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "While the Nile is generally considered the longest, some scientists argue the Amazon might be longer.",
+      "QuestionTh": "แม่น้ำที่ยาวที่สุดในโลกคือแม่น้ำใด?",
+      "ChoicesTh": [
+        "อเมซอน",
+        "ไนล์",
+        "แยงซี",
+        "มิสซิสซิปปี"
+      ],
+      "TriviaTh": "แม่น้ำไนล์ถือเป็นแม่น้ำที่ยาวที่สุด แต่นักวิทยาศาสตร์บางคนเถียงว่าแม่น้ำอเมซอนอาจยาวกว่า"
+    },
+    {
+      "Id": 22,
+      "Question": "Who discovered Penicillin?",
+      "Choices": [
+        "Marie Curie",
+        "Alexander Fleming",
+        "Louis Pasteur",
+        "Isaac Newton"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Fleming discovered it by accident when he found mold growing in a petri dish.",
+      "QuestionTh": "ใครค้นพบเพนิซิลิน?",
+      "ChoicesTh": [
+        "มาดาม คูรี",
+        "อเล็กซานเดอร์ เฟลมมิง",
+        "หลุยส์ ปาสเตอร์",
+        "ไอแซก นิวตัน"
+      ],
+      "TriviaTh": "เฟลมมิงค้นพบโดยบังเอิญเมื่อพบเชื้อราเติบโตในจานเพาะเลี้ยง"
+    },
+    {
+      "Id": 23,
+      "Question": "What was the name of the first artificial satellite launched into space?",
+      "Choices": [
+        "Apollo 11",
+        "Voyager 1",
+        "Sputnik 1",
+        "Explorer 1"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Launched by the Soviet Union in 1957, it triggered the Space Race.",
+      "QuestionTh": "ดาวเทียมเทียมดวงแรกที่ถูกส่งขึ้นสู่อวกาศชื่อว่าอะไร?",
+      "ChoicesTh": [
+        "Apollo 11",
+        "Voyager 1",
+        "Sputnik 1",
+        "Explorer 1"
+      ],
+      "TriviaTh": "สหภาพโซเวียตส่งขึ้นไปในปี 1957 จุดชนวนให้เกิดการแข่งขันอวกาศ"
+    },
+    {
+      "Id": 24,
+      "Question": "What is the main language spoken in Brazil?",
+      "Choices": [
+        "Spanish",
+        "English",
+        "Portuguese",
+        "French"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Brazil is the only country in South America that speaks Portuguese as its official language.",
+      "QuestionTh": "ภาษาหลักที่ใช้พูดในบราซิลคืออะไร?",
+      "ChoicesTh": [
+        "สเปน",
+        "อังกฤษ",
+        "โปรตุเกส",
+        "ฝรั่งเศส"
+      ],
+      "TriviaTh": "บราซิลเป็นประเทศเดียวในอเมริกาใต้ที่มีภาษาโปรตุเกสเป็นภาษาทางการ"
+    },
+    {
+      "Id": 25,
+      "Question": "Which scientist proposed the Theory of Relativity?",
+      "Choices": [
+        "Albert Einstein",
+        "Nikola Tesla",
+        "Stephen Hawking",
+        "Galileo Galilei"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Einstein won the Nobel Prize in Physics, but for his explanation of the photoelectric effect, not relativity.",
+      "QuestionTh": "นักวิทยาศาสตร์คนใดเสนอทฤษฎีสัมพัทธภาพ?",
+      "ChoicesTh": [
+        "อัลเบิร์ต ไอน์สไตน์",
+        "นิโคลา เทสลา",
+        "สตีเฟน ฮอว์คิง",
+        "กาลิเลโอ กาลิเลอี"
+      ],
+      "TriviaTh": "ไอน์สไตน์ได้รับรางวัลโนเบลสาขาฟิสิกส์ แต่เป็นสำหรับคำอธิบายปรากฏการณ์โฟโตอิเล็กทริก ไม่ใช่ทฤษฎีสัมพัทธภาพ"
+    },
+    {
+      "Id": 26,
+      "Question": "What is the largest desert in the world?",
+      "Choices": [
+        "Sahara",
+        "Gobi",
+        "Arabian",
+        "Antarctic"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "A desert is defined by low rainfall; the Antarctic Polar Desert covers the entire continent.",
+      "QuestionTh": "ทะเลทรายที่ใหญ่ที่สุดในโลกคือทะเลทรายใด?",
+      "ChoicesTh": [
+        "ซาฮารา",
+        "โกบี",
+        "อาระเบีย",
+        "แอนตาร์กติก"
+      ],
+      "TriviaTh": "ทะเลทรายถูกกำหนดด้วยปริมาณฝนน้อย ทะเลทรายขั้วโลกแอนตาร์กติกาครอบคลุมทั้งทวีป"
+    },
+    {
+      "Id": 27,
+      "Question": "Which empire was ruled by Julius Caesar?",
+      "Choices": [
+        "Greek",
+        "Roman",
+        "Ottoman",
+        "Persian"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Caesar played a critical role in the events that led to the demise of the Roman Republic.",
+      "QuestionTh": "จักรวรรดิใดที่จูเลียส ซีซาร์ปกครอง?",
+      "ChoicesTh": [
+        "กรีก",
+        "โรมัน",
+        "ออตโตมัน",
+        "เปอร์เซีย"
+      ],
+      "TriviaTh": "ซีซาร์มีบทบาทสำคัญในเหตุการณ์ที่นำไปสู่การล่มสลายของสาธารณรัฐโรมัน"
+    },
+    {
+      "Id": 28,
+      "Question": "What is the most abundant gas in Earth's atmosphere?",
+      "Choices": [
+        "Oxygen",
+        "Carbon Dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Nitrogen makes up about 78% of the Earth's atmosphere.",
+      "QuestionTh": "ก๊าซที่มีมากที่สุดในชั้นบรรยากาศโลกคืออะไร?",
+      "ChoicesTh": [
+        "ออกซิเจน",
+        "คาร์บอนไดออกไซด์",
+        "ไนโตรเจน",
+        "อาร์กอน"
+      ],
+      "TriviaTh": "ไนโตรเจนคิดเป็นประมาณ 78% ของชั้นบรรยากาศโลก"
+    },
+    {
+      "Id": 29,
+      "Question": "Who was the first woman to win a Nobel Prize?",
+      "Choices": [
+        "Mother Teresa",
+        "Marie Curie",
+        "Rosalind Franklin",
+        "Florence Nightingale"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Marie Curie is also the only person to win Nobel Prizes in two different scientific fields (Physics and Chemistry).",
+      "QuestionTh": "ใครเป็นสตรีคนแรกที่ได้รับรางวัลโนเบล?",
+      "ChoicesTh": [
+        "แม่ชีเทเรซา",
+        "มาดาม คูรี",
+        "โรซาลินด์ แฟรงคลิน",
+        "ฟลอเรนซ์ ไนติงเกล"
+      ],
+      "TriviaTh": "มาดาม คูรียังเป็นบุคคลเดียวที่ได้รับรางวัลโนเบลในสองสาขาวิทยาศาสตร์ที่แตกต่างกัน (ฟิสิกส์และเคมี)"
+    },
+    {
+      "Id": 30,
+      "Question": "What is the capital of France?",
+      "Choices": [
+        "Lyon",
+        "Marseille",
+        "Paris",
+        "Nice"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Paris is often called 'The City of Light' due to its early adoption of street lighting.",
+      "QuestionTh": "เมืองหลวงของฝรั่งเศสคือเมืองใด?",
+      "ChoicesTh": [
+        "ลียง",
+        "มาร์เซย์",
+        "ปารีส",
+        "นีซ"
+      ],
+      "TriviaTh": "ปารีสมักถูกเรียกว่า 'นครแห่งแสงสว่าง' เนื่องจากการนำไฟถนนมาใช้ในยุคแรกๆ"
+    },
+    {
+      "Id": 31,
+      "Question": "Which planet is closest to the Sun?",
+      "Choices": [
+        "Venus",
+        "Earth",
+        "Mercury",
+        "Mars"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Mercury is the fastest planet, orbiting the Sun every 88 Earth days.",
+      "QuestionTh": "ดาวเคราะห์ดวงใดอยู่ใกล้ดวงอาทิตย์มากที่สุด?",
+      "ChoicesTh": [
+        "ดาวศุกร์",
+        "โลก",
+        "ดาวพุธ",
+        "ดาวอังคาร"
+      ],
+      "TriviaTh": "ดาวพุธเป็นดาวเคราะห์ที่เร็วที่สุด โคจรรอบดวงอาทิตย์ทุก 88 วันของโลก"
+    },
+    {
+      "Id": 32,
+      "Question": "What is the name of the ship that sank in 1912 after hitting an iceberg?",
+      "Choices": [
+        "Lusitania",
+        "Britannic",
+        "Titanic",
+        "Queen Mary"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Titanic was considered 'unsinkable' at the time of its construction.",
+      "QuestionTh": "ชื่อของเรือที่จมในปี 1912 หลังชนภูเขาน้ำแข็งคืออะไร?",
+      "ChoicesTh": [
+        "ลูซิทาเนีย",
+        "บริทันนิก",
+        "ไทแทนิก",
+        "ควีนแมรี"
+      ],
+      "TriviaTh": "เรือไทแทนิกถูกมองว่า 'จมไม่ได้' ในช่วงเวลาที่สร้าง"
+    },
+    {
+      "Id": 33,
+      "Question": "How many teeth does an adult human usually have?",
+      "Choices": [
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "This includes the four wisdom teeth that often appear in late teens or early twenties.",
+      "QuestionTh": "ผู้ใหญ่โดยทั่วไปมีฟันกี่ซี่?",
+      "ChoicesTh": [
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "TriviaTh": "รวมถึงฟันคุดสี่ซี่ที่มักขึ้นในช่วงวัยรุ่นตอนปลายหรือต้นยี่สิบ"
+    },
+    {
+      "Id": 34,
+      "Question": "Which country hosted the first Modern Olympic Games in 1896?",
+      "Choices": [
+        "France",
+        "Greece",
+        "Italy",
+        "USA"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The Games were held in Athens, honoring the origins of the ancient Olympics.",
+      "QuestionTh": "ประเทศใดเป็นเจ้าภาพการแข่งขันกีฬาโอลิมปิกสมัยใหม่ครั้งแรกในปี 1896?",
+      "ChoicesTh": [
+        "ฝรั่งเศส",
+        "กรีซ",
+        "อิตาลี",
+        "สหรัฐอเมริกา"
+      ],
+      "TriviaTh": "การแข่งขันจัดขึ้นที่เอเธนส์ เพื่อเป็นเกียรติแก่ต้นกำเนิดของโอลิมปิกโบราณ"
+    },
+    {
+      "Id": 35,
+      "Question": "What is the pH level of pure water?",
+      "Choices": [
+        "5",
+        "7",
+        "9",
+        "11"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "A pH of 7 is considered neutral; lower is acidic, and higher is basic/alkaline.",
+      "QuestionTh": "ค่า pH ของน้ำบริสุทธิ์คือเท่าไร?",
+      "ChoicesTh": [
+        "5",
+        "7",
+        "9",
+        "11"
+      ],
+      "TriviaTh": "pH 7 ถือว่าเป็นกลาง ต่ำกว่าคือกรด สูงกว่าคือด่าง"
+    },
+    {
+      "Id": 36,
+      "Question": "Who is the author of 'The Origin of Species'?",
+      "Choices": [
+        "Gregor Mendel",
+        "Charles Darwin",
+        "Alfred Wallace",
+        "Jean-Baptiste Lamarck"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Darwin's book introduced the scientific theory that populations evolve over generations through natural selection.",
+      "QuestionTh": "ใครเป็นผู้เขียน 'ต้นกำเนิดของสายพันธุ์'?",
+      "ChoicesTh": [
+        "เกรกอร์ เมนเดล",
+        "ชาร์ลส์ ดาร์วิน",
+        "อัลเฟรด วอลเลซ",
+        "ฌอง-บัปติสต์ ลามาร์ก"
+      ],
+      "TriviaTh": "หนังสือของดาร์วินนำเสนอทฤษฎีทางวิทยาศาสตร์ว่าประชากรวิวัฒน์ผ่านรุ่นด้วยการคัดเลือกตามธรรมชาติ"
+    },
+    {
+      "Id": 37,
+      "Question": "Which vitamin is produced when human skin is exposed to sunlight?",
+      "Choices": [
+        "Vitamin A",
+        "Vitamin B12",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Vitamin D is essential for maintaining healthy bones and teeth.",
+      "QuestionTh": "วิตามินชนิดใดที่ผิวหนังมนุษย์ผลิตเมื่อได้รับแสงแดด?",
+      "ChoicesTh": [
+        "วิตามิน A",
+        "วิตามิน B12",
+        "วิตามิน C",
+        "วิตามิน D"
+      ],
+      "TriviaTh": "วิตามิน D จำเป็นต่อการรักษาสุขภาพกระดูกและฟัน"
+    },
+    {
+      "Id": 38,
+      "Question": "What is the largest ocean on Earth?",
+      "Choices": [
+        "Atlantic",
+        "Indian",
+        "Arctic",
+        "Pacific"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "The Pacific Ocean covers more area than all the Earth's landmasses combined.",
+      "QuestionTh": "มหาสมุทรที่ใหญ่ที่สุดในโลกคืออะไร?",
+      "ChoicesTh": [
+        "แอตแลนติก",
+        "อินเดีย",
+        "อาร์กติก",
+        "แปซิฟิก"
+      ],
+      "TriviaTh": "มหาสมุทรแปซิฟิกมีพื้นที่มากกว่าผืนแผ่นดินทั้งหมดบนโลกรวมกัน"
+    },
+    {
+      "Id": 39,
+      "Question": "Which city is known as the 'Big Apple'?",
+      "Choices": [
+        "Los Angeles",
+        "Chicago",
+        "New York City",
+        "Miami"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The nickname became popular in the 1920s thanks to a horse racing columnist.",
+      "QuestionTh": "เมืองใดที่รู้จักกันในชื่อ 'Big Apple'?",
+      "ChoicesTh": [
+        "ลอสแอนเจลิส",
+        "ชิคาโก",
+        "นิวยอร์ก",
+        "ไมอามี"
+      ],
+      "TriviaTh": "ชื่อเล่นนี้เป็นที่นิยมในทศวรรษ 1920 ต้องขอบคุณนักเขียนคอลัมน์การแข่งม้า"
+    },
+    {
+      "Id": 40,
+      "Question": "What was the name of the first person to walk on the moon?",
+      "Choices": [
+        "Buzz Aldrin",
+        "Neil Armstrong",
+        "Yuri Gagarin",
+        "Michael Collins"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Neil Armstrong said his famous words: 'That's one small step for man, one giant leap for mankind' in 1969.",
+      "QuestionTh": "ชื่อของบุคคลแรกที่เดินบนดวงจันทร์คืออะไร?",
+      "ChoicesTh": [
+        "บัซ อัลดริน",
+        "นีล อาร์มสตรอง",
+        "ยูริ กาการิน",
+        "ไมเคิล คอลลินส์"
+      ],
+      "TriviaTh": "นีล อาร์มสตรองกล่าวคำพูดอมตะว่า: 'ก้าวเล็กๆ ของมนุษย์คนหนึ่ง ก้าวยักษ์ของมวลมนุษยชาติ' ในปี 1969"
+    },
+    {
+      "Id": 41,
+      "Question": "Which blood type is known as the universal donor?",
+      "Choices": [
+        "A positive",
+        "B negative",
+        "O negative",
+        "AB positive"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "O negative blood can be given to patients of any blood type in emergencies.",
+      "QuestionTh": "กรุ๊ปเลือดชนิดใดที่รู้จักกันว่าเป็น universal donor?",
+      "ChoicesTh": [
+        "A บวก",
+        "B ลบ",
+        "O ลบ",
+        "AB บวก"
+      ],
+      "TriviaTh": "เลือดกรุ๊ป O ลบ สามารถให้กับผู้ป่วยกรุ๊ปเลือดใดก็ได้ในสถานการณ์ฉุกเฉิน"
+    },
+    {
+      "Id": 42,
+      "Question": "In which century did the French Revolution take place?",
+      "Choices": [
+        "17th",
+        "18th",
+        "19th",
+        "20th"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The revolution began in 1789, marking the rise of democracy and the end of the monarchy in France.",
+      "QuestionTh": "การปฏิวัติฝรั่งเศสเกิดขึ้นในศตวรรษที่เท่าไร?",
+      "ChoicesTh": [
+        "ที่ 17",
+        "ที่ 18",
+        "ที่ 19",
+        "ที่ 20"
+      ],
+      "TriviaTh": "การปฏิวัติเริ่มขึ้นในปี 1789 เป็นสัญลักษณ์ของการเพิ่มขึ้นของระบอบประชาธิปไตยและการสิ้นสุดของระบอบกษัตริย์ในฝรั่งเศส"
+    },
+    {
+      "Id": 43,
+      "Question": "What is the study of mushrooms called?",
+      "Choices": [
+        "Botany",
+        "Mycology",
+        "Phycology",
+        "Zoology"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Mycology is a branch of biology that focuses on fungi, which are separate from plants.",
+      "QuestionTh": "การศึกษาเกี่ยวกับเห็ดเรียกว่าอะไร?",
+      "ChoicesTh": [
+        "พฤกษศาสตร์",
+        "ราวิทยา",
+        "สาหร่ายวิทยา",
+        "สัตววิทยา"
+      ],
+      "TriviaTh": "ราวิทยาเป็นสาขาหนึ่งของชีววิทยาที่เน้นเรื่องเชื้อรา ซึ่งแตกต่างจากพืช"
+    },
+    {
+      "Id": 44,
+      "Question": "Which country is the smallest in the world by land area?",
+      "Choices": [
+        "Monaco",
+        "Nauru",
+        "Vatican City",
+        "San Marino"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Vatican City is an independent city-state enclaved within Rome, Italy.",
+      "QuestionTh": "ประเทศใดที่เล็กที่สุดในโลกตามพื้นที่ดิน?",
+      "ChoicesTh": [
+        "โมนาโก",
+        "นาอูรู",
+        "นครวาติกัน",
+        "ซานมารีโน"
+      ],
+      "TriviaTh": "นครวาติกันเป็นรัฐนครรัฐอิสระที่ตั้งอยู่ในกรุงโรม ประเทศอิตาลี"
+    },
+    {
+      "Id": 45,
+      "Question": "What is the primary pigment that makes leaves green?",
+      "Choices": [
+        "Carotene",
+        "Xanthophyll",
+        "Chlorophyll",
+        "Anthocyanin"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Chlorophyll absorbs energy from light, which is used in photosynthesis.",
+      "QuestionTh": "สารสีหลักที่ทำให้ใบไม้เป็นสีเขียวคืออะไร?",
+      "ChoicesTh": [
+        "แคโรทีน",
+        "แซนโทฟิลล์",
+        "คลอโรฟิลล์",
+        "แอนโทไซยานิน"
+      ],
+      "TriviaTh": "คลอโรฟิลล์ดูดซับพลังงานจากแสงซึ่งใช้ในการสังเคราะห์ด้วยแสง"
+    },
+    {
+      "Id": 46,
+      "Question": "Who was the 'Maid of Orleans'?",
+      "Choices": [
+        "Marie Antoinette",
+        "Joan of Arc",
+        "Catherine de' Medici",
+        "Anne Boleyn"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Joan of Arc led the French army to victory over the English at the age of 18.",
+      "QuestionTh": "'สาวพรหมจารีแห่งออร์ลีอ็อง' คือใคร?",
+      "ChoicesTh": [
+        "มารี อองตัวเนตต์",
+        "โจนออฟอาร์ก",
+        "แคทเธอรีน เดอ เมดิชิ",
+        "แอนน์ โบลีน"
+      ],
+      "TriviaTh": "โจน ออฟ อาร์ก นำทัพฝรั่งเศสเอาชนะอังกฤษได้เมื่ออายุ 18 ปี"
+    },
+    {
+      "Id": 47,
+      "Question": "What is the speed of light in a vacuum?",
+      "Choices": [
+        "150,000 km/s",
+        "300,000 km/s",
+        "450,000 km/s",
+        "600,000 km/s"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Light travels at approximately 299,792,458 meters per second.",
+      "QuestionTh": "ความเร็วแสงในสุญญากาศคือเท่าไร?",
+      "ChoicesTh": [
+        "150,000 กม./วินาที",
+        "300,000 กม./วินาที",
+        "450,000 กม./วินาที",
+        "600,000 กม./วินาที"
+      ],
+      "TriviaTh": "แสงเดินทางด้วยความเร็วประมาณ 299,792,458 เมตรต่อวินาที"
+    },
+    {
+      "Id": 48,
+      "Question": "Which famous wall was built to separate East and West Germany?",
+      "Choices": [
+        "Great Wall",
+        "Western Wall",
+        "Berlin Wall",
+        "Hadrian's Wall"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Berlin Wall fell in 1989, symbolizing the end of the Cold War.",
+      "QuestionTh": "กำแพงชื่อดังใดที่สร้างขึ้นเพื่อแบ่งเยอรมนีตะวันออกและตะวันตก?",
+      "ChoicesTh": [
+        "กำแพงเมืองจีน",
+        "กำแพงตะวันตก",
+        "กำแพงเบอร์ลิน",
+        "กำแพงฮาเดรียน"
+      ],
+      "TriviaTh": "กำแพงเบอร์ลินพังทลายในปี 1989 เป็นสัญลักษณ์ของการสิ้นสุดสงครามเย็น"
+    },
+    {
+      "Id": 49,
+      "Question": "What part of the cell is known as the 'Powerhouse'?",
+      "Choices": [
+        "Nucleus",
+        "Ribosome",
+        "Mitochondria",
+        "Cytoplasm"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Mitochondria generate most of the cell's supply of adenosine triphosphate (ATP).",
+      "QuestionTh": "ส่วนใดของเซลล์ที่รู้จักกันว่าเป็น 'โรงไฟฟ้า'?",
+      "ChoicesTh": [
+        "นิวเคลียส",
+        "ไรโบโซม",
+        "ไมโตคอนเดรีย",
+        "ไซโทพลาซึม"
+      ],
+      "TriviaTh": "ไมโตคอนเดรียผลิต ATP ซึ่งเป็นแหล่งพลังงานหลักของเซลล์"
+    },
+    {
+      "Id": 50,
+      "Question": "Who invented the telephone?",
+      "Choices": [
+        "Thomas Edison",
+        "Alexander Graham Bell",
+        "Guglielmo Marconi",
+        "Nikola Tesla"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Bell's first words on the telephone were 'Mr. Watson, come here—I want to see you.'",
+      "QuestionTh": "ใครเป็นผู้ประดิษฐ์โทรศัพท์?",
+      "ChoicesTh": [
+        "โทมัส เอดิสัน",
+        "อเล็กซานเดอร์ เกรแฮม เบลล์",
+        "กูลเยลโม มาร์โคนี",
+        "นิโคลา เทสลา"
+      ],
+      "TriviaTh": "คำพูดแรกของเบลล์ทางโทรศัพท์คือ 'นายวัตสัน มานี่เร็ว ฉันอยากพบคุณ'"
+    },
+    {
+      "Id": 51,
+      "Question": "Which country is the largest in the world by land area?",
+      "Choices": [
+        "Canada",
+        "China",
+        "Russia",
+        "USA"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Russia covers one-eighth of Earth's inhabited land area and spans eleven time zones.",
+      "QuestionTh": "ประเทศใดที่ใหญ่ที่สุดในโลกตามพื้นที่ดิน?",
+      "ChoicesTh": [
+        "แคนาดา",
+        "จีน",
+        "รัสเซีย",
+        "สหรัฐอเมริกา"
+      ],
+      "TriviaTh": "รัสเซียครอบคลุมหนึ่งในแปดของพื้นที่อยู่อาศัยของโลกและครอบคลุมสิบเอ็ดเขตเวลา"
+    },
+    {
+      "Id": 52,
+      "Question": "What is the chemical symbol for Silver?",
+      "Choices": [
+        "Si",
+        "S",
+        "Ag",
+        "Au"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The symbol 'Ag' comes from the Latin word 'Argentum'.",
+      "QuestionTh": "สัญลักษณ์ทางเคมีของเงินคืออะไร?",
+      "ChoicesTh": [
+        "Si",
+        "S",
+        "Ag",
+        "Au"
+      ],
+      "TriviaTh": "สัญลักษณ์ 'Ag' มาจากคำในภาษาละตินว่า 'Argentum'"
+    },
+    {
+      "Id": 53,
+      "Question": "Who was the primary author of the Declaration of Independence?",
+      "Choices": [
+        "Benjamin Franklin",
+        "George Washington",
+        "Thomas Jefferson",
+        "James Madison"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Jefferson was just 33 years old when he drafted the declaration.",
+      "QuestionTh": "ใครเป็นผู้ประพันธ์หลักของคำประกาศอิสรภาพ?",
+      "ChoicesTh": [
+        "เบนจามิน แฟรงคลิน",
+        "จอร์จ วอชิงตัน",
+        "โทมัส เจฟเฟอร์สัน",
+        "เจมส์ เมดิสัน"
+      ],
+      "TriviaTh": "เจฟเฟอร์สันมีอายุเพียง 33 ปีเมื่อร่างคำประกาศ"
+    },
+    {
+      "Id": 54,
+      "Question": "How many bones are in the adult human body?",
+      "Choices": [
+        "150",
+        "206",
+        "250",
+        "300"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Babies are born with around 300 bones, which fuse together as they grow.",
+      "QuestionTh": "ร่างกายมนุษย์ผู้ใหญ่มีกระดูกกี่ชิ้น?",
+      "ChoicesTh": [
+        "150",
+        "206",
+        "250",
+        "300"
+      ],
+      "TriviaTh": "ทารกเกิดมาพร้อมกระดูกประมาณ 300 ชิ้น ซึ่งเชื่อมต่อกันเมื่อเติบโต"
+    },
+    {
+      "Id": 55,
+      "Question": "Which gas is essential for human respiration?",
+      "Choices": [
+        "Nitrogen",
+        "Oxygen",
+        "Carbon Dioxide",
+        "Helium"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "We breathe in oxygen to break down nutrients and provide energy to our cells.",
+      "QuestionTh": "ก๊าซใดที่จำเป็นต่อการหายใจของมนุษย์?",
+      "ChoicesTh": [
+        "ไนโตรเจน",
+        "ออกซิเจน",
+        "คาร์บอนไดออกไซด์",
+        "ฮีเลียม"
+      ],
+      "TriviaTh": "เราหายใจเอาออกซิเจนเข้าไปเพื่อสลายสารอาหารและให้พลังงานแก่เซลล์"
+    },
+    {
+      "Id": 56,
+      "Question": "Who wrote 'The Great Gatsby'?",
+      "Choices": [
+        "Ernest Hemingway",
+        "F. Scott Fitzgerald",
+        "John Steinbeck",
+        "William Faulkner"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The novel explores themes of wealth, class, and the American Dream in the 1920s.",
+      "QuestionTh": "ใครเขียน 'The Great Gatsby'?",
+      "ChoicesTh": [
+        "เออร์เนสต์ เฮมิงเวย์",
+        "เอฟ. สก็อตต์ ฟิตซ์เจอรัลด์",
+        "จอห์น สไตน์เบ็ค",
+        "วิลเลียม ฟอล์กเนอร์"
+      ],
+      "TriviaTh": "นิยายสำรวจธีมความมั่งคั่ง ชนชั้น และความฝันแบบอเมริกันในช่วงทศวรรษ 1920"
+    },
+    {
+      "Id": 57,
+      "Question": "What is the capital city of Australia?",
+      "Choices": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Perth"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Canberra was chosen as the capital in 1908 as a compromise between Sydney and Melbourne.",
+      "QuestionTh": "เมืองหลวงของออสเตรเลียคือเมืองใด?",
+      "ChoicesTh": [
+        "ซิดนีย์",
+        "เมลเบิร์น",
+        "แคนเบอร์รา",
+        "เพิร์ธ"
+      ],
+      "TriviaTh": "แคนเบอร์ราถูกเลือกเป็นเมืองหลวงในปี 1908 เป็นการประนีประนอมระหว่างซิดนีย์และเมลเบิร์น"
+    },
+    {
+      "Id": 58,
+      "Question": "Which planet is the largest in our solar system?",
+      "Choices": [
+        "Saturn",
+        "Jupiter",
+        "Neptune",
+        "Uranus"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Jupiter is so massive that it could fit all the other planets inside it twice.",
+      "QuestionTh": "ดาวเคราะห์ดวงใดที่ใหญ่ที่สุดในระบบสุริยะของเรา?",
+      "ChoicesTh": [
+        "ดาวเสาร์",
+        "ดาวพฤหัสบดี",
+        "ดาวเนปจูน",
+        "ดาวยูเรนัส"
+      ],
+      "TriviaTh": "ดาวพฤหัสบดีใหญ่มากจนสามารถบรรจุดาวเคราะห์ทุกดวงไว้ข้างในได้สองครั้ง"
+    },
+    {
+      "Id": 59,
+      "Question": "Who was the first woman to fly solo across the Atlantic Ocean?",
+      "Choices": [
+        "Amelia Earhart",
+        "Bessie Coleman",
+        "Sally Ride",
+        "Valentina Tereshkova"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Earhart disappeared in 1937 while attempting to fly around the globe.",
+      "QuestionTh": "ใครเป็นสตรีคนแรกที่บินเดี่ยวข้ามมหาสมุทรแอตแลนติก?",
+      "ChoicesTh": [
+        "อมีเลีย เอียร์ฮาร์ต",
+        "เบสซี โคลแมน",
+        "แซลลี ไรด์",
+        "วาเลนตินา เทเรชโควา"
+      ],
+      "TriviaTh": "เอียร์ฮาร์ตหายสาบสูญในปี 1937 ขณะพยายามบินรอบโลก"
+    },
+    {
+      "Id": 60,
+      "Question": "What is the chemical symbol for Iron?",
+      "Choices": [
+        "I",
+        "Ir",
+        "Fe",
+        "In"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The symbol 'Fe' comes from the Latin word 'Ferrum'.",
+      "QuestionTh": "สัญลักษณ์ทางเคมีของเหล็กคืออะไร?",
+      "ChoicesTh": [
+        "I",
+        "Ir",
+        "Fe",
+        "In"
+      ],
+      "TriviaTh": "สัญลักษณ์ 'Fe' มาจากคำในภาษาละตินว่า 'Ferrum'"
+    },
+    {
+      "Id": 61,
+      "Question": "Which country is home to the Taj Mahal?",
+      "Choices": [
+        "Pakistan",
+        "India",
+        "Bangladesh",
+        "Nepal"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The Taj Mahal was built by Emperor Shah Jahan in memory of his wife, Mumtaz Mahal.",
+      "QuestionTh": "ประเทศใดเป็นที่ตั้งของทัชมาฮาล?",
+      "ChoicesTh": [
+        "ปากีสถาน",
+        "อินเดีย",
+        "บังกลาเทศ",
+        "เนปาล"
+      ],
+      "TriviaTh": "ทัชมาฮาลสร้างขึ้นโดยจักรพรรดิชาห์ จาฮัน เพื่อรำลึกถึงพระมเหสี มุมตัซ มาฮาล"
+    },
+    {
+      "Id": 62,
+      "Question": "What is the freezing point of water in Fahrenheit?",
+      "Choices": [
+        "0°F",
+        "32°F",
+        "100°F",
+        "212°F"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The Fahrenheit scale was developed by Daniel Gabriel Fahrenheit in 1724.",
+      "QuestionTh": "จุดเยือกแข็งของน้ำในหน่วยฟาเรนไฮต์คือเท่าไร?",
+      "ChoicesTh": [
+        "0°F",
+        "32°F",
+        "100°F",
+        "212°F"
+      ],
+      "TriviaTh": "สเกลฟาเรนไฮต์ถูกพัฒนาโดยดาเนียล กาเบรียล ฟาเรนไฮต์ในปี 1724"
+    },
+    {
+      "Id": 63,
+      "Question": "Who painted 'The Starry Night'?",
+      "Choices": [
+        "Pablo Picasso",
+        "Vincent van Gogh",
+        "Claude Monet",
+        "Salvador Dalí"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Van Gogh painted this from the window of his asylum room at Saint-Rémy-de-Provence.",
+      "QuestionTh": "ใครวาดภาพ 'คืนที่เต็มไปด้วยดวงดาว'?",
+      "ChoicesTh": [
+        "ปาโบล ปีกัสโซ",
+        "วินเซนต์ แวน โก๊ะ",
+        "โคลด โมเน",
+        "ซัลวาดอร์ ดาลี"
+      ],
+      "TriviaTh": "แวน โก๊ะวาดภาพนี้จากหน้าต่างห้องพักในโรงพยาบาลจิตเวชที่แซ็ง-เรมี-เดอ-โพรวองซ์"
+    },
+    {
+      "Id": 64,
+      "Question": "What is the capital city of Canada?",
+      "Choices": [
+        "Toronto",
+        "Vancouver",
+        "Ottawa",
+        "Montreal"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Ottawa is the fourth largest city in Canada and is located in the province of Ontario.",
+      "QuestionTh": "เมืองหลวงของแคนาดาคือเมืองใด?",
+      "ChoicesTh": [
+        "โตรอนโต",
+        "แวนคูเวอร์",
+        "ออตตาวา",
+        "มอนทรีอัล"
+      ],
+      "TriviaTh": "ออตตาวาเป็นเมืองใหญ่อันดับสี่ของแคนาดาและตั้งอยู่ในมณฑลออนตาริโอ"
+    },
+    {
+      "Id": 65,
+      "Question": "Which bird is often associated with delivering babies in folklore?",
+      "Choices": [
+        "Eagle",
+        "Swan",
+        "Stork",
+        "Pelican"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The legend of the stork bringing babies originated in Northern Europe.",
+      "QuestionTh": "นกชนิดใดที่มักเกี่ยวข้องกับการนำทารกมาในนิทานพื้นบ้าน?",
+      "ChoicesTh": [
+        "นกอินทรี",
+        "หงส์",
+        "นกกระสา",
+        "นกเพลิแคน"
+      ],
+      "TriviaTh": "ตำนานนกกระสานำทารกมามีต้นกำเนิดในยุโรปเหนือ"
+    },
+    {
+      "Id": 66,
+      "Question": "What is the main ingredient in hummus?",
+      "Choices": [
+        "Lentils",
+        "Chickpeas",
+        "Black beans",
+        "Peas"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The word 'hummus' actually means 'chickpeas' in Arabic.",
+      "QuestionTh": "ส่วนผสมหลักในฮัมมัสคืออะไร?",
+      "ChoicesTh": [
+        "ถั่วเลนทิล",
+        "ถั่วชิกพี",
+        "ถั่วดำ",
+        "ถั่วลันเตา"
+      ],
+      "TriviaTh": "คำว่า 'ฮัมมัส' แปลว่า 'ถั่วชิกพี' ในภาษาอาหรับ"
+    },
+    {
+      "Id": 67,
+      "Question": "Which organ is responsible for filtering waste from the blood?",
+      "Choices": [
+        "Heart",
+        "Lungs",
+        "Kidneys",
+        "Stomach"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Humans can survive with only one kidney.",
+      "QuestionTh": "อวัยวะใดทำหน้าที่กรองของเสียออกจากเลือด?",
+      "ChoicesTh": [
+        "หัวใจ",
+        "ปอด",
+        "ไต",
+        "กระเพาะอาหาร"
+      ],
+      "TriviaTh": "มนุษย์สามารถมีชีวิตอยู่ได้ด้วยไตเพียงข้างเดียว"
+    },
+    {
+      "Id": 68,
+      "Question": "Who was the 'Lady with the Lamp'?",
+      "Choices": [
+        "Marie Curie",
+        "Florence Nightingale",
+        "Clara Barton",
+        "Mother Teresa"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Nightingale gained fame for her nursing work during the Crimean War.",
+      "QuestionTh": "'หญิงสาวกับตะเกียง' คือใคร?",
+      "ChoicesTh": [
+        "มาดาม คูรี",
+        "ฟลอเรนซ์ ไนติงเกล",
+        "คลารา บาร์ตัน",
+        "แม่ชีเทเรซา"
+      ],
+      "TriviaTh": "ไนติงเกลมีชื่อเสียงจากงานพยาบาลในช่วงสงครามไครเมีย"
+    },
+    {
+      "Id": 69,
+      "Question": "What is the currency of Japan?",
+      "Choices": [
+        "Yuan",
+        "Won",
+        "Yen",
+        "Baht"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Yen is the third most traded currency in the world.",
+      "QuestionTh": "สกุลเงินของญี่ปุ่นคืออะไร?",
+      "ChoicesTh": [
+        "หยวน",
+        "วอน",
+        "เยน",
+        "บาท"
+      ],
+      "TriviaTh": "เยนเป็นสกุลเงินที่มีการซื้อขายมากเป็นอันดับสามของโลก"
+    },
+    {
+      "Id": 70,
+      "Question": "Which planet is famous for its extensive ring system?",
+      "Choices": [
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Saturn's rings are made mostly of ice particles with some rock and dust.",
+      "QuestionTh": "ดาวเคราะห์ดวงใดที่มีชื่อเสียงจากระบบวงแหวนขนาดใหญ่?",
+      "ChoicesTh": [
+        "ดาวพฤหัสบดี",
+        "ดาวเสาร์",
+        "ดาวยูเรนัส",
+        "ดาวเนปจูน"
+      ],
+      "TriviaTh": "วงแหวนของดาวเสาร์ส่วนใหญ่ประกอบด้วยอนุภาคน้ำแข็งพร้อมหินและฝุ่นบางส่วน"
+    },
+    {
+      "Id": 71,
+      "Question": "Who was the first person to reach the South Pole?",
+      "Choices": [
+        "Robert Falcon Scott",
+        "Roald Amundsen",
+        "Ernest Shackleton",
+        "Richard Byrd"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Amundsen, a Norwegian explorer, reached the South Pole in December 1911.",
+      "QuestionTh": "ใครเป็นบุคคลแรกที่เดินทางถึงขั้วโลกใต้?",
+      "ChoicesTh": [
+        "โรเบิร์ต ฟอลคอน สก็อตต์",
+        "โรอัลด์ อามุนด์เซน",
+        "เออร์เนสต์ แชคเคิลตัน",
+        "ริชาร์ด เบิร์ด"
+      ],
+      "TriviaTh": "อามุนด์เซน นักสำรวจชาวนอร์เวย์ เดินทางถึงขั้วโลกใต้ในเดือนธันวาคม 1911"
+    },
+    {
+      "Id": 72,
+      "Question": "What is the chemical symbol for Sodium?",
+      "Choices": [
+        "S",
+        "So",
+        "Na",
+        "Sd"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The symbol 'Na' comes from the Latin word 'Natrium'.",
+      "QuestionTh": "สัญลักษณ์ทางเคมีของโซเดียมคืออะไร?",
+      "ChoicesTh": [
+        "S",
+        "So",
+        "Na",
+        "Sd"
+      ],
+      "TriviaTh": "สัญลักษณ์ 'Na' มาจากคำในภาษาละตินว่า 'Natrium'"
+    },
+    {
+      "Id": 73,
+      "Question": "Which country is known as the Land of the Rising Sun?",
+      "Choices": [
+        "China",
+        "South Korea",
+        "Japan",
+        "Thailand"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The name refers to Japan's location to the east of China.",
+      "QuestionTh": "ประเทศใดที่รู้จักกันว่าเป็น 'ดินแดนอาทิตย์อุทัย'?",
+      "ChoicesTh": [
+        "จีน",
+        "เกาหลีใต้",
+        "ญี่ปุ่น",
+        "ไทย"
+      ],
+      "TriviaTh": "ชื่อนี้อ้างอิงถึงที่ตั้งของญี่ปุ่นทางทิศตะวันออกของจีน"
+    },
+    {
+      "Id": 74,
+      "Question": "What is the largest internal organ in the human body?",
+      "Choices": [
+        "Heart",
+        "Brain",
+        "Liver",
+        "Lungs"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The liver is responsible for over 500 different functions in the body.",
+      "QuestionTh": "อวัยวะภายในที่ใหญ่ที่สุดในร่างกายมนุษย์คืออะไร?",
+      "ChoicesTh": [
+        "หัวใจ",
+        "สมอง",
+        "ตับ",
+        "ปอด"
+      ],
+      "TriviaTh": "ตับรับผิดชอบหน้าที่มากกว่า 500 อย่างในร่างกาย"
+    },
+    {
+      "Id": 75,
+      "Question": "Who wrote 'The Diary of a Young Girl'?",
+      "Choices": [
+        "Helen Keller",
+        "Anne Frank",
+        "Virginia Woolf",
+        "Emily Dickinson"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Anne Frank wrote the diary while hiding from the Nazis in Amsterdam.",
+      "QuestionTh": "ใครเขียน 'บันทึกของเด็กหญิงคนหนึ่ง'?",
+      "ChoicesTh": [
+        "เฮเลน เคลเลอร์",
+        "แอนน์ แฟรงก์",
+        "เวอร์จิเนีย วูล์ฟ",
+        "เอมิลี่ ดิกกินสัน"
+      ],
+      "TriviaTh": "แอนน์ แฟรงก์เขียนไดอารี่นี้ขณะหลบซ่อนจากพวกนาซีในอัมสเตอร์ดัม"
+    },
+    {
+      "Id": 76,
+      "Question": "What is the tallest mountain in the world?",
+      "Choices": [
+        "K2",
+        "Kangchenjunga",
+        "Lhotse",
+        "Mount Everest"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Mount Everest's height increases by about 4 millimeters every year due to tectonic shifts.",
+      "QuestionTh": "ภูเขาที่สูงที่สุดในโลกคือภูเขาอะไร?",
+      "ChoicesTh": [
+        "K2",
+        "คังเชนจุงก้า",
+        "โลตเส",
+        "เอเวอเรสต์"
+      ],
+      "TriviaTh": "ความสูงของเอเวอเรสต์เพิ่มขึ้นประมาณ 4 มิลลิเมตรทุกปีเนื่องจากการเคลื่อนตัวของแผ่นเปลือกโลก"
+    },
+    {
+      "Id": 77,
+      "Question": "Which gas makes up about 21% of Earth's atmosphere?",
+      "Choices": [
+        "Nitrogen",
+        "Oxygen",
+        "Carbon Dioxide",
+        "Argon"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Oxygen is highly reactive and essential for most life forms on Earth.",
+      "QuestionTh": "ก๊าซชนิดใดที่ประกอบขึ้นประมาณ 21% ของชั้นบรรยากาศโลก?",
+      "ChoicesTh": [
+        "ไนโตรเจน",
+        "ออกซิเจน",
+        "คาร์บอนไดออกไซด์",
+        "อาร์กอน"
+      ],
+      "TriviaTh": "ออกซิเจนมีปฏิกิริยาสูงและจำเป็นต่อสิ่งมีชีวิตส่วนใหญ่บนโลก"
+    },
+    {
+      "Id": 78,
+      "Question": "Who was the lead singer of the band Queen?",
+      "Choices": [
+        "David Bowie",
+        "Freddie Mercury",
+        "Mick Jagger",
+        "Elton John"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Freddie Mercury was born in Zanzibar and was a classically trained pianist.",
+      "QuestionTh": "ใครเป็นนักร้องนำของวง Queen?",
+      "ChoicesTh": [
+        "เดวิด โบวี",
+        "เฟรดดี้ เมอร์คิวรี",
+        "มิก แจ็กเกอร์",
+        "เอลตัน จอห์น"
+      ],
+      "TriviaTh": "เฟรดดี้ เมอร์คิวรีเกิดที่แซนซิบาร์และได้รับการฝึกเปียโนแบบคลาสสิก"
+    },
+    {
+      "Id": 79,
+      "Question": "What is the capital city of Germany?",
+      "Choices": [
+        "Munich",
+        "Hamburg",
+        "Berlin",
+        "Frankfurt"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Berlin is the largest city in the European Union by population.",
+      "QuestionTh": "เมืองหลวงของเยอรมนีคือเมืองใด?",
+      "ChoicesTh": [
+        "มิวนิก",
+        "ฮัมบูร์ก",
+        "เบอร์ลิน",
+        "แฟรงก์เฟิร์ต"
+      ],
+      "TriviaTh": "เบอร์ลินเป็นเมืองที่ใหญ่ที่สุดในสหภาพยุโรปตามจำนวนประชากร"
+    },
+    {
+      "Id": 80,
+      "Question": "Which animal is the fastest land animal?",
+      "Choices": [
+        "Lion",
+        "Cheetah",
+        "Gazelle",
+        "Leopard"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "A cheetah can accelerate from 0 to 60 mph in just three seconds.",
+      "QuestionTh": "สัตว์บกที่วิ่งเร็วที่สุดคืออะไร?",
+      "ChoicesTh": [
+        "สิงโต",
+        "เสือชีตาห์",
+        "กาเซล",
+        "เสือดาว"
+      ],
+      "TriviaTh": "เสือชีตาห์สามารถเร่งความเร็วจาก 0 ถึง 96 กม./ชม. ในเพียงสามวินาที"
+    },
+    {
+      "Id": 81,
+      "Question": "What is the chemical symbol for Potassium?",
+      "Choices": [
+        "P",
+        "Po",
+        "K",
+        "Pt"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The symbol 'K' comes from the Latin word 'Kalium'.",
+      "QuestionTh": "เนื้อส่วนใดของหมูที่นิยมใช้ทำหมูกระทะมากที่สุด?",
+      "ChoicesTh": [
+        "สันคอ",
+        "สะโพก",
+        "หน้าท้อง",
+        "ขา"
+      ],
+      "TriviaTh": "สันคอหมูมีไขมันแทรกสม่ำเสมอ ทำให้นุ่มและมีรสชาติดีเมื่อย่าง"
+    },
+    {
+      "Id": 82,
+      "Question": "Who was the first man in space?",
+      "Choices": [
+        "Neil Armstrong",
+        "John Glenn",
+        "Yuri Gagarin",
+        "Alan Shepard"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Gagarin completed one orbit of the Earth in his Vostok 1 spacecraft.",
+      "QuestionTh": "น้ำซุปหม้อไฟแบบดั้งเดิมของไทยมักมีส่วนผสมหลักอะไร?",
+      "ChoicesTh": [
+        "ตะไคร้และใบมะกรูด",
+        "โหระพาและออริกาโน",
+        "ขิงและกระเทียม",
+        "พริกและมะเขือเทศ"
+      ],
+      "TriviaTh": "ตะไคร้และใบมะกรูดให้กลิ่นหอมเฉพาะตัวที่เป็นเอกลักษณ์ของอาหารไทย"
+    },
+    {
+      "Id": 83,
+      "Question": "What is the capital city of Italy?",
+      "Choices": [
+        "Milan",
+        "Venice",
+        "Florence",
+        "Rome"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Rome has been a major settlement for over 2,500 years and is often called 'The Eternal City'.",
+      "QuestionTh": "ผักชนิดใดที่มักนำมาจุ่มกับหมูกระทะ?",
+      "ChoicesTh": [
+        "ผักบุ้ง",
+        "ผักโขม",
+        "กะหล่ำปลี",
+        "บรอกโคลี"
+      ],
+      "TriviaTh": "ผักบุ้งเป็นผักยอดนิยมในหมูกระทะ มีเนื้อสัมผัสกรอบและสุกเร็ว"
+    },
+    {
+      "Id": 84,
+      "Question": "Which element is the most common in the Earth's crust?",
+      "Choices": [
+        "Silicon",
+        "Iron",
+        "Oxygen",
+        "Aluminum"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Oxygen makes up nearly half of the mass of the Earth's crust.",
+      "QuestionTh": "เห็ดชนิดใดที่มักใส่ในหมูกระทะ?",
+      "ChoicesTh": [
+        "เห็ดเข็มทอง",
+        "เห็ดทรัฟเฟิล",
+        "เห็ดนางฟ้า",
+        "เห็ดหอม"
+      ],
+      "TriviaTh": "เห็ดเข็มทองมีเนื้อสัมผัสที่น่าพึงพอใจและดูดซับน้ำซุปได้ดี"
+    },
+    {
+      "Id": 85,
+      "Question": "Who wrote '1984'?",
+      "Choices": [
+        "Aldous Huxley",
+        "George Orwell",
+        "Ray Bradbury",
+        "H.G. Wells"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "George Orwell's real name was Eric Arthur Blair.",
+      "QuestionTh": "น้ำจิ้มหมูกระทะของไทยมักประกอบด้วยอะไร?",
+      "ChoicesTh": [
+        "งาและเต้าเจี้ยว",
+        "มายองเนสและมัสตาร์ด",
+        "มะเขือเทศและน้ำส้มสายชู",
+        "ซีอิ๊วและน้ำมะนาว"
+      ],
+      "TriviaTh": "น้ำจิ้มหมูกระทะไทยมักมีงาคั่ว เต้าเจี้ยว และสมุนไพร ให้รสชาติที่ซับซ้อน"
+    },
+    {
+      "Id": 86,
+      "Question": "What is the largest country in South America?",
+      "Choices": [
+        "Argentina",
+        "Peru",
+        "Colombia",
+        "Brazil"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Brazil is the only country in the Americas that has Portuguese as its official language.",
+      "QuestionTh": "ข้อใดต่อไปนี้ไม่ใช่ส่วนผสมทั่วไปในหมูกระทะ?",
+      "ChoicesTh": [
+        "วุ้นเส้น",
+        "ลาซานญ่า",
+        "ข้าวโพด",
+        "เต้าหู้"
+      ],
+      "TriviaTh": "ลาซานญ่าเป็นพาสต้าอิตาลี ไม่ใช่ส่วนผสมของหมูกระทะไทย"
+    },
+    {
+      "Id": 87,
+      "Question": "Which planet is known as the Morning Star?",
+      "Choices": [
+        "Mercury",
+        "Venus",
+        "Mars",
+        "Jupiter"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Venus is the brightest natural object in Earth's night sky after the Moon.",
+      "QuestionTh": "วิธีการย่างเนื้อในหมูกระทะที่ถูกต้องคือ?",
+      "ChoicesTh": [
+        "ย่างบนโดมตรงกลาง",
+        "ต้มในน้ำซุปรอบนอก",
+        "ทั้งสองแบบ",
+        "อบในเตาอบ"
+      ],
+      "TriviaTh": "หมูกระทะมีโดมตรงกลางสำหรับย่างและร่องรอบนอกสำหรับต้มน้ำซุป"
+    },
+    {
+      "Id": 88,
+      "Question": "Who discovered the laws of motion and universal gravitation?",
+      "Choices": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Johannes Kepler"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Newton's 'Philosophiæ Naturalis Principia Mathematica' is one of the most important works in the history of science.",
+      "QuestionTh": "ทำไมจึงต้องมีโดมนูนตรงกลางของกระทะหมูกระทะ?",
+      "ChoicesTh": [
+        "เพื่อย่างเนื้อและให้น้ำมันไหลลงน้ำซุป",
+        "เพื่อให้ผักสุกเร็วขึ้น",
+        "เพื่อประดับตกแต่ง",
+        "เพื่อให้ความร้อนสม่ำเสมอ"
+      ],
+      "TriviaTh": "โดมตรงกลางช่วยย่างเนื้อด้วยความร้อนแห้งในขณะที่น้ำมันและน้ำเนื้อไหลลงสู่น้ำซุป"
+    },
+    {
+      "Id": 89,
+      "Question": "What is the capital city of Spain?",
+      "Choices": [
+        "Barcelona",
+        "Seville",
+        "Valencia",
+        "Madrid"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Madrid is located in the center of the Iberian Peninsula.",
+      "QuestionTh": "หมูกระทะมีต้นกำเนิดจากประเทศใด?",
+      "ChoicesTh": [
+        "ประเทศไทย",
+        "เกาหลี",
+        "ญี่ปุ่น",
+        "จีน"
+      ],
+      "TriviaTh": "แม้จะคล้ายกับอาหารเกาหลีหรือจีน แต่หมูกระทะเป็นอาหารที่พัฒนาเป็นเอกลักษณ์ของไทย"
+    },
+    {
+      "Id": 90,
+      "Question": "Which metal is liquid at room temperature?",
+      "Choices": [
+        "Lead",
+        "Mercury",
+        "Tin",
+        "Zinc"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Mercury is also known as 'quicksilver' because of its mobility.",
+      "QuestionTh": "คำว่า 'หมูกระทะ' แปลตรงตัวว่าอะไร?",
+      "ChoicesTh": [
+        "หมูในกระทะ",
+        "หมูย่าง",
+        "หม้อไฟหมู",
+        "บาร์บีคิวหมู"
+      ],
+      "TriviaTh": "'หมู' แปลว่าหมู และ 'กระทะ' แปลว่ากระทะ รวมกันหมายถึงหมูในกระทะ"
+    },
+    {
+      "Id": 91,
+      "Question": "Who was the Greek god of the sea?",
+      "Choices": [
+        "Zeus",
+        "Hades",
+        "Poseidon",
+        "Apollo"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Poseidon was often depicted carrying a trident.",
+      "QuestionTh": "อาหารประเภทใดที่คล้ายกับหมูกระทะในเกาหลี?",
+      "ChoicesTh": [
+        "ซัมกยอปซัล",
+        "คิมจิจิแก",
+        "บิบิมบับ",
+        "ราเมง"
+      ],
+      "TriviaTh": "ซัมกยอปซัลเป็นอาหารเกาหลีที่ย่างหมูสามชั้นบนตะแกรง คล้ายกับหมูกระทะ"
+    },
+    {
+      "Id": 92,
+      "Question": "What is the capital city of Russia?",
+      "Choices": [
+        "Saint Petersburg",
+        "Novosibirsk",
+        "Yekaterinburg",
+        "Moscow"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Moscow is the northernmost and coldest megacity in the world.",
+      "QuestionTh": "เครื่องเทศใดที่มักใส่ในน้ำซุปหม้อไฟรสเผ็ด?",
+      "ChoicesTh": [
+        "พริก",
+        "อบเชย",
+        "กานพลู",
+        "ลูกจันทน์เทศ"
+      ],
+      "TriviaTh": "พริกให้ความเผ็ดร้อนและสีสันในน้ำซุปหม้อไฟ นิยมใช้ทั้งสดและแห้ง"
+    },
+    {
+      "Id": 93,
+      "Question": "Which ocean lies between Africa and Australia?",
+      "Choices": [
+        "Atlantic",
+        "Pacific",
+        "Indian",
+        "Arctic"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Indian Ocean is the third-largest of the world's five oceans.",
+      "QuestionTh": "เนื้อสัตว์ชนิดใดที่ไม่ค่อยนิยมใช้ในหมูกระทะ?",
+      "ChoicesTh": [
+        "เนื้อวัว",
+        "เนื้อไก่",
+        "กุ้ง",
+        "ปลาหมึก"
+      ],
+      "TriviaTh": "หมูกระทะมักใช้หมู แต่สามารถใช้เนื้อสัตว์อื่นได้ โดยทั่วไปไม่นิยมใช้เนื้อวัวเป็นหลัก"
+    },
+    {
+      "Id": 94,
+      "Question": "Who was the first female Prime Minister of the United Kingdom?",
+      "Choices": [
+        "Theresa May",
+        "Margaret Thatcher",
+        "Angela Merkel",
+        "Indira Gandhi"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Thatcher was known as the 'Iron Lady' for her uncompromising politics.",
+      "QuestionTh": "อุณหภูมิที่เหมาะสมสำหรับการย่างเนื้อในหมูกระทะคือเท่าไร?",
+      "ChoicesTh": [
+        "สูงถึงปานกลาง",
+        "ต่ำมาก",
+        "สูงมาก",
+        "อุณหภูมิห้อง"
+      ],
+      "TriviaTh": "ความร้อนสูงถึงปานกลางช่วยให้เนื้อสุกสม่ำเสมอโดยไม่ไหม้เร็วเกินไป"
+    },
+    {
+      "Id": 95,
+      "Question": "What is the chemical symbol for Lead?",
+      "Choices": [
+        "L",
+        "Le",
+        "Pb",
+        "Li"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The symbol 'Pb' comes from the Latin word 'Plumbum'.",
+      "QuestionTh": "ส่วนใดของตัวหมูที่ให้ไขมันแทรกมากที่สุด?",
+      "ChoicesTh": [
+        "คอ",
+        "หัวไหล่",
+        "สันใน",
+        "ขา"
+      ],
+      "TriviaTh": "คอหมูมีไขมันแทรกมากที่สุด ทำให้เนื้อนุ่มและมีรสชาติเมื่อย่าง"
+    },
+    {
+      "Id": 96,
+      "Question": "Which country is the home of the kangaroo?",
+      "Choices": [
+        "South Africa",
+        "New Zealand",
+        "Australia",
+        "Brazil"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Kangaroos are indigenous to Australia and New Guinea.",
+      "QuestionTh": "ข้อใดคือประโยชน์ของการลวกผักในน้ำซุปหม้อไฟ?",
+      "ChoicesTh": [
+        "ยังคงสารอาหารและรสชาติ",
+        "ทำให้ผักแข็งขึ้น",
+        "เพิ่มแคลอรี่",
+        "ลดรสชาติ"
+      ],
+      "TriviaTh": "การลวกในน้ำซุปช่วยรักษาคุณค่าสารอาหารและเพิ่มรสชาติให้กับผัก"
+    },
+    {
+      "Id": 97,
+      "Question": "What is the most common type of star in the Milky Way galaxy?",
+      "Choices": [
+        "Red Dwarf",
+        "White Dwarf",
+        "Blue Giant",
+        "Yellow Dwarf"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Red dwarfs are smaller and cooler than our Sun.",
+      "QuestionTh": "ทำไมจึงควรหมักเนื้อก่อนนำมาย่าง?",
+      "ChoicesTh": [
+        "เพื่อเพิ่มรสชาติและทำให้นุ่ม",
+        "เพื่อทำให้แข็งขึ้น",
+        "เพื่อเพิ่มน้ำหนัก",
+        "เพื่อเปลี่ยนสี"
+      ],
+      "TriviaTh": "การหมักช่วยให้เนื้อมีรสชาติและนุ่มขึ้น เนื่องจากน้ำดองแทรกซึมเข้าไปในเนื้อ"
+    },
+    {
+      "Id": 98,
+      "Question": "Who was the Roman god of war?",
+      "Choices": [
+        "Jupiter",
+        "Mars",
+        "Neptune",
+        "Mercury"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Mars was second in importance only to Jupiter in the Roman religion.",
+      "QuestionTh": "ผลไม้ชนิดใดที่บางครั้งใช้ทำให้เนื้อนุ่มในการหมัก?",
+      "ChoicesTh": [
+        "สับปะรด",
+        "แอปเปิ้ล",
+        "กล้วย",
+        "มะม่วง"
+      ],
+      "TriviaTh": "สับปะรดมีเอนไซม์บรอเมเลนที่ช่วยสลายโปรตีนในเนื้อ ทำให้เนื้อนุ่มขึ้น"
+    },
+    {
+      "Id": 99,
+      "Question": "What is the capital city of Egypt?",
+      "Choices": [
+        "Alexandria",
+        "Luxor",
+        "Giza",
+        "Cairo"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Cairo is the largest city in the Arab world.",
+      "QuestionTh": "เส้นชนิดใดที่นิยมใส่ในหมูกระทะ?",
+      "ChoicesTh": [
+        "วุ้นเส้น",
+        "สปาเกตตี",
+        "อุด้ง",
+        "ราเมง"
+      ],
+      "TriviaTh": "วุ้นเส้นเป็นที่นิยมเพราะมีความใสและดูดซับน้ำซุปได้ดี มีเนื้อสัมผัสนุ่มหยุ่น"
+    },
+    {
+      "Id": 100,
+      "Question": "Which vitamin is found in abundance in citrus fruits?",
+      "Choices": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Vitamin C is essential for the repair of all body tissues.",
+      "QuestionTh": "ข้อใดคือวิธีการรับประทานหมูกระทะที่ดีที่สุด?",
+      "ChoicesTh": [
+        "กินร้อนๆ ทันทีจากกระทะ",
+        "รอให้เย็นก่อน",
+        "อุ่นในไมโครเวฟ",
+        "กินเย็น"
+      ],
+      "TriviaTh": "หมูกระทะรสชาติดีที่สุดเมื่อกินสดร้อนๆ จากกระทะ เพื่อประสบการณ์การรับประทานที่ดีที่สุด"
+    },
+    {
+      "Id": 101,
+      "Question": "What is the currency of China?",
+      "Choices": [
+        "Yen",
+        "Won",
+        "Yuan",
+        "Ringgit"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Renminbi is the official currency, and the Yuan is the basic unit.",
+      "QuestionTh": "วิตามินใดที่พบมากในเนื้อหมู?",
+      "ChoicesTh": [
+        "วิตามินบี 1",
+        "วิตามินซี",
+        "วิตามินดี",
+        "วิตามินเอ"
+      ],
+      "TriviaTh": "เนื้อหมูอุดมไปด้วยวิตามินบี 1 (ไทอามีน) ซึ่งสำคัญต่อการทำงานของระบบประสาทและการเผาผลาญพลังงาน"
+    },
+    {
+      "Id": 102,
+      "Question": "Who discovered the structure of DNA?",
+      "Choices": [
+        "Darwin and Wallace",
+        "Watson and Crick",
+        "Einstein and Bohr",
+        "Curie and Pasteur"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "They were assisted by the X-ray diffraction work of Rosalind Franklin.",
+      "QuestionTh": "ส่วนผสมใดในน้ำซุปหม้อไฟที่ให้ความเปรี้ยว?",
+      "ChoicesTh": [
+        "มะนาวหรือมะขาม",
+        "น้ำตาล",
+        "กะทิ",
+        "ถั่วลิสง"
+      ],
+      "TriviaTh": "มะนาวหรือมะขามให้ความเปรี้ยวในน้ำซุปหม้อไฟ ช่วยตัดความมันและเพิ่มความสดชื่น"
+    },
+    {
+      "Id": 103,
+      "Question": "Which country is the largest by population?",
+      "Choices": [
+        "India",
+        "China",
+        "USA",
+        "Indonesia"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "India surpassed China as the world's most populous country in 2023.",
+      "QuestionTh": "เนื้อหมูควรเก็บรักษาในอุณหภูมิเท่าไรในตู้เย็น?",
+      "ChoicesTh": [
+        "ต่ำกว่า 4 องศาเซลเซียส",
+        "10-15 องศาเซลเซียส",
+        "อุณหภูมิห้อง",
+        "ต่ำกว่า 0 องศาเซลเซียส"
+      ],
+      "TriviaTh": "เนื้อหมูควรเก็บที่อุณหภูมิต่ำกว่า 4°C เพื่อป้องกันการเจริญเติบโตของแบคทีเรีย"
+    },
+    {
+      "Id": 104,
+      "Question": "What is the capital city of China?",
+      "Choices": [
+        "Shanghai",
+        "Hong Kong",
+        "Beijing",
+        "Guangzhou"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Beijing has a history of over 3,000 years.",
+      "QuestionTh": "เครื่องเทศใดที่ทำให้น้ำซุปมีสีแดงในหม้อไฟสไตล์เสฉวน?",
+      "ChoicesTh": [
+        "พริกโคชูจัง",
+        "ขมิ้น",
+        "มะเขือเทศ",
+        "บีทรูท"
+      ],
+      "TriviaTh": "พริกโคชูจังของเกาหลีให้สีแดงสดและรสเผ็ดในน้ำซุปหม้อไฟ"
+    },
+    {
+      "Id": 105,
+      "Question": "Which gas do humans exhale?",
+      "Choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Hydrogen"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Exhaled air contains about 4% carbon dioxide.",
+      "QuestionTh": "ประโยชน์หลักของเต้าหู้ในหมูกระทะคืออะไร?",
+      "ChoicesTh": [
+        "เพิ่มโปรตีนและดูดซับน้ำซุป",
+        "เพิ่มความหวาน",
+        "ทำให้น้ำซุปข้นขึ้น",
+        "ลดความเผ็ด"
+      ],
+      "TriviaTh": "เต้าหู้เป็นแหล่งโปรตีนที่ดีและดูดซับรสชาติน้ำซุปได้ดี ทำให้เป็นส่วนผสมยอดนิยม"
+    },
+    {
+      "Id": 106,
+      "Question": "Who was the first woman in space?",
+      "Choices": [
+        "Sally Ride",
+        "Valentina Tereshkova",
+        "Svetlana Savitskaya",
+        "Mae Jemison"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Tereshkova orbited the Earth 48 times in Vostok 6 in 1963.",
+      "QuestionTh": "ปลาหมึกในหมูกระทะควรปรุงนานเท่าไร?",
+      "ChoicesTh": [
+        "สั้น เพียง 1-2 นาที",
+        "5-10 นาที",
+        "15-20 นาที",
+        "30 นาที"
+      ],
+      "TriviaTh": "ปลาหมึกควรปรุงเพียงสั้นๆ เพราะหากปรุงนานเกินไปจะทำให้เนื้อแข็งและเหนียว"
+    },
+    {
+      "Id": 107,
+      "Question": "What is the chemical symbol for Helium?",
+      "Choices": [
+        "H",
+        "He",
+        "Hi",
+        "Hl"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Helium is the second lightest and second most abundant element in the universe.",
+      "QuestionTh": "อาหารทะเลชนิดใดที่นิยมใส่ในหมูกระทะ?",
+      "ChoicesTh": [
+        "กุ้ง",
+        "ปลาทูน่า",
+        "ปลาแซลมอน",
+        "ปลากระป๋อง"
+      ],
+      "TriviaTh": "กุ้งสดเป็นที่นิยมมากเพราะสุกเร็ว มีรสชาติหวาน และเข้ากันได้ดีกับน้ำซุป"
+    },
+    {
+      "Id": 108,
+      "Question": "Which country invented paper?",
+      "Choices": [
+        "Egypt",
+        "China",
+        "Greece",
+        "India"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Paper-making was one of the Four Great Inventions of ancient China.",
+      "QuestionTh": "ทำไมจึงต้องล้างเนื้อสัตว์ก่อนใส่ลงในหมูกระทะ?",
+      "ChoicesTh": [
+        "เพื่อความสะอาดและลดสิ่งสกปรก",
+        "เพื่อเพิ่มรสชาติ",
+        "เพื่อให้เนื้อนุ่มขึ้น",
+        "เพื่อลดแคลอรี่"
+      ],
+      "TriviaTh": "การล้างเนื้อสัตว์ช่วยขจัดสิ่งสกปรก เลือด และกลิ่นคาว ทำให้อาหารมีความสะอาดมากขึ้น"
+    },
+    {
+      "Id": 109,
+      "Question": "Who wrote 'Hamlet'?",
+      "Choices": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Mark Twain",
+        "Jane Austen"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Hamlet is Shakespeare's longest play and is set in Denmark.",
+      "QuestionTh": "ผักใดที่ควรใส่ในน้ำซุปเป็นอันดับสุดท้ายเพราะสุกเร็ว?",
+      "ChoicesTh": [
+        "ผักใบเขียว",
+        "แครอท",
+        "หัวไชเท้า",
+        "มันฝรั่ง"
+      ],
+      "TriviaTh": "ผักใบเขียวสุกเร็วมาก ควรใส่เป็นอันดับสุดท้ายเพื่อไม่ให้สุกเกินไปและยังคงสีเขียวสวยงาม"
+    },
+    {
+      "Id": 110,
+      "Question": "What is the capital city of France?",
+      "Choices": [
+        "Lyon",
+        "Marseille",
+        "Paris",
+        "Nice"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Paris is one of the world's major centers for finance, diplomacy, and fashion.",
+      "QuestionTh": "น้ำซุปหม้อไฟแบบใดที่เหมาะกับผู้ที่ไม่ชอบเผ็ด?",
+      "ChoicesTh": [
+        "น้ำซุปใสหรือน้ำซุปกระดูก",
+        "น้ำซุปเสฉวนเผ็ด",
+        "น้ำซุปแกงเผ็ด",
+        "น้ำซุปกิมจิ"
+      ],
+      "TriviaTh": "น้ำซุปใสหรือน้ำซุปกระดูกมีรสอ่อนโยน เหมาะสำหรับผู้ที่ไม่ชอบรสเผ็ดหรือรสจัดจ้าน"
+    },
+    {
+      "Id": 111,
+      "Question": "Which planet is the fifth from the Sun?",
+      "Choices": [
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Neptune"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Jupiter is a gas giant and the largest planet in our solar system.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการรักษาคุณภาพน้ำซุปขณะรับประทาน?",
+      "ChoicesTh": [
+        "รักษาไฟอ่อนๆ ตลอดเวลา",
+        "เติมน้ำเย็นเป็นประจำ",
+        "ปิดฝาตลอดเวลา",
+        "เพิ่มไฟแรงเป็นระยะ"
+      ],
+      "TriviaTh": "การรักษาไฟอ่อนๆ ช่วยให้น้ำซุปเดือดพอดี ไม่ระเหยเร็วเกินไป และรสชาติคงที่"
+    },
+    {
+      "Id": 112,
+      "Question": "Who was the first man to fly solo across the Atlantic?",
+      "Choices": [
+        "Charles Lindbergh",
+        "Howard Hughes",
+        "Chuck Yeager",
+        "Orville Wright"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Lindbergh's plane was named the 'Spirit of St. Louis'.",
+      "QuestionTh": "เนื้อสัตว์ชนิดใดที่ใช้เวลาปรุงนานที่สุดในหมูกระทะ?",
+      "ChoicesTh": [
+        "เนื้อวัวหนา",
+        "หมูบาง",
+        "กุ้ง",
+        "ผัก"
+      ],
+      "TriviaTh": "เนื้อวัวหนาต้องใช้เวลาปรุงนานกว่าเนื้อบางหรืออาหารทะเล เพื่อให้สุกทั่วถึง"
+    },
+    {
+      "Id": 113,
+      "Question": "What is the chemical symbol for Carbon?",
+      "Choices": [
+        "Ca",
+        "Co",
+        "C",
+        "Cr"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Carbon is the basis of all known life on Earth.",
+      "QuestionTh": "ข้าวชนิดใดที่มักเสิร์ฟพร้อมกับหมูกระทะในไทย?",
+      "ChoicesTh": [
+        "ข้าวหอมมะลิ",
+        "ข้าวซูชิ",
+        "ข้าวบาสมาติ",
+        "ข้าวกล้อง"
+      ],
+      "TriviaTh": "ข้าวหอมมะลิเป็นข้าวที่นิยมที่สุดในประเทศไทย มีกลิ่นหอมและรสชาติที่เข้ากันดีกับอาหารไทย"
+    },
+    {
+      "Id": 114,
+      "Question": "Which country is home to the Colosseum?",
+      "Choices": [
+        "Greece",
+        "Italy",
+        "Spain",
+        "France"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The Colosseum was used for gladiatorial contests and public spectacles.",
+      "QuestionTh": "เครื่องดื่มใดที่นิยมดื่มคู่กับหมูกระทะ?",
+      "ChoicesTh": [
+        "น้ำเต้าหู้เย็นหรือชาเย็น",
+        "กาแฟดำ",
+        "น้ำอัดลมรสส้ม",
+        "น้ำแร่ร้อน"
+      ],
+      "TriviaTh": "น้ำเต้าหู้เย็นและชาเย็นเป็นเครื่องดื่มยอดนิยมที่ช่วยดับความร้อนและเข้ากันได้ดีกับหมูกระทะ"
+    },
+    {
+      "Id": 115,
+      "Question": "What is the study of stars called?",
+      "Choices": [
+        "Astrology",
+        "Astronomy",
+        "Biology",
+        "Geology"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Astronomy is the study of celestial objects and phenomena.",
+      "QuestionTh": "ไขมันในหมูช่วยอะไรขณะย่าง?",
+      "ChoicesTh": [
+        "ป้องกันเนื้อติดกระทะและเพิ่มรสชาติ",
+        "ทำให้เนื้อแข็ง",
+        "เพิ่มเวลาปรุง",
+        "ลดอุณหภูมิกระทะ"
+      ],
+      "TriviaTh": "ไขมันหมูละลายเมื่อโดนความร้อน ช่วยหล่อลื่นกระทะและเพิ่มรสชาติให้กับเนื้อ"
+    },
+    {
+      "Id": 116,
+      "Question": "Who was the Greek god of the sun?",
+      "Choices": [
+        "Zeus",
+        "Apollo",
+        "Hermes",
+        "Ares"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Apollo was the god of many things, including music, poetry, and prophecy.",
+      "QuestionTh": "เส้นเลือดในหมูกระทะหมายถึงอะไร?",
+      "ChoicesTh": [
+        "ลวดลายไขมันแทรกในเนื้อ",
+        "เส้นเอ็น",
+        "กระดูกอ่อน",
+        "หลอดเลือด"
+      ],
+      "TriviaTh": "ลวดลายไขมันแทรกหรือมาร์บลิ่งทำให้เนื้อนุ่มและมีรสชาติดีขึ้นเมื่อปรุงสุก"
+    },
+    {
+      "Id": 117,
+      "Question": "What is the capital city of the United Kingdom?",
+      "Choices": [
+        "Edinburgh",
+        "Cardiff",
+        "Belfast",
+        "London"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "London stands on the River Thames in the south-east of England.",
+      "QuestionTh": "ผักชนิดใดให้วิตามินซีสูงที่สุดในหมูกระทะ?",
+      "ChoicesTh": [
+        "พริกหวาน",
+        "ผักบุ้ง",
+        "กะหล่ำปลี",
+        "ข้าวโพด"
+      ],
+      "TriviaTh": "พริกหวานมีวิตามินซีสูงมาก โดยเฉพาะพริกหวานแดงและเหลือง มากกว่าส้มเสียอีก"
+    },
+    {
+      "Id": 118,
+      "Question": "Which animal is the largest land animal?",
+      "Choices": [
+        "Rhinoceros",
+        "Hippopotamus",
+        "Elephant",
+        "Giraffe"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "African elephants are the largest, with males reaching 4 meters in height.",
+      "QuestionTh": "ทำไมจึงต้องนำน้ำซุปออกจากกองไฟก่อนเพิ่มส่วนผสมใหม่?",
+      "ChoicesTh": [
+        "เพื่อป้องกันน้ำซุปเดือดแรงเกินไป",
+        "เพื่อเพิ่มรสชาติ",
+        "เพื่อให้เย็นลง",
+        "เพื่อกรองน้ำซุป"
+      ],
+      "TriviaTh": "การลดความร้อนก่อนเพิ่มส่วนผสมช่วยป้องกันการกระเด็นและให้ส่วนผสมกระจายตัวสม่ำเสมอ"
+    },
+    {
+      "Id": 119,
+      "Question": "What is the chemical symbol for Copper?",
+      "Choices": [
+        "Co",
+        "Cp",
+        "Cu",
+        "Cr"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Copper was the first metal to be worked by humans.",
+      "QuestionTh": "แป้งชนิดใดบางครั้งใช้ทำให้น้ำซุปข้นขึ้น?",
+      "ChoicesTh": [
+        "แป้งข้าวโพด",
+        "แป้งสาลี",
+        "แป้งมันสำปะหลัง",
+        "แป้งข้าวเจ้า"
+      ],
+      "TriviaTh": "แป้งข้าวโพดละลายน้ำแล้วผสมลงในน้ำซุปช่วยให้น้ำซุปข้นขึ้นโดยไม่เปลี่ยนรสชาติมากนัก"
+    },
+    {
+      "Id": 120,
+      "Question": "Who invented the light bulb?",
+      "Choices": [
+        "Nikola Tesla",
+        "Thomas Edison",
+        "Benjamin Franklin",
+        "Alexander Graham Bell"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Edison had over 1,000 patents for his inventions.",
+      "QuestionTh": "ข้อใดคือข้อดีของการใช้หม้อไฟฟ้าแทนเตาแก๊ส?",
+      "ChoicesTh": [
+        "ปลอดภัยกว่าและควบคุมอุณหภูมิได้แม่นยำ",
+        "ราคาถูกกว่า",
+        "ให้ความร้อนเร็วกว่า",
+        "ใช้ไฟฟ้าน้อยกว่า"
+      ],
+      "TriviaTh": "หม้อไฟฟ้ามีความปลอดภัยสูงกว่า ไม่มีเปลวไฟเปิด และสามารถตั้งอุณหภูมิได้แม่นยำกว่าเตาแก๊ส"
+    },
+    {
+      "Id": 121,
+      "Question": "Which country is the home of the polar bear?",
+      "Choices": [
+        "Antarctica",
+        "Arctic",
+        "Canada",
+        "Norway"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Polar bears are found only in the Arctic circle.",
+      "QuestionTh": "ส่วนใดของไก่ที่นิยมใส่ในหมูกระทะ?",
+      "ChoicesTh": [
+        "อกและต้นขา",
+        "กึ๋น",
+        "ตับ",
+        "เท้า"
+      ],
+      "TriviaTh": "อกและต้นขาไก่นิยมใช้เพราะเนื้อนุ่ม สุกเร็ว และมีรสชาติดี"
+    },
+    {
+      "Id": 122,
+      "Question": "What is the most common element in the universe?",
+      "Choices": [
+        "Oxygen",
+        "Carbon",
+        "Helium",
+        "Hydrogen"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Hydrogen makes up about 75% of the elemental mass of the universe.",
+      "QuestionTh": "เห็ดชนิดใดมีรสชาติเข้มข้นและหอมมากที่สุด?",
+      "ChoicesTh": [
+        "เห็ดหอม",
+        "เห็ดนางฟ้า",
+        "เห็ดเข็มทอง",
+        "เห็ดฟาง"
+      ],
+      "TriviaTh": "เห็ดหอมมีกลิ่นหอมและรสชาติเข้มข้น เป็นที่นิยมในอาหารเอเชียมาช้านาน"
+    },
+    {
+      "Id": 123,
+      "Question": "Who was the Roman goddess of love?",
+      "Choices": [
+        "Juno",
+        "Minerva",
+        "Diana",
+        "Venus"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Venus was the Roman equivalent of the Greek goddess Aphrodite.",
+      "QuestionTh": "ข้อใดคือเหตุผลหลักที่ต้องใช้กระทะเฉพาะในหมูกระทะ?",
+      "ChoicesTh": [
+        "มีโดมสำหรับย่างและร่องสำหรับต้ม",
+        "สวยงามกว่า",
+        "ราคาถูกกว่า",
+        "ทำความสะอาดง่ายกว่า"
+      ],
+      "TriviaTh": "กระทะหมูกระทะออกแบบมาเฉพาะ มีโดมตรงกลางสำหรับย่างและร่องรอบนอกสำหรับต้มน้ำซุปพร้อมกัน"
+    },
+    {
+      "Id": 124,
+      "Question": "What is the capital city of Greece?",
+      "Choices": [
+        "Thessaloniki",
+        "Patras",
+        "Heraklion",
+        "Athens"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Athens is one of the world's oldest cities, with a recorded history spanning over 3,400 years.",
+      "QuestionTh": "น้ำจิ้มซีฟู้ดที่เสิร์ฟกับหมูกระทะบางครั้งประกอบด้วยอะไร?",
+      "ChoicesTh": [
+        "พริก กระเทียม น้ำมะนาว",
+        "มายองเนสและซอสมะเขือเทศ",
+        "ซีอิ๊วและขิง",
+        "น้ำผึ้งและมัสตาร์ด"
+      ],
+      "TriviaTh": "น้ำจิ้มซีฟู้ดไทยมักมีพริก กระเทียม น้ำมะนาว และน้ำปลา ให้รสเปรี้ยวเผ็ดสดชื่น"
+    },
+    {
+      "Id": 125,
+      "Question": "Which vitamin is produced in the liver?",
+      "Choices": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin K"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Vitamin A is important for normal vision and the immune system.",
+      "QuestionTh": "ข้อใดคือผลเสียของการย่างเนื้อด้วยไฟแรงเกินไป?",
+      "ChoicesTh": [
+        "เนื้อไหม้ภายนอกแต่ดิบภายใน",
+        "เนื้อสุกเร็วขึ้น",
+        "รสชาติดีขึ้น",
+        "เนื้อนุ่มขึ้น"
+      ],
+      "TriviaTh": "ไฟแรงเกินไปทำให้ผิวนอกไหม้ก่อนที่ความร้อนจะซึมเข้าไปทำให้สุกภายใน"
+    },
+    {
+      "Id": 126,
+      "Question": "What is the currency of South Korea?",
+      "Choices": [
+        "Yen",
+        "Yuan",
+        "Won",
+        "Dong"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The South Korean Won has been the official currency since 1945.",
+      "QuestionTh": "เครื่องเทศใดมักใช้ในน้ำซุปหมูกระทะไทยสไตล์ต้มยำ?",
+      "ChoicesTh": [
+        "ตะไคร้ ข่า ใบมะกรูด",
+        "อบเชย กานพลู ลูกจันทน์เทศ",
+        "กระวาน ยี่หร่า ผักชีลา",
+        "พริกปาปริก้า ออริกาโน โหระพา"
+      ],
+      "TriviaTh": "ตะไคร้ ข่า และใบมะกรูดเป็นสามเครื่องเทศหลักที่ให้กลิ่นหอมเป็นเอกลักษณ์ของต้มยำ"
+    },
+    {
+      "Id": 127,
+      "Question": "Who painted 'The Last Supper'?",
+      "Choices": [
+        "Michelangelo",
+        "Leonardo da Vinci",
+        "Raphael",
+        "Donatello"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The painting represents the scene of the Last Supper of Jesus with his apostles.",
+      "QuestionTh": "ข้าวโพดในหมูกระทะให้ประโยชน์อะไร?",
+      "ChoicesTh": [
+        "เพิ่มความหวานตามธรรมชาติให้น้ำซุป",
+        "ทำให้น้ำซุปข้นขึ้น",
+        "ลดความเผ็ด",
+        "เพิ่มโปรตีน"
+      ],
+      "TriviaTh": "ข้าวโพดต้มในน้ำซุปจะปล่อยน้ำตาลตามธรรมชาติออกมา ช่วยเพิ่มความหวานกลมกล่อมให้น้ำซุป"
+    },
+    {
+      "Id": 128,
+      "Question": "Which country is the largest by land area in Africa?",
+      "Choices": [
+        "Nigeria",
+        "Ethiopia",
+        "Egypt",
+        "Algeria"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Algeria became the largest country in Africa after the partition of Sudan in 2011.",
+      "QuestionTh": "ส่วนผสมใดช่วยทำให้น้ำซุปหม้อไฟมีกลิ่นหอม?",
+      "ChoicesTh": [
+        "กระดูกหมูหรือไก่ต้มนาน",
+        "ผงชูรส",
+        "น้ำตาล",
+        "เกลือ"
+      ],
+      "TriviaTh": "การต้มกระดูกนานหลายชั่วโมงจะดึงคอลลาเจนและแร่ธาตุออกมา ทำให้น้ำซุปมีกลิ่นหอมและรสชาติลึก"
+    },
+    {
+      "Id": 129,
+      "Question": "What is the capital city of India?",
+      "Choices": [
+        "Mumbai",
+        "Kolkata",
+        "New Delhi",
+        "Chennai"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "New Delhi was designed by British architects Edwin Lutyens and Herbert Baker.",
+      "QuestionTh": "เต้าหู้ชนิดใดที่เหมาะสำหรับใส่ในน้ำซุปร้อน?",
+      "ChoicesTh": [
+        "เต้าหู้แข็ง",
+        "เต้าหู้ไหม",
+        "เต้าหู้นิ่ม",
+        "เต้าหู้หลอด"
+      ],
+      "TriviaTh": "เต้าหู้แข็งรักษารูปทรงได้ดีในน้ำซุปร้อน ในขณะที่เต้าหู้นิ่มอาจแตกสลายได้ง่าย"
+    },
+    {
+      "Id": 130,
+      "Question": "Which gas is used in fire extinguishers?",
+      "Choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon Dioxide",
+        "Argon"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Carbon dioxide displaces oxygen, which fire needs to burn.",
+      "QuestionTh": "ผักใดให้สีสวยงามที่สุดในหมูกระทะ?",
+      "ChoicesTh": [
+        "พริกหวานสีแดง เหลือง และเขียว",
+        "กะหล่ำปลี",
+        "ผักบุ้ง",
+        "เห็ดเข็มทอง"
+      ],
+      "TriviaTh": "พริกหวานหลากสีเพิ่มสีสันสวยงามให้กับจาน และยังอุดมไปด้วยวิตามินซีและสารต้านอนุมูลอิสระ"
+    },
+    {
+      "Id": 131,
+      "Question": "Who was the first woman to win a Nobel Prize in Chemistry?",
+      "Choices": [
+        "Marie Curie",
+        "Irène Joliot-Curie",
+        "Dorothy Hodgkin",
+        "Ada Yonath"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Marie Curie won the prize for her discovery of the elements radium and polonium.",
+      "QuestionTh": "ข้อใดไม่ใช่ลักษณะของเนื้อหมูสดที่มีคุณภาพดี?",
+      "ChoicesTh": [
+        "สีเทาหรือน้ำตาลเข้ม",
+        "สีชมพูอมแดง",
+        "เนื้อแน่นไม่เหลวแฉะ",
+        "กลิ่นสดไม่มีกลิ่นคาวรุนแรง"
+      ],
+      "TriviaTh": "เนื้อหมูสดที่มีคุณภาพดีควรมีสีชมพูอมแดง เนื้อแน่น และกลิ่นสด สีเทาหรือน้ำตาลเข้มอาจบ่งบอกว่าเนื้อไม่สด"
+    },
+    {
+      "Id": 132,
+      "Question": "What is the chemical symbol for Nitrogen?",
+      "Choices": [
+        "Ni",
+        "Ne",
+        "N",
+        "Na"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Nitrogen was discovered by Scottish physician Daniel Rutherford in 1772.",
+      "QuestionTh": "ทำไมบางคนจึงเติมนมหรือกะทิลงในน้ำซุปหม้อไฟ?",
+      "ChoicesTh": [
+        "เพื่อให้รสชาติครีมมี่และลดความเผ็ด",
+        "เพื่อเพิ่มโปรตีน",
+        "เพื่อทำให้น้ำซุปใส",
+        "เพื่อเพิ่มแคลเซียม"
+      ],
+      "TriviaTh": "กะทิหรือนมช่วยให้น้ำซุปมีความครีมมี่ และยังช่วยลดความเผ็ดจากพริกได้"
+    },
+    {
+      "Id": 133,
+      "Question": "Which country invented gunpowder?",
+      "Choices": [
+        "India",
+        "China",
+        "Europe",
+        "Arabs"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Gunpowder is one of the Four Great Inventions of China.",
+      "QuestionTh": "วิธีใดที่ดีที่สุดในการทดสอบว่าน้ำซุปพร้อมใช้หรือยัง?",
+      "ChoicesTh": [
+        "ชิมรสชาติและปรับตามต้องการ",
+        "วัดอุณหภูมิ",
+        "สังเกตสี",
+        "นับเวลา"
+      ],
+      "TriviaTh": "การชิมรสชาติเป็นวิธีที่ดีที่สุดในการตรวจสอบความพอดีของน้ำซุป และสามารถปรับเพิ่มเครื่องปรุงได้ตามต้องการ"
+    },
+    {
+      "Id": 134,
+      "Question": "Who wrote 'Pride and Prejudice'?",
+      "Choices": [
+        "Charlotte Brontë",
+        "Jane Austen",
+        "Emily Brontë",
+        "Mary Shelley"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The novel was first published in 1813.",
+      "QuestionTh": "ลูกชิ้นในหมูกระทะทำมาจากอะไร?",
+      "ChoicesTh": [
+        "เนื้อสัตว์บดผสมแป้งและเครื่องปรุง",
+        "แป้งล้วนๆ",
+        "ผักบดอัด",
+        "เต้าหู้แข็ง"
+      ],
+      "TriviaTh": "ลูกชิ้นทำจากเนื้อสัตว์บด (หมู วัว หรือปลา) ผสมกับแป้งและเครื่องปรุงแล้วปั้นเป็นลูกกลม"
+    },
+    {
+      "Id": 135,
+      "Question": "What is the capital city of Brazil?",
+      "Choices": [
+        "Rio de Janeiro",
+        "São Paulo",
+        "Brasília",
+        "Salvador"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Brasília was a planned city, inaugurated in 1960.",
+      "QuestionTh": "ทำไมจึงควรหั่นเนื้อเป็นชิ้นบางสำหรับหมูกระทะ?",
+      "ChoicesTh": [
+        "สุกเร็วขึ้นและดูดซับรสชาติได้ดีกว่า",
+        "ดูสวยงามกว่า",
+        "ราคาถูกกว่า",
+        "เก็บรักษาได้นานกว่า"
+      ],
+      "TriviaTh": "เนื้อบางสุกเร็วและมีพื้นที่ผิวมากขึ้นสำหรับดูดซับน้ำซุปและรสชาติ"
+    },
+    {
+      "Id": 136,
+      "Question": "Which planet is the seventh from the Sun?",
+      "Choices": [
+        "Saturn",
+        "Uranus",
+        "Neptune",
+        "Jupiter"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Uranus is an ice giant and has a unique tilt on its axis.",
+      "QuestionTh": "ข้อใดคือวิธีที่ถูกต้องในการจัดการอาหารดิบในหมูกระทะ?",
+      "ChoicesTh": [
+        "ใช้อุปกรณ์แยกสำหรับอาหารดิบและสุก",
+        "ใช้ตะเกียบเดิมตลอด",
+        "ผสมอาหารดิบและสุกรวมกัน",
+        "ไม่จำเป็นต้องระวัง"
+      ],
+      "TriviaTh": "การใช้อุปกรณ์แยกสำหรับอาหารดิบและสุกช่วยป้องกันการปนเปื้อนข้ามของแบคทีเรีย"
+    },
+    {
+      "Id": 137,
+      "Question": "Who was the first person to sail around the world?",
+      "Choices": [
+        "Christopher Columbus",
+        "Vasco da Gama",
+        "Ferdinand Magellan",
+        "James Cook"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Magellan died in the Philippines, but his crew completed the circumnavigation.",
+      "QuestionTh": "ข้อใดคือสัญญาณที่บ่งบอกว่าน้ำซุปต้องเติมน้ำ?",
+      "ChoicesTh": [
+        "ระดับน้ำซุปลดลงและรสเค็มขึ้น",
+        "น้ำซุปเดือดแรง",
+        "สีน้ำซุปเปลี่ยน",
+        "มีฟองขึ้น"
+      ],
+      "TriviaTh": "เมื่อน้ำซุประเหยออกไป ระดับจะลดลงและรสชาติจะเข้มข้นขึ้น การเติมน้ำร้อนช่วยรักษาปริมาณและรสชาติ"
+    },
+    {
+      "Id": 138,
+      "Question": "What is the chemical symbol for Oxygen?",
+      "Choices": [
+        "Ox",
+        "O",
+        "O2",
+        "Oz"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Oxygen is the third most abundant element in the universe.",
+      "QuestionTh": "ของหวานแบบไทยชนิดใดที่มักรับประทานหลังหมูกระทะ?",
+      "ChoicesTh": [
+        "ไอศกรีมหรือผลไม้สด",
+        "เค้กช็อกโกแลต",
+        "พุดดิ้ง",
+        "มูสสตรอเบอร์รี"
+      ],
+      "TriviaTh": "ไอศกรีมและผลไม้สดช่วยดับร้อนและความมันหลังรับประทานหมูกระทะ เป็นที่นิยมมากในไทย"
+    },
+    {
+      "Id": 139,
+      "Question": "Which country is home to the Eiffel Tower?",
+      "Choices": [
+        "England",
+        "Italy",
+        "Spain",
+        "France"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "The tower was built for the 1889 World's Fair in Paris.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่หมูกระทะเป็นอาหารยอดนิยมในสังคม?",
+      "ChoicesTh": [
+        "รับประทานร่วมกันได้ทำให้เกิดความสนุกสนาน",
+        "ราคาถูกที่สุด",
+        "ปรุงง่ายที่สุด",
+        "มีแคลอรี่น้อย"
+      ],
+      "TriviaTh": "หมูกระทะเป็นกิจกรรมทางสังคม ทุกคนนั่งล้อมกระทะและปรุงอาหารร่วมกัน สร้างบรรยากาศสนุกสนานและใกล้ชิด"
+    },
+    {
+      "Id": 140,
+      "Question": "What is the study of plants called?",
+      "Choices": [
+        "Zoology",
+        "Botany",
+        "Biology",
+        "Geology"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Botany is one of the world's oldest sciences.",
+      "QuestionTh": "อุณหภูมิภายในที่ปลอดภัยสำหรับเนื้อหมูที่ปรุงสุกแล้วคือเท่าไร?",
+      "ChoicesTh": [
+        "71 องศาเซลเซียส (160°F)",
+        "50 องศาเซลเซียส",
+        "90 องศาเซลเซียส",
+        "100 องศาเซลเซียส"
+      ],
+      "TriviaTh": "USDA แนะนำให้ปรุงเนื้อหมูถึงอุณหภูมิภายใน 71°C (160°F) เพื่อความปลอดภัยในการบริโภค"
+    },
+    {
+      "Id": 141,
+      "Question": "Who was the Greek goddess of wisdom?",
+      "Choices": [
+        "Hera",
+        "Athena",
+        "Artemis",
+        "Aphrodite"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Athena was the patron goddess of the city of Athens.",
+      "QuestionTh": "ฮอร์โมนหมูที่นิยมในหมูกระทะคือส่วนใดของหมู?",
+      "ChoicesTh": [
+        "เครื่องใน เช่น ลำไส้ กระเพาะ ตับ",
+        "สันใน",
+        "ขาหมู",
+        "หัวหมู"
+      ],
+      "TriviaTh": "ฮอร์โมนหมูหมายถึงเครื่องในหมูหลายชนิด นิยมนำมาย่างในหมูกระทะเพราะมีรสชาติเข้มข้น"
+    },
+    {
+      "Id": 142,
+      "Question": "What is the capital city of South Africa?",
+      "Choices": [
+        "Johannesburg",
+        "Cape Town",
+        "Pretoria",
+        "Durban"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "South Africa has three capital cities; Pretoria is the administrative capital.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ต้องล้างเครื่องในก่อนปรุง?",
+      "ChoicesTh": [
+        "เพื่อขจัดกลิ่นและสิ่งสกปรก",
+        "เพื่อทำให้นุ่มขึ้น",
+        "เพื่อเพิ่มรสชาติ",
+        "เพื่อลดแคลอรี่"
+      ],
+      "TriviaTh": "การล้างเครื่องในด้วยน้ำเกลือหรือน้ำมะนาวช่วยขจัดกลิ่นคาวและสิ่งสกปรก"
+    },
+    {
+      "Id": 143,
+      "Question": "Which animal is the largest bird in the world?",
+      "Choices": [
+        "Emu",
+        "Ostrich",
+        "Albatross",
+        "Condor"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The ostrich is the only bird that has two toes on each foot.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการเก็บรักษาเนื้อสัตว์ที่เหลือหลังหมูกระทะ?",
+      "ChoicesTh": [
+        "แช่เย็นในภาชนะปิดสนิทภายใน 2 ชั่วโมง",
+        "ทิ้งไว้ที่อุณหภูมิห้อง",
+        "แช่แข็งทันที",
+        "ห่อด้วยกระดาษ"
+      ],
+      "TriviaTh": "อาหารที่ปรุงสุกแล้วควรแช่เย็นภายใน 2 ชั่วโมงเพื่อป้องกันการเจริญเติบโตของแบคทีเรีย"
+    },
+    {
+      "Id": 144,
+      "Question": "What is the chemical symbol for Aluminum?",
+      "Choices": [
+        "Al",
+        "Am",
+        "Au",
+        "An"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Aluminum is the third most abundant element in the Earth's crust.",
+      "QuestionTh": "ถ่านชนิดใดที่ดีที่สุดสำหรับย่างหมูกระทะ?",
+      "ChoicesTh": [
+        "ถ่านไม้หรือถ่านไม้ผล",
+        "ถ่านหิน",
+        "ไม้อัด",
+        "ก๊าซหุงต้ม"
+      ],
+      "TriviaTh": "ถ่านไม้ธรรมชาติให้ความร้อนสม่ำเสมอและไม่มีสารเคมีที่อาจส่งผลต่อรสชาติอาหาร"
+    },
+    {
+      "Id": 145,
+      "Question": "Who invented the printing press?",
+      "Choices": [
+        "Leonardo da Vinci",
+        "Johannes Gutenberg",
+        "Isaac Newton",
+        "Galileo Galilei"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The printing press started the Printing Revolution.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่หมูกระทะมักเสิร์ฟพร้อมผักสด?",
+      "ChoicesTh": [
+        "เพื่อสมดุลโภชนาการและเพิ่มความสดชื่น",
+        "เพื่อลดต้นทุน",
+        "เพื่อให้ดูสวยงาม",
+        "เพราะผักปรุงสุกไม่ได้"
+      ],
+      "TriviaTh": "ผักสดให้วิตามิน แร่ธาตุ และใยอาหาร ช่วยสมดุลโภชนาการกับเนื้อสัตว์และช่วยย่อยอาหาร"
+    },
+    {
+      "Id": 146,
+      "Question": "Which country is the home of the panda?",
+      "Choices": [
+        "Vietnam",
+        "Thailand",
+        "China",
+        "Japan"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Giant pandas are native to south-central China.",
+      "QuestionTh": "ทำไมจึงควรเปลี่ยนน้ำมันหรือเช็ดกระทะระหว่างการย่าง?",
+      "ChoicesTh": [
+        "ป้องกันเนื้อไหม้และรสขม",
+        "เพิ่มความร้อน",
+        "ทำให้เนื้อสุกเร็วขึ้น",
+        "ลดควัน"
+      ],
+      "TriviaTh": "น้ำมันที่ไหม้จะทำให้เกิดรสขมและควันมากขึ้น การเช็ดกระทะระหว่างการย่างช่วยรักษาคุณภาพรสชาติ"
+    },
+    {
+      "Id": 147,
+      "Question": "What is the most abundant metal in the Earth's crust?",
+      "Choices": [
+        "Iron",
+        "Aluminum",
+        "Silicon",
+        "Magnesium"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Aluminum is very light and resistant to corrosion.",
+      "QuestionTh": "เครื่องปรุงใดที่มักโรยบนเนื้อหลังย่างสุก?",
+      "ChoicesTh": [
+        "งาคั่ว",
+        "พริกป่น",
+        "น้ำตาล",
+        "เกลือทะเล"
+      ],
+      "TriviaTh": "งาคั่วให้กลิ่นหอมและรสชาติที่เข้มข้น นิยมโรยบนเนื้อย่างเพื่อเพิ่มรสและความสวยงาม"
+    },
+    {
+      "Id": 148,
+      "Question": "Who was the Roman god of the sky?",
+      "Choices": [
+        "Mars",
+        "Neptune",
+        "Jupiter",
+        "Apollo"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Jupiter was the king of the gods in Roman mythology.",
+      "QuestionTh": "ข้อใดไม่ใช่ประเภทของน้ำซุปที่ใช้ในหม้อไฟ?",
+      "ChoicesTh": [
+        "น้ำซุปมะเขือเทศเผ็ดแบบอิตาลี",
+        "น้ำซุปกระดูก",
+        "น้ำซุปต้มยำ",
+        "น้ำซุปใส"
+      ],
+      "TriviaTh": "น้ำซุปมะเขือเทศแบบอิตาลีไม่ใช่น้ำซุปแบบดั้งเดิมของหม้อไฟเอเชีย"
+    },
+    {
+      "Id": 149,
+      "Question": "What is the capital city of Mexico?",
+      "Choices": [
+        "Cancún",
+        "Guadalajara",
+        "Mexico City",
+        "Monterrey"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Mexico City is the oldest capital city in the Americas.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการหั่นหมูสำหรับหมูกระทะ?",
+      "ChoicesTh": [
+        "หั่นขวางเส้นใยเนื้อให้บาง",
+        "หั่นตามเส้นใยเนื้อ",
+        "หั่นเป็นก้อนใหญ่",
+        "บดให้ละเอียด"
+      ],
+      "TriviaTh": "การหั่นขวางเส้นใยเนื้อทำให้เนื้อนุ่มขึ้น เพราะตัดเส้นใยกล้ามเนื้อที่ยาวออกจากกัน"
+    },
+    {
+      "Id": 150,
+      "Question": "Which vitamin is important for blood clotting?",
+      "Choices": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin K"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Vitamin K is a fat-soluble vitamin.",
+      "QuestionTh": "ผักประเภทใดที่ควรหลีกเลี่ยงในหม้อไฟเพราะสุกช้าเกินไป?",
+      "ChoicesTh": [
+        "มันเทศหรือฟักทองดิบ",
+        "ผักบุ้ง",
+        "เห็ด",
+        "วุ้นเส้น"
+      ],
+      "TriviaTh": "มันเทศและฟักทองใช้เวลาสุกนานกว่าผักอื่นมาก ควรหุงหรือนึ่งก่อนแล้วค่อยใส่ในน้ำซุป"
+    },
+    {
+      "Id": 151,
+      "Question": "What is the currency of India?",
+      "Choices": [
+        "Rupee",
+        "Rial",
+        "Rubel",
+        "Rupiah"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "The Indian Rupee is the official currency of India.",
+      "QuestionTh": "ข้อใดคือส่วนผสมหลักของน้ำจิ้มงา?",
+      "ChoicesTh": [
+        "งาบด น้ำมันงา ซีอิ๊ว",
+        "มายออเนสและมัสตาร์ด",
+        "น้ำปลาและน้ำมะนาว",
+        "พริกและกระเทียม"
+      ],
+      "TriviaTh": "น้ำจิ้มงาทำจากงาบด น้ำมันงา ซีอิ๊ว และส่วนผสมอื่นๆ ให้รสชาติเข้มข้นและหอมมัน"
+    },
+    {
+      "Id": 152,
+      "Question": "Who discovered gravity?",
+      "Choices": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Charles Darwin"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The story of the falling apple is a famous legend about Newton's discovery.",
+      "QuestionTh": "ทำไมจึงต้องระวังเรื่องปริมาณโซเดียมในหมูกระทะ?",
+      "ChoicesTh": [
+        "น้ำซุปและน้ำจิ้มมักมีโซเดียมสูง",
+        "เนื้อสัตว์มีโซเดียมสูง",
+        "ผักมีโซเดียมสูง",
+        "ข้าวมีโซเดียมสูง"
+      ],
+      "TriviaTh": "น้ำซุป ซอส และน้ำจิ้มมักมีโซเดียมสูงมาก ผู้ที่มีปัญหาความดันโลหิตสูงควรระมัดระวัง"
+    },
+    {
+      "Id": 153,
+      "Question": "Which country is the largest in Europe by land area?",
+      "Choices": [
+        "Germany",
+        "France",
+        "Ukraine",
+        "Spain"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "France is the largest country in the European Union.",
+      "QuestionTh": "วิธีใดช่วยลดปริมาณไขมันในหมูกระทะ?",
+      "ChoicesTh": [
+        "เลือกส่วนเนื้อที่ไขมันน้อยและไม่ดื่มน้ำซุปมาก",
+        "ใช้น้ำมันมากขึ้น",
+        "เพิ่มเนื้อสัตว์",
+        "เพิ่มเวลาการปรุง"
+      ],
+      "TriviaTh": "การเลือกเนื้อส่วนที่ไขมันน้อย เช่น สันใน และหลีกเลี่ยงการดื่มน้ำซุปมากช่วยลดปริมาณไขมันที่ได้รับ"
+    },
+    {
+      "Id": 154,
+      "Question": "What is the capital city of Turkey?",
+      "Choices": [
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Bursa"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Ankara became the capital in 1923, succeeding Istanbul.",
+      "QuestionTh": "ข้อใดคือข้อดีของการใช้กะทะเหล็กหล่อในหมูกระทะ?",
+      "ChoicesTh": [
+        "กักเก็บและกระจายความร้อนได้ดีเยี่ยม",
+        "น้ำหนักเบา",
+        "ราคาถูก",
+        "ทำความสะอาดง่าย"
+      ],
+      "TriviaTh": "เหล็กหล่อมีความสามารถในการกักเก็บความร้อนสูง ทำให้อุณหภูมิคงที่และย่างอาหารได้สม่ำเสมอ"
+    },
+    {
+      "Id": 155,
+      "Question": "Which gas is used in neon signs?",
+      "Choices": [
+        "Argon",
+        "Krypton",
+        "Neon",
+        "Xenon"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Neon gives off a distinct reddish-orange glow.",
+      "QuestionTh": "ข้อใดคือปัญหาที่พบบ่อยเมื่อใช้กระทะหมูกระทะครั้งแรก?",
+      "ChoicesTh": [
+        "เนื้อติดกระทะเพราะไม่ได้ปรับสภาพกระทะ",
+        "น้ำซุปไม่ร้อน",
+        "ผักสุกเร็วเกินไป",
+        "น้ำจิ้มไม่อร่อย"
+      ],
+      "TriviaTh": "กระทะใหม่ต้องผ่านการปรับสภาพด้วยน้ำมันก่อนใช้งาน เพื่อสร้างชั้นป้องกันการติด"
+    },
+    {
+      "Id": 156,
+      "Question": "Who was the first person to win two Nobel Prizes?",
+      "Choices": [
+        "Albert Einstein",
+        "Linus Pauling",
+        "Marie Curie",
+        "John Bardeen"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Marie Curie won in Physics and Chemistry.",
+      "QuestionTh": "ข้อใดคือสาเหตุที่น้ำซุปหม้อไฟมีรสชาติดีขึ้นเมื่อเวลาผ่านไป?",
+      "ChoicesTh": [
+        "ส่วนผสมต่างๆ ปล่อยรสชาติและผสมผสานกัน",
+        "น้ำซุประเหย",
+        "น้ำซุปเย็นลง",
+        "เกลือละลายหมด"
+      ],
+      "TriviaTh": "เมื่อเวลาผ่านไป เนื้อสัตว์ ผัก และเครื่องเทศจะปล่อยรสชาติออกมาและผสมผสานกัน ทำให้น้ำซุปมีรสชาติลึกขึ้น"
+    },
+    {
+      "Id": 157,
+      "Question": "What is the chemical symbol for Silicon?",
+      "Choices": [
+        "S",
+        "Si",
+        "Sl",
+        "Sn"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Silicon is widely used in electronic components.",
+      "QuestionTh": "แครอตในหมูกระทะให้ประโยชน์อะไร?",
+      "ChoicesTh": [
+        "ให้ความหวานตามธรรมชาติและวิตามินเอ",
+        "ให้โปรตีนสูง",
+        "ทำให้น้ำซุปข้น",
+        "ลดความเผ็ด"
+      ],
+      "TriviaTh": "แครอตให้ความหวานตามธรรมชาติแก่น้ำซุปและอุดมไปด้วยเบตาแคโรทีนซึ่งร่างกายเปลี่ยนเป็นวิตามินเอ"
+    },
+    {
+      "Id": 158,
+      "Question": "Which country invented chess?",
+      "Choices": [
+        "China",
+        "India",
+        "Persia",
+        "Europe"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Chess is believed to have originated in India before the 7th century.",
+      "QuestionTh": "ข้อใดคือวิธีที่ถูกต้องในการละลายน้ำแข็งเนื้อหมูก่อนใช้?",
+      "ChoicesTh": [
+        "ค่อยๆ ละลายในตู้เย็นข้ามคืน",
+        "ละลายที่อุณหภูมิห้อง",
+        "ใส่ในน้ำร้อน",
+        "ใช้ไมโครเวฟ"
+      ],
+      "TriviaTh": "การละลายน้ำแข็งในตู้เย็นเป็นวิธีที่ปลอดภัยที่สุด เพราะรักษาอุณหภูมิให้ต่ำกว่า 4°C ตลอดเวลา"
+    },
+    {
+      "Id": 159,
+      "Question": "Who wrote 'Moby Dick'?",
+      "Choices": [
+        "Herman Melville",
+        "Nathaniel Hawthorne",
+        "Mark Twain",
+        "Walt Whitman"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "The novel tells the story of the hunt for a white whale.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ต้องพักเนื้อหลังย่าง?",
+      "ChoicesTh": [
+        "ให้น้ำเนื้อกระจายตัวทั่วชิ้นเนื้อ",
+        "ทำให้เนื้อเย็นลง",
+        "ทำให้เนื้อแข็งขึ้น",
+        "ลดแคลอรี่"
+      ],
+      "TriviaTh": "การพักเนื้อหลังย่างช่วยให้น้ำเนื้อกระจายตัวกลับเข้าไปในเนื้อ ทำให้เนื้อชุ่มฉ่ำและนุ่มกว่า"
+    },
+    {
+      "Id": 160,
+      "Question": "What is the capital city of Canada?",
+      "Choices": [
+        "Toronto",
+        "Ottawa",
+        "Montreal",
+        "Vancouver"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Ottawa was established as the capital by Queen Victoria.",
+      "QuestionTh": "ข้อใดคือข้อแตกต่างหลักระหว่างหมูกระทะและชาบู?",
+      "ChoicesTh": [
+        "หมูกระทะมีโดมย่างด้วย ชาบูต้มอย่างเดียว",
+        "ชาบูใช้เนื้อหมูเท่านั้น",
+        "หมูกระทะใช้น้ำซุปร้อนกว่า",
+        "ชาบูมีน้ำจิ้มมากกว่า"
+      ],
+      "TriviaTh": "ชาบูเป็นอาหารญี่ปุ่นที่ต้มเนื้อในน้ำซุปเท่านั้น ในขณะที่หมูกระทะมีทั้งโดมย่างและร่องต้ม"
+    },
+    {
+      "Id": 161,
+      "Question": "Which planet is the eighth from the Sun?",
+      "Choices": [
+        "Uranus",
+        "Neptune",
+        "Pluto",
+        "Jupiter"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Neptune is the most distant planet in our solar system.",
+      "QuestionTh": "ผักใบเขียวชนิดใดที่อุดมไปด้วยธาตุเหล็กและนิยมใส่ในหมูกระทะ?",
+      "ChoicesTh": [
+        "ผักโขม",
+        "กะหล่ำปลี",
+        "ผักกาดขาว",
+        "ข้าวโพด"
+      ],
+      "TriviaTh": "ผักโขมอุดมไปด้วยธาตุเหล็ก แคลเซียม และวิตามินหลายชนิด สุกเร็วในน้ำซุปร้อน"
+    },
+    {
+      "Id": 162,
+      "Question": "Who was the first person to walk in space?",
+      "Choices": [
+        "Neil Armstrong",
+        "Yuri Gagarin",
+        "Alexey Leonov",
+        "Edward White"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Leonov's spacewalk lasted about 12 minutes.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการทำความสะอาดกระทะหมูกระทะ?",
+      "ChoicesTh": [
+        "แช่น้ำอุ่นและใช้แปรงขัดอ่อนๆ",
+        "ใช้ผ้าขัดเหล็ก",
+        "ล้างในเครื่องล้างจาน",
+        "ใช้น้ำยาเคมีแรง"
+      ],
+      "TriviaTh": "การแช่น้ำอุ่นช่วยให้คราบอาหารหลุดออกง่าย และการใช้แปรงอ่อนป้องกันการขูดขีดผิวกระทะ"
+    },
+    {
+      "Id": 163,
+      "Question": "What is the chemical symbol for Magnesium?",
+      "Choices": [
+        "Ma",
+        "Mg",
+        "Mn",
+        "Mo"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Magnesium is an essential mineral for humans.",
+      "QuestionTh": "ข้อใดคือประโยชน์หลักของการรับประทานหมูกระทะกับครอบครัว?",
+      "ChoicesTh": [
+        "สร้างความสัมพันธ์และความทรงจำร่วมกัน",
+        "ประหยัดเงิน",
+        "ปรุงอาหารง่ายขึ้น",
+        "ลดเวลาการรับประทาน"
+      ],
+      "TriviaTh": "การรับประทานหมูกระทะร่วมกันเป็นกิจกรรมที่ช่วยสร้างความสัมพันธ์ในครอบครัวและสร้างความทรงจำที่ดี"
+    },
+    {
+      "Id": 164,
+      "Question": "Which country is home to the Acropolis?",
+      "Choices": [
+        "Italy",
+        "Greece",
+        "Spain",
+        "Turkey"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The Acropolis of Athens is an ancient citadel.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรหลีกเลี่ยงการใส่น้ำเย็นลงในน้ำซุปร้อน?",
+      "ChoicesTh": [
+        "อาจทำให้กระทะแตกร้าวและลดอุณหภูมิน้ำซุปอย่างรวดเร็ว",
+        "ทำให้น้ำซุปมีรสชาติดีขึ้น",
+        "ไม่มีผลใดๆ",
+        "ทำให้น้ำซุปข้นขึ้น"
+      ],
+      "TriviaTh": "การเติมน้ำเย็นในกระทะร้อนอาจทำให้เกิดความเครียดทางความร้อน และลดอุณหภูมิน้ำซุปที่กำลังเดือด"
+    },
+    {
+      "Id": 165,
+      "Question": "What is the study of the Earth called?",
+      "Choices": [
+        "Astronomy",
+        "Biology",
+        "Geology",
+        "Meteorology"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Geology deals with the solid Earth and its processes.",
+      "QuestionTh": "ส่วนใดของหัวหอมที่ใส่ในน้ำซุปเพื่อเพิ่มกลิ่นหอม?",
+      "ChoicesTh": [
+        "ทั้งหัวหอมทั้งหมด",
+        "เฉพาะเปลือก",
+        "เฉพาะใบ",
+        "เฉพาะราก"
+      ],
+      "TriviaTh": "ทั้งหัวหอมและต้นหอมใช้ได้ทั้งหมด ส่วนต่างๆ ให้กลิ่นหอมและรสชาติที่แตกต่างกันเล็กน้อย"
+    },
+    {
+      "Id": 166,
+      "Question": "Who was the Greek god of the underworld?",
+      "Choices": [
+        "Zeus",
+        "Hades",
+        "Poseidon",
+        "Hermes"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Hades was the eldest son of Cronus and Rhea.",
+      "QuestionTh": "ข้อใดคือสัญญาณที่บ่งบอกว่าปลาหมึกสุกแล้ว?",
+      "ChoicesTh": [
+        "เนื้อเปลี่ยนเป็นสีขาวและม้วนตัว",
+        "เนื้อใส",
+        "เนื้อนิ่มมาก",
+        "เนื้อเป็นสีชมพู"
+      ],
+      "TriviaTh": "เมื่อปลาหมึกสุก เนื้อจะเปลี่ยนจากใสเป็นสีขาวขุ่นและม้วนตัวขึ้นเล็กน้อย"
+    },
+    {
+      "Id": 167,
+      "Question": "What is the capital city of Australia?",
+      "Choices": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Perth"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Canberra is the largest inland city in Australia.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการป้องกันกุ้งสุกเกินไปในน้ำซุปร้อน?",
+      "ChoicesTh": [
+        "ใส่กุ้งเป็นอันดับสุดท้ายและตักขึ้นเมื่อสีเปลี่ยน",
+        "ใส่กุ้งตั้งแต่แรก",
+        "แช่กุ้งในน้ำเย็นก่อน",
+        "แล่กุ้งเป็นชิ้นเล็กๆ"
+      ],
+      "TriviaTh": "กุ้งสุกเร็วมาก เมื่อสีเปลี่ยนจากเทาเป็นชมพูส้ม แสดงว่าสุกพอดีและควรตักขึ้นทันที"
+    },
+    {
+      "Id": 168,
+      "Question": "Which animal is the largest reptile in the world?",
+      "Choices": [
+        "Komodo Dragon",
+        "Saltwater Crocodile",
+        "Green Sea Turtle",
+        "Leatherback Turtle"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Saltwater crocodiles can grow up to 6 meters in length.",
+      "QuestionTh": "ข้อใดคือประโยชน์ของการใช้น้ำซุปกระดูกแทนน้ำเปล่าในหม้อไฟ?",
+      "ChoicesTh": [
+        "ให้คอลลาเจน แร่ธาตุ และรสชาติที่ลึกกว่า",
+        "ลดแคลอรี่",
+        "ทำให้ปรุงได้เร็วขึ้น",
+        "ลดต้นทุน"
+      ],
+      "TriviaTh": "น้ำซุปกระดูกอุดมไปด้วยคอลลาเจน แร่ธาตุ และกรดอะมิโน ทำให้น้ำซุปมีรสชาติและคุณค่าทางโภชนาการสูงกว่าน้ำเปล่า"
+    },
+    {
+      "Id": 169,
+      "Question": "What is the chemical symbol for Zinc?",
+      "Choices": [
+        "Zi",
+        "Z",
+        "Zn",
+        "Zc"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Zinc is used to galvanize iron and steel to prevent rusting.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ไม่ควรปรุงเนื้อดิบและเนื้อสุกในกระทะเดียวกัน?",
+      "ChoicesTh": [
+        "เพื่อป้องกันการปนเปื้อนข้ามของแบคทีเรีย",
+        "เพราะรสชาติจะผสมกัน",
+        "เพราะเนื้อจะสุกไม่เท่ากัน",
+        "เพราะกระทะจะเสียหาย"
+      ],
+      "TriviaTh": "การปนเปื้อนข้ามเป็นความเสี่ยงด้านความปลอดภัยอาหาร แบคทีเรียจากเนื้อดิบสามารถปนเปื้อนอาหารที่สุกแล้วได้"
+    },
+    {
+      "Id": 170,
+      "Question": "Who invented the steam engine?",
+      "Choices": [
+        "James Watt",
+        "Thomas Newcomen",
+        "George Stephenson",
+        "Robert Fulton"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Newcomen's engine was the first practical device to harness steam.",
+      "QuestionTh": "ข้อใดคือส่วนผสมลับที่ทำให้น้ำซุปหม้อไฟมีรสชาติลึกขึ้น?",
+      "ChoicesTh": [
+        "ซอสหอยนางรม",
+        "น้ำตาล",
+        "เกลือ",
+        "น้ำมะนาว"
+      ],
+      "TriviaTh": "ซอสหอยนางรมมีรสอูมามิเข้มข้น เพียงเล็กน้อยก็ช่วยเพิ่มความลึกของรสชาติน้ำซุปได้อย่างมาก"
+    },
+    {
+      "Id": 171,
+      "Question": "Which country is the home of the tiger?",
+      "Choices": [
+        "Africa",
+        "India",
+        "Australia",
+        "Brazil"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Tigers are the largest cat species in the world.",
+      "QuestionTh": "หมูสามชั้นในหมูกระทะเหมาะสมหรือไม่?",
+      "ChoicesTh": [
+        "เหมาะมาก เพราะไขมันทำให้รสชาติดีขึ้น",
+        "ไม่เหมาะ เพราะมีไขมันมากเกินไป",
+        "ขึ้นอยู่กับฤดูกาล",
+        "ไม่นิยมใช้"
+      ],
+      "TriviaTh": "หมูสามชั้นยอดนิยมในหมูกระทะ เพราะไขมันระหว่างชั้นเนื้อละลายเมื่อย่าง ให้รสชาติหอมอร่อย"
+    },
+    {
+      "Id": 172,
+      "Question": "What is the most abundant element in the Earth's atmosphere?",
+      "Choices": [
+        "Oxygen",
+        "Carbon",
+        "Nitrogen",
+        "Argon"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Nitrogen is relatively unreactive at normal temperatures.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการดูแลกระทะเหล็กหล่อ?",
+      "ChoicesTh": [
+        "เช็ดให้แห้งและทาน้ำมันบางๆ หลังล้าง",
+        "แช่น้ำทิ้งไว้",
+        "ล้างในเครื่องล้างจาน",
+        "ใช้สบู่แรงๆ"
+      ],
+      "TriviaTh": "เหล็กหล่อเกิดสนิมได้ง่าย การเช็ดให้แห้งสนิทและทาน้ำมันบางๆ ช่วยป้องกันสนิมและยืดอายุกระทะ"
+    },
+    {
+      "Id": 173,
+      "Question": "Who was the Roman god of the underworld?",
+      "Choices": [
+        "Mars",
+        "Neptune",
+        "Pluto",
+        "Jupiter"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Pluto is the Roman equivalent of the Greek god Hades.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่น้ำจิ้มหมูกระทะไทยมักมีรสหวานอมเปรี้ยว?",
+      "ChoicesTh": [
+        "เพื่อตัดความมันของเนื้อและเพิ่มความสดชื่น",
+        "เพราะคนไทยชอบรสหวาน",
+        "เพื่อเพิ่มแคลอรี่",
+        "เพราะทำง่ายกว่า"
+      ],
+      "TriviaTh": "รสหวานอมเปรี้ยวช่วยตัดรสมันของเนื้อสัตว์ ทำให้รับประทานได้มากขึ้นและรู้สึกสดชื่นขึ้น"
+    },
+    {
+      "Id": 174,
+      "Question": "What is the capital city of Portugal?",
+      "Choices": [
+        "Porto",
+        "Lisbon",
+        "Faro",
+        "Coimbra"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Lisbon is one of the oldest cities in Western Europe.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรหั่นผักให้มีขนาดใกล้เคียงกัน?",
+      "ChoicesTh": [
+        "เพื่อให้สุกพร้อมกันและดูสวยงาม",
+        "เพื่อประหยัดผัก",
+        "เพื่อให้ผักมีรสชาติดีขึ้น",
+        "เพราะผักจะสุกเร็วขึ้น"
+      ],
+      "TriviaTh": "ผักที่มีขนาดเท่ากันจะสุกพร้อมกัน ป้องกันบางชิ้นสุกเกินไปในขณะที่บางชิ้นยังดิบอยู่"
+    },
+    {
+      "Id": 175,
+      "Question": "Which vitamin is found in abundance in carrots?",
+      "Choices": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Carrots are a rich source of beta-carotene, which the body converts to vitamin A.",
+      "QuestionTh": "เนื้อสัตว์ชนิดใดที่เหมาะกับผู้ที่ต้องการโปรตีนสูงและไขมันต่ำ?",
+      "ChoicesTh": [
+        "อกไก่",
+        "หมูสามชั้น",
+        "เนื้อวัวติดมัน",
+        "ปีกไก่"
+      ],
+      "TriviaTh": "อกไก่มีโปรตีนสูงและไขมันต่ำที่สุดในบรรดาเนื้อสัตว์ที่นิยมในหมูกระทะ"
+    },
+    {
+      "Id": 176,
+      "Question": "What is the currency of the United Kingdom?",
+      "Choices": [
+        "Euro",
+        "Dollar",
+        "Pound",
+        "Yen"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The British Pound is one of the world's most stable currencies.",
+      "QuestionTh": "ข้อใดไม่ใช่ประโยชน์ของการรับประทานเห็ดในหมูกระทะ?",
+      "ChoicesTh": [
+        "ทำให้น้ำซุปข้นขึ้นมาก",
+        "เพิ่มใยอาหาร",
+        "ให้วิตามินดี",
+        "ให้รสชาติอูมามิ"
+      ],
+      "TriviaTh": "เห็ดให้ใยอาหาร วิตามินดี และรสชาติอูมามิ แต่ไม่ได้ทำให้น้ำซุปข้นขึ้นอย่างมีนัยสำคัญ"
+    },
+    {
+      "Id": 177,
+      "Question": "Who discovered the laws of heredity?",
+      "Choices": [
+        "Charles Darwin",
+        "Gregor Mendel",
+        "Louis Pasteur",
+        "Marie Curie"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Mendel worked with pea plants to understand inheritance.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่หมูกระทะมักเปิดบริการตอนเย็นถึงดึก?",
+      "ChoicesTh": [
+        "เป็นอาหารที่เหมาะกับบรรยากาศยามค่ำคืนและการพบปะสังสรรค์",
+        "วัตถุดิบสดกว่าตอนเย็น",
+        "เพราะอากาศเย็นกว่า",
+        "เพราะพ่อค้าแม่ค้าตื่นสาย"
+      ],
+      "TriviaTh": "หมูกระทะเป็นอาหารที่สร้างบรรยากาศสนุกสนาน เหมาะกับการพบปะสังสรรค์ยามค่ำคืนมากกว่ามื้อกลางวัน"
+    },
+    {
+      "Id": 178,
+      "Question": "Which country is the largest in South America by land area?",
+      "Choices": [
+        "Argentina",
+        "Peru",
+        "Colombia",
+        "Brazil"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Brazil occupies nearly half of the South American continent.",
+      "QuestionTh": "ข้อใดคือสาเหตุที่น้ำซุปหม้อไฟมีฟองเกิดขึ้น?",
+      "ChoicesTh": [
+        "โปรตีนและสารอื่นๆ จากเนื้อสัตว์",
+        "น้ำมัน",
+        "เกลือ",
+        "น้ำตาล"
+      ],
+      "TriviaTh": "ฟองที่เกิดขึ้นในน้ำซุปมาจากโปรตีนและสารอื่นๆ ที่ถูกปล่อยออกมาจากเนื้อสัตว์ ควรตักฟองออกเพื่อให้น้ำซุปใส"
+    },
+    {
+      "Id": 179,
+      "Question": "What is the capital city of Switzerland?",
+      "Choices": [
+        "Zurich",
+        "Geneva",
+        "Bern",
+        "Basel"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Bern is the seat of the Swiss federal government.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการเพิ่มรสชาติให้น้ำซุปอ่อนๆ?",
+      "ChoicesTh": [
+        "เพิ่มเครื่องเทศ สมุนไพร หรือน้ำปลา",
+        "เติมน้ำมากขึ้น",
+        "ลดเวลาต้ม",
+        "ใส่น้ำตาล"
+      ],
+      "TriviaTh": "การเพิ่มเครื่องเทศ สมุนไพร น้ำปลา หรือซีอิ๊วช่วยเพิ่มความลึกและความซับซ้อนของรสชาติน้ำซุป"
+    },
+    {
+      "Id": 180,
+      "Question": "Which gas is used in light bulbs?",
+      "Choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Argon",
+        "Neon"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Argon prevents the filament from burning up at high temperatures.",
+      "QuestionTh": "ข้อใดคือสิ่งที่ทำให้หมูกระทะแตกต่างจากบาร์บีคิวแบบตะวันตก?",
+      "ChoicesTh": [
+        "มีทั้งการย่างและต้มในหม้อเดียว",
+        "ใช้เนื้อวัวเท่านั้น",
+        "ปรุงบนเตาถ่านเสมอ",
+        "ใช้ซอสบาร์บีคิว"
+      ],
+      "TriviaTh": "ความเป็นเอกลักษณ์ของหมูกระทะคือการมีทั้งโดมย่างและร่องต้มน้ำซุปในกระทะเดียวกัน"
+    },
+    {
+      "Id": 181,
+      "Question": "Who was the first woman to fly in space?",
+      "Choices": [
+        "Sally Ride",
+        "Valentina Tereshkova",
+        "Mae Jemison",
+        "Ellen Ochoa"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Tereshkova was an amateur skydiver before joining the space program.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการทำให้น้ำจิ้มมีรสเข้มข้นขึ้น?",
+      "ChoicesTh": [
+        "เพิ่มกระเทียมสดและพริกขี้หนู",
+        "เติมน้ำมากขึ้น",
+        "ใส่น้ำตาลมากขึ้น",
+        "ลดส่วนผสมทุกอย่าง"
+      ],
+      "TriviaTh": "กระเทียมสดบดและพริกขี้หนูสดเพิ่มความเผ็ดและรสชาติเข้มข้นที่สุดให้กับน้ำจิ้ม"
+    },
+    {
+      "Id": 182,
+      "Question": "What is the chemical symbol for Tin?",
+      "Choices": [
+        "T",
+        "Ti",
+        "Tn",
+        "Sn"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "The symbol 'Sn' comes from the Latin word 'Stannum'.",
+      "QuestionTh": "ข้อใดคือประโยชน์ของการเสิร์ฟผลไม้หลังรับประทานหมูกระทะ?",
+      "ChoicesTh": [
+        "ช่วยย่อยอาหารและดับความร้อน",
+        "เพิ่มแคลอรี่",
+        "ให้โปรตีน",
+        "ลดน้ำตาลในเลือด"
+      ],
+      "TriviaTh": "ผลไม้มีเอนไซม์และวิตามินซีที่ช่วยย่อยอาหาร และความเย็นหวานช่วยดับความร้อนหลังรับประทานอาหารรสจัด"
+    },
+    {
+      "Id": 183,
+      "Question": "Which country invented the alphabet?",
+      "Choices": [
+        "Egypt",
+        "Phoenicia",
+        "Greece",
+        "Rome"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "The Phoenician alphabet is the ancestor of most modern writing systems.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่น้ำซุปต้มยำมักมีสีส้มแดง?",
+      "ChoicesTh": [
+        "มาจากพริกแดงและน้ำพริกเผา",
+        "มาจากมะเขือเทศ",
+        "มาจากแครอท",
+        "มาจากสีผสมอาหาร"
+      ],
+      "TriviaTh": "สีส้มแดงของต้มยำมาจากพริกแดงสดและน้ำพริกเผา ซึ่งเป็นส่วนผสมหลักที่ให้ทั้งสีและรสชาติ"
+    },
+    {
+      "Id": 184,
+      "Question": "Who wrote 'The Odyssey'?",
+      "Choices": [
+        "Homer",
+        "Sophocles",
+        "Euripides",
+        "Aristotle"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "The Odyssey is one of the foundational works of Western literature.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรตักฟองออกจากน้ำซุประหว่างการต้ม?",
+      "ChoicesTh": [
+        "เพื่อให้น้ำซุปใสและรสชาติสะอาดขึ้น",
+        "เพื่อลดความร้อน",
+        "เพื่อเพิ่มรสชาติ",
+        "เพื่อลดแคลอรี่"
+      ],
+      "TriviaTh": "ฟองในน้ำซุปมาจากโปรตีนที่ถูกปล่อยออกมาจากเนื้อสัตว์ การตักออกช่วยให้น้ำซุปใสและรสชาติสะอาดมากขึ้น"
+    },
+    {
+      "Id": 185,
+      "Question": "What is the capital city of Norway?",
+      "Choices": [
+        "Stockholm",
+        "Copenhagen",
+        "Oslo",
+        "Helsinki"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Oslo is the economic and political center of Norway.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการเลือกซื้อเนื้อหมูสำหรับหมูกระทะ?",
+      "ChoicesTh": [
+        "เลือกเนื้อสีชมพูสด เนื้อแน่น และไม่มีกลิ่นคาว",
+        "เลือกเนื้อราคาถูกที่สุด",
+        "เลือกเนื้อที่มีสีเข้มที่สุด",
+        "เลือกเนื้อที่นิ่มที่สุด"
+      ],
+      "TriviaTh": "เนื้อหมูคุณภาพดีต้องมีสีชมพูสด เนื้อแน่นเมื่อสัมผัส และกลิ่นสดไม่คาว"
+    },
+    {
+      "Id": 186,
+      "Question": "Which planet is the smallest in our solar system?",
+      "Choices": [
+        "Mercury",
+        "Venus",
+        "Mars",
+        "Pluto"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Mercury is only slightly larger than Earth's moon.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรเตรียมส่วนผสมทั้งหมดก่อนเริ่มรับประทานหมูกระทะ?",
+      "ChoicesTh": [
+        "เพื่อให้ทุกคนสามารถเริ่มรับประทานได้พร้อมกันและไม่ต้องรอนาน",
+        "เพื่อให้ส่วนผสมสุกก่อน",
+        "เพื่อประหยัดเวลาปรุง",
+        "เพราะเป็นมารยาทไทย"
+      ],
+      "TriviaTh": "การเตรียมส่วนผสมล่วงหน้าช่วยให้ทุกคนเริ่มรับประทานได้พร้อมกัน และเพิ่มความสนุกสนานในการรับประทาน"
+    },
+    {
+      "Id": 187,
+      "Question": "Who was the first person to reach the North Pole?",
+      "Choices": [
+        "Robert Peary",
+        "Roald Amundsen",
+        "Richard Byrd",
+        "Robert Scott"
+      ],
+      "CorrectIndex": 0,
+      "Trivia": "Peary's claim is still debated among historians.",
+      "QuestionTh": "ข้อใดคือข้อแตกต่างหลักระหว่างน้ำซุปแบบเบาและแบบเข้มข้น?",
+      "ChoicesTh": [
+        "เวลาต้มและปริมาณส่วนผสม",
+        "ราคา",
+        "สี",
+        "อุณหภูมิ"
+      ],
+      "TriviaTh": "น้ำซุปเข้มข้นต้องใช้เวลาต้มนานกว่าและใส่ส่วนผสมมากกว่า เพื่อดึงรสชาติออกมาให้มากที่สุด"
+    },
+    {
+      "Id": 188,
+      "Question": "What is the chemical symbol for Silver?",
+      "Choices": [
+        "Si",
+        "S",
+        "Ag",
+        "Au"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Silver has the highest electrical conductivity of any element.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่หมูกระทะได้รับความนิยมในหมู่วัยรุ่นไทย?",
+      "ChoicesTh": [
+        "ราคาย่อมเยาว์ บรรยากาศสนุก และรับประทานกับเพื่อนได้",
+        "เป็นอาหารสุขภาพ",
+        "ปรุงได้เร็ว",
+        "มีให้เลือกน้อยแต่ดี"
+      ],
+      "TriviaTh": "หมูกระทะยอดนิยมในหมู่วัยรุ่นเพราะราคาไม่แพง บรรยากาศสนุกสนาน และเป็นกิจกรรมที่ทำร่วมกันกับเพื่อนๆ ได้"
+    },
+    {
+      "Id": 189,
+      "Question": "Which country is home to the Petra?",
+      "Choices": [
+        "Egypt",
+        "Jordan",
+        "Saudi Arabia",
+        "Turkey"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Petra is an ancient city carved into red sandstone cliffs.",
+      "QuestionTh": "ข้อใดคือส่วนผสมที่ทำให้น้ำซุปหม้อไฟมีรสชาติอูมามิ?",
+      "ChoicesTh": [
+        "เห็ด สาหร่าย หรือน้ำปลา",
+        "น้ำตาล",
+        "น้ำมะนาว",
+        "เกลือ"
+      ],
+      "TriviaTh": "อูมามิเป็นรสชาติที่ห้า พบมากในเห็ด สาหร่าย น้ำปลา และซอสหอยนางรม ช่วยเพิ่มความลึกของรสชาติ"
+    },
+    {
+      "Id": 190,
+      "Question": "What is the study of fossils called?",
+      "Choices": [
+        "Archaeology",
+        "Palaeontology",
+        "Biology",
+        "Geology"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Palaeontology helps us understand the history of life on Earth.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่บางร้านหมูกระทะใช้เตาถ่านแทนเตาแก๊ส?",
+      "ChoicesTh": [
+        "ให้กลิ่นหอมของควันที่เป็นเอกลักษณ์",
+        "ประหยัดกว่า",
+        "ปลอดภัยกว่า",
+        "ให้ความร้อนสม่ำเสมอกว่า"
+      ],
+      "TriviaTh": "ถ่านให้ควันที่มีกลิ่นหอมเป็นเอกลักษณ์ซึ่งแก๊สไม่สามารถให้ได้ หลายคนชอบรสชาติที่ได้จากการย่างถ่าน"
+    },
+    {
+      "Id": 191,
+      "Question": "Who was the Greek god of fire?",
+      "Choices": [
+        "Zeus",
+        "Apollo",
+        "Hephaestus",
+        "Hermes"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Hephaestus was the blacksmith of the gods.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการรักษาน้ำซุปให้ร้อนตลอดมื้ออาหาร?",
+      "ChoicesTh": [
+        "ใช้เตาขนาดเหมาะสมและควบคุมไฟ",
+        "ปิดฝาตลอดเวลา",
+        "เติมน้ำร้อนบ่อยๆ",
+        "เพิ่มเกลือ"
+      ],
+      "TriviaTh": "การควบคุมไฟให้เหมาะสมเป็นวิธีที่มีประสิทธิภาพที่สุดในการรักษาอุณหภูมิน้ำซุปตลอดมื้ออาหาร"
+    },
+    {
+      "Id": 192,
+      "Question": "What is the capital city of Sweden?",
+      "Choices": [
+        "Oslo",
+        "Copenhagen",
+        "Stockholm",
+        "Helsinki"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Stockholm is built on fourteen islands.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรรับประทานหมูกระทะอย่างช้าๆ?",
+      "ChoicesTh": [
+        "เพื่อเพลิดเพลินกับรสชาติและให้ร่างกายรู้สึกอิ่ม",
+        "เพราะอาหารร้อนเกินไป",
+        "เพราะอาหารสุกช้า",
+        "เพื่อประหยัดเงิน"
+      ],
+      "TriviaTh": "การรับประทานช้าๆ ช่วยให้เพลิดเพลินกับรสชาติและให้ร่างกายได้รับสัญญาณอิ่มก่อนที่จะรับประทานมากเกินไป"
+    },
+    {
+      "Id": 193,
+      "Question": "Which animal is the fastest bird in the world?",
+      "Choices": [
+        "Swift",
+        "Eagle",
+        "Peregrine Falcon",
+        "Hummingbird"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "The Peregrine Falcon can reach speeds of over 320 km/h during its hunting dive.",
+      "QuestionTh": "ข้อใดคือส่วนผสมที่มักทำให้คนแพ้อาหารในหมูกระทะ?",
+      "ChoicesTh": [
+        "อาหารทะเล ถั่ว หรือกลูเตน",
+        "ผักใบเขียว",
+        "เนื้อหมู",
+        "น้ำซุปใส"
+      ],
+      "TriviaTh": "อาหารทะเล ถั่วลิสง และกลูเตนในซอสต่างๆ เป็นสาเหตุที่พบบ่อยของการแพ้อาหารในหมูกระทะ"
+    },
+    {
+      "Id": 194,
+      "Question": "What is the chemical symbol for Gold?",
+      "Choices": [
+        "Go",
+        "Gd",
+        "Au",
+        "Ag"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Gold is very malleable and can be beaten into thin sheets.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรดื่มน้ำมากๆ ระหว่างรับประทานหมูกระทะ?",
+      "ChoicesTh": [
+        "ป้องกันภาวะขาดน้ำจากความร้อนและโซเดียมสูง",
+        "เพื่อลดน้ำหนัก",
+        "เพื่อเพิ่มรสชาติ",
+        "เพราะเป็นธรรมเนียม"
+      ],
+      "TriviaTh": "หมูกระทะมักมีโซเดียมสูงและร่างกายสูญเสียน้ำจากความร้อน การดื่มน้ำช่วยป้องกันภาวะขาดน้ำ"
+    },
+    {
+      "Id": 195,
+      "Question": "Who invented the telephone?",
+      "Choices": [
+        "Thomas Edison",
+        "Alexander Graham Bell",
+        "Nikola Tesla",
+        "Guglielmo Marconi"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Bell was originally interested in developing aids for the deaf.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ราคาหมูกระทะบุฟเฟต์ถูกกว่าแบบสั่งจาก menu?",
+      "ChoicesTh": [
+        "ลดของเสียและวางแผนต้นทุนได้ง่ายกว่า",
+        "วัตถุดิบคุณภาพต่ำกว่า",
+        "เสิร์ฟน้อยกว่า",
+        "ทำอาหารง่ายกว่า"
+      ],
+      "TriviaTh": "ระบบบุฟเฟต์ช่วยให้ร้านวางแผนต้นทุนและลดของเสียได้ดีกว่า เนื่องจากรู้ล่วงหน้าว่าจะใช้วัตถุดิบปริมาณเท่าไร"
+    },
+    {
+      "Id": 196,
+      "Question": "Which country is the home of the kangaroo?",
+      "Choices": [
+        "New Zealand",
+        "Australia",
+        "South Africa",
+        "Indonesia"
+      ],
+      "CorrectIndex": 1,
+      "Trivia": "Kangaroos use their tails for balance while hopping.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่หมูกระทะไม่เหมาะกับการรับประทานคนเดียว?",
+      "ChoicesTh": [
+        "ปริมาณอาหารและขนาดกระทะออกแบบมาสำหรับกลุ่ม",
+        "รสชาติไม่ดีเมื่อรับประทานคนเดียว",
+        "ราคาแพงเกินไป",
+        "ปรุงยากเกินไป"
+      ],
+      "TriviaTh": "หมูกระทะออกแบบมาสำหรับกลุ่มคน ทั้งขนาดกระทะ ปริมาณอาหาร และบรรยากาศที่สนุกสนาน"
+    },
+    {
+      "Id": 197,
+      "Question": "What is the most abundant noble gas in the Earth's atmosphere?",
+      "Choices": [
+        "Helium",
+        "Neon",
+        "Argon",
+        "Krypton"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Argon makes up about 0.93% of the atmosphere.",
+      "QuestionTh": "ข้อใดคือทักษะที่สำคัญที่สุดสำหรับการปรุงหมูกระทะ?",
+      "ChoicesTh": [
+        "การจัดการเวลาและอุณหภูมิของอาหารแต่ละชนิด",
+        "การหั่นผัก",
+        "การเตรียมน้ำจิ้ม",
+        "การเลือกกระทะ"
+      ],
+      "TriviaTh": "การรู้ว่าต้องใส่อาหารชนิดใดก่อนหลัง และควบคุมอุณหภูมิให้เหมาะสมคือทักษะหลักในการปรุงหมูกระทะ"
+    },
+    {
+      "Id": 198,
+      "Question": "Who was the Roman god of the sea?",
+      "Choices": [
+        "Mars",
+        "Jupiter",
+        "Neptune",
+        "Mercury"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Neptune is the Roman equivalent of the Greek god Poseidon.",
+      "QuestionTh": "ข้อใดคือเหตุผลที่ควรหลีกเลี่ยงการรับประทานหมูกระทะบ่อยเกินไป?",
+      "ChoicesTh": [
+        "โซเดียมและแคลอรี่สูง อาจส่งผลต่อสุขภาพ",
+        "เพราะราคาแพง",
+        "เพราะปรุงยาก",
+        "เพราะหาวัตถุดิบยาก"
+      ],
+      "TriviaTh": "การรับประทานหมูกระทะบ่อยเกินไปอาจทำให้ได้รับโซเดียมและแคลอรี่เกินความต้องการ ส่งผลต่อสุขภาพหัวใจและน้ำหนักตัว"
+    },
+    {
+      "Id": 199,
+      "Question": "What is the capital city of Denmark?",
+      "Choices": [
+        "Stockholm",
+        "Oslo",
+        "Copenhagen",
+        "Reykjavik"
+      ],
+      "CorrectIndex": 2,
+      "Trivia": "Copenhagen was originally a Viking fishing village.",
+      "QuestionTh": "ข้อใดคือวิธีที่ดีที่สุดในการทำให้หมูกระทะที่บ้านมีรสชาติเหมือนร้าน?",
+      "ChoicesTh": [
+        "ใช้วัตถุดิบสดใหม่และน้ำซุปคุณภาพดี",
+        "ใช้ผงปรุงรสมาก",
+        "ซื้อเนื้อแช่แข็ง",
+        "ใช้กระทะธรรมดา"
+      ],
+      "TriviaTh": "ความลับของหมูกระทะอร่อยคือวัตถุดิบสดใหม่และน้ำซุปที่ต้มอย่างประณีต ไม่ใช่ผงปรุงรสหรือสารปรุงแต่ง"
+    },
+    {
+      "Id": 200,
+      "Question": "Which vitamin is important for healthy skin?",
+      "Choices": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin E"
+      ],
+      "CorrectIndex": 3,
+      "Trivia": "Vitamin E is a powerful antioxidant that helps protect cells from damage.",
+      "QuestionTh": "ข้อใดคือสิ่งที่ทำให้ประสบการณ์การรับประทานหมูกระทะดีที่สุด?",
+      "ChoicesTh": [
+        "อาหารอร่อย บรรยากาศดี และคนที่ดีรอบข้าง",
+        "ราคาถูกที่สุด",
+        "ปริมาณอาหารมากที่สุด",
+        "เสิร์ฟเร็วที่สุด"
+      ],
+      "TriviaTh": "หมูกระทะไม่ใช่แค่อาหาร แต่เป็นประสบการณ์ทางสังคม ความอร่อยของอาหารรวมกับบรรยากาศที่ดีและคนที่รักรอบข้างทำให้มื้ออาหารสมบูรณ์แบบ"
+    }
+  ]
+}

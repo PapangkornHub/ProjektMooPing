@@ -1,0 +1,74 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:ProjektMooPing.Services"
+             x:Class="ProjektMooPing.View.MenuDetailPage"
+             BackgroundColor="#80000000">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <Border BackgroundColor="{StaticResource MooPingCream}" 
+                Stroke="{StaticResource MooPingDarkBrown}"
+                StrokeThickness="3"
+                Padding="25" WidthRequest="360">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25"/>
+            </Border.StrokeShape>
+
+            <Grid RowDefinitions="Auto, Auto, Auto, *, Auto" RowSpacing="15">
+                <Label Grid.Row="0" Text="{Binding Name}" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource MooPingDarkBrown}"/>
+
+                <Border Grid.Row="1" BackgroundColor="#F0EBE0" Padding="12">
+                    <VerticalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                            <Label Text="{Binding LblPopularity, Source={x:Static services:LocalizationService.Instance}}" VerticalOptions="Center" TextColor="Gray"/>
+                            <Label x:Name="PopularityLabel" Text="0.0" FontSize="22" FontAttributes="Bold" TextColor="#76B041"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+                            <Button Text="-5" Clicked="OnPriceAdjusted" CommandParameter="-5" WidthRequest="45" HeightRequest="40" BackgroundColor="#D9D9D9" TextColor="Black" CornerRadius="10"/>
+                            <Button Text="-1" Clicked="OnPriceAdjusted" CommandParameter="-1" WidthRequest="45" HeightRequest="40" BackgroundColor="#D9D9D9" TextColor="Black" CornerRadius="10"/>
+                            <Entry x:Name="PriceEntry" WidthRequest="80" HorizontalTextAlignment="Center" FontSize="20" FontAttributes="Bold" TextChanged="OnPriceChanged" Keyboard="Numeric" TextColor="Black"/>
+                            <Button Text="+1" Clicked="OnPriceAdjusted" CommandParameter="1" WidthRequest="45" HeightRequest="40" BackgroundColor="#D9D9D9" TextColor="Black" CornerRadius="10"/>
+                            <Button Text="+5" Clicked="OnPriceAdjusted" CommandParameter="5" WidthRequest="45" HeightRequest="40" BackgroundColor="#D9D9D9" TextColor="Black" CornerRadius="10"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25"/>
+                    </Border.StrokeShape>
+                </Border>
+
+
+
+                <Grid Grid.Row="2" ColumnDefinitions="*, *, Auto" ColumnSpacing="10" Padding="5,0">
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="{Binding LblCost, Source={x:Static services:LocalizationService.Instance}}" TextColor="Gray" FontSize="12"/>
+                        <Label x:Name="CostLabel" Text="0.00 ฿" FontAttributes="Bold" TextColor="Brown" FontSize="16"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                        <Label Text="{Binding LblReady, Source={x:Static services:LocalizationService.Instance}}" TextColor="Gray" FontSize="12"/>
+                        <Label x:Name="FinishedGoodsLabel" Text="0 Unit(s)" FontAttributes="Bold" FontSize="16" TextColor="Brown"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <CollectionView Grid.Row="3" x:Name="IngredientList" HeightRequest="120">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="30, *, 60" Padding="0,5">
+                                <Image Grid.Column="0" Source="{Binding Icon}" WidthRequest="20"/>
+                                <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" TextColor="Black"/>
+                                <Label Grid.Column="2" Text="{Binding Stock, StringFormat='{0} pcs'}" FontAttributes="Bold" TextColor="{Binding StockColor}" HorizontalOptions="End" VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Grid Grid.Row="4" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="10">
+                    <Button Grid.Row="0" Grid.Column="0" Text="{Binding BtnClose, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnCancelClicked" BackgroundColor="{StaticResource MooPingDarkBrown}" TextColor="White" CornerRadius="15"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="{Binding BtnAccept, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnAcceptClicked" BackgroundColor="{StaticResource MooPingMediumBrown}" TextColor="White" CornerRadius="15"/>
+                    <Button Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding BtnCookNow, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnCookClicked" BackgroundColor="#76B041" TextColor="White" FontAttributes="Bold" HeightRequest="50" CornerRadius="15"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

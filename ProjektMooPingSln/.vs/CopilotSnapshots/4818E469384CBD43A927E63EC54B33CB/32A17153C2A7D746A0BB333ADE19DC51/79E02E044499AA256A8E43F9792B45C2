@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjektMooPing.MainGamePage"
+             Title="MainGamePage"
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <!-- Top Bar -->
+            <Grid ColumnDefinitions="60, *" 
+                  Padding="10" 
+                  ColumnSpacing="10" 
+                  HeightRequest="65" 
+                  BackgroundColor="{StaticResource MooPingLightBrown}">
+                <Button Grid.Column="0"
+                        Text="⚙️" 
+                        FontSize="20" 
+                        WidthRequest="50" 
+                        HeightRequest="45" 
+                        Padding="0" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        BackgroundColor="{StaticResource MooPingMediumBrown}"/>
+
+                <Border Grid.Column="1" 
+                        HorizontalOptions="Fill" 
+                        HeightRequest="45" 
+                        BackgroundColor="{StaticResource MooPingDarkBrown}"
+                        Stroke="Transparent">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15,15,15,15" />
+                    </Border.StrokeShape>
+
+                    <Grid>
+                        <HorizontalStackLayout VerticalOptions="Center" Spacing="5">
+                            <Label Text="🪙" 
+                                   FontSize="20" 
+                                   HorizontalOptions="Start" 
+                                   FontAttributes="Bold" 
+                                   VerticalOptions="Center"
+                                   Margin="15, 0, 0, 0"/>
+
+                            <Label Text="1000" 
+                                   FontSize="18" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold" 
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+
+                        <Label Text="Day 1" 
+                               FontSize="18" 
+                               TextColor="White" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center" 
+                               Margin="0, 0, 15, 0"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+        
+        <!-- Gameplay -->
+        <Border Grid.Row="1" 
+                BackgroundColor="Red" 
+                StrokeThickness="0">
+            <Grid>
+                <Image Source="{Binding CurrentGameStateImage}" 
+                       Aspect="AspectFill" 
+                       VerticalOptions="End" 
+                       HorizontalOptions="Fill" 
+                       WidthRequest="400"
+                       HeightRequest="500"/>
+                <Grid>
+                    <Button Text="Start Day" 
+                            TextColor="{StaticResource MooPingCream}"
+                            VerticalOptions="Start" 
+                            HorizontalOptions="End" 
+                            Margin="0,20,20,0" 
+                            BackgroundColor="#4A2C2A" CornerRadius="15" 
+                            Clicked="StartCustomerAnimation"/>
+                    <Image Source="sprite_cart.png" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End" 
+                            WidthRequest="250" 
+                            HeightRequest="250" />
+                    <Image x:Name="CustomerSprite" 
+                            Source="sprite_customer.png" 
+                            HorizontalOptions="End" 
+                            VerticalOptions="End" 
+                            WidthRequest="250" 
+                            HeightRequest="250"
+                            TranslationX="-300"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- Bottom Menu -->
+        <Border Grid.Row="2" 
+                BackgroundColor="{StaticResource MooPingCream}" 
+                Padding="0" 
+                StrokeThickness="0" 
+                Stroke="Transparent">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      ColumnDefinitions="*,*,*,*" 
+                      HeightRequest="50" 
+                      Margin="5,10,5,-1">
+                    <Border Grid.Column="0"
+                            BackgroundColor="{StaticResource MooPingDarkBrown}"
+                            HeightRequest="50"
+                            StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="Menu" 
+                               TextColor="White" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center" 
+                               FontAttributes="Bold" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMenuClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                    
+                    <Border Grid.Column="1" BackgroundColor="{StaticResource MooPingMediumBrown}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="Edit" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEditClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <Border Grid.Column="2" BackgroundColor="{StaticResource MooPingMediumBrown}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="Inv" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnInvClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <Border Grid.Column="3" BackgroundColor="{StaticResource MooPingMediumBrown}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="Loc" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLocClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+
+                <Border Grid.Row="1"
+                        BackgroundColor="{StaticResource MooPingDarkBrown}" 
+                        VerticalOptions="Fill" 
+                        StrokeThickness="0" 
+                        Stroke="Transparent"
+                        Margin="5,0,5,0">
+                    <Grid>
+                        <!-- Menu -->
+                        <CollectionView x:Name="MenuTab" ItemsSource="{Binding MyMenu}" Margin="15,5">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="0,5" Padding="10" BackgroundColor="#FFF5E1">
+                                        <Grid ColumnDefinitions="Auto, *, Auto">
+
+                                            <Image Grid.Column="0" Source="{Binding Image}" WidthRequest="50" />
+
+                                            <VerticalStackLayout Grid.Column="1" Margin="10,0">
+                                                <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black" />
+                                                <Label Text="{Binding Ingredient}" FontSize="Caption" TextColor="Gray" />
+                                            </VerticalStackLayout>
+                                            <Label Grid.Column="2" Text="{Binding Price}" VerticalOptions="Center" TextColor="Brown" />
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <!-- Edit -->
+                        <Grid x:Name="EditTab" IsVisible="True" RowDefinitions="Auto, *" Margin="15,5">
+                            <Button Grid.Row="0" Text="+Create" BackgroundColor="#76B041" 
+                                    TextColor="White" CornerRadius="15" HorizontalOptions="Start" 
+                                    Padding="15,0" HeightRequest="35" Margin="0,0,0,10" />
+
+                            <CollectionView Grid.Row="1" ItemsSource="{Binding MyMenu}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="0,5" Padding="10" BackgroundColor="#FFF5E1">
+                                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                                <Image Grid.Column="0" Source="pork_icon.png" WidthRequest="40" />
+                                                <VerticalStackLayout Grid.Column="1" Margin="10,0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black" />
+                                                    <Label Text="{Binding Ingredient}" FontSize="12" TextColor="Gray" />
+                                                </VerticalStackLayout>
+                                                <Image Grid.Column="2" Source="arrow_right.png" WidthRequest="20" Opacity="0.3"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                        <!-- Inv -->
+                        <Grid x:Name="InvTab" IsVisible="False" RowDefinitions="Auto, *" Margin="15,5">
+                            <Button Grid.Row="0" Text="Discover" BackgroundColor="#76B041" 
+                                    TextColor="White" CornerRadius="15" HorizontalOptions="Start" 
+                                    Padding="15,0" HeightRequest="35" Margin="0,0,0,10" />
+
+                            <CollectionView Grid.Row="1" ItemsSource="{Binding MyInventory}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="0,5" Padding="10" BackgroundColor="#FFF5E1">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="15"/>
+                                            </Border.StrokeShape>
+                                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *, Auto">
+                                                <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Spacing="5">
+                                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black" FontSize="16"/>
+                                                    <Label Text="{Binding PriceDisplay}" TextColor="Gray" VerticalOptions="End" FontSize="12"/>
+                                                </HorizontalStackLayout>
+
+                                                <Image Grid.Row="1" Grid.Column="0" Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
+
+                                                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="2">
+                                                    <Button Text="-5" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="10"/>
+                                                    <Button Text="-1" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="10"/>
+                                                    <Label Text="{Binding OrderAmount}" WidthRequest="30" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                                                    <Button Text="+1" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="10"/>
+                                                    <Button Text="+5" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="10"/>
+                                                </HorizontalStackLayout>
+
+                                                <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Spacing="5" VerticalOptions="Center">
+                                                    <Label Text="Cost" FontSize="10" HorizontalOptions="Center"/>
+                                                    <Border BackgroundColor="#CCCCCC" Padding="10,5" StrokeThickness="0">
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="10"/>
+                                                        </Border.StrokeShape>
+                                                        <Label Text="{Binding TotalCost}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                                    </Border>
+                                                    <Button Text="Buy" BackgroundColor="#76B041" TextColor="White" HeightRequest="30" CornerRadius="15" Padding="10,0"/>
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                        <!-- Loc -->
+                        <Grid x:Name="LocTab" IsVisible="False" Margin="15,20">
+                            <CarouselView x:Name="LocationCarousel" 
+                                          ItemsSource="{Binding AllLocations}"
+                                          IndicatorView="indicatorView">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BackgroundColor="White" Padding="20" StrokeThickness="0" Margin="10,0">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="20"/>
+                                            </Border.StrokeShape>
+
+                                            <VerticalStackLayout Spacing="10">
+                                                <Label Text="{Binding LocName}" 
+                                                       HorizontalOptions="Center" 
+                                                       FontAttributes="Bold" 
+                                                       FontSize="20" 
+                                                       TextColor="Black"/>
+
+                                                <Grid ColumnDefinitions="Auto, *, Auto">
+                                                    <Label Grid.Column="0" Text="◀" VerticalOptions="Center" FontSize="25" TextColor="Black"/>
+
+                                                    <Image Grid.Column="1" 
+                                                           Source="{Binding ImagePath}" 
+                                                           HeightRequest="150" 
+                                                           Aspect="AspectFill"
+                                                           Margin="10,0"/>
+
+                                                    <Label Grid.Column="2" Text="▶" VerticalOptions="Center" FontSize="25" TextColor="Black"/>
+                                                </Grid>
+
+                                                <Grid ColumnDefinitions="*, *" Margin="0,10">
+                                                    <Label Grid.Column="0" 
+                                                           Text="{Binding TrafficRangeDisplay}" 
+                                                           FontSize="13" 
+                                                           HorizontalOptions="Center" 
+                                                           TextColor="DimGray"/>
+                                                    <Label Grid.Column="1" 
+                                                           Text="{Binding RentDisplay}" 
+                                                           FontSize="13" 
+                                                           HorizontalOptions="Center" 
+                                                           TextColor="DimGray"/>
+                                                </Grid>
+
+                                                <Button Text="Relocate" 
+                                                        BackgroundColor="#76B041" 
+                                                        TextColor="White" 
+                                                        CornerRadius="20" 
+                                                        HorizontalOptions="Center" 
+                                                        WidthRequest="150" 
+                                                        HeightRequest="45"
+                                                        Clicked="OnRelocateClicked"
+                                                        CommandParameter="{Binding .}"/>
+                                            </VerticalStackLayout>
+                                        </Border>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+
+                            <IndicatorView x:Name="indicatorView"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="End"
+                                           IndicatorColor="LightGray"
+                                           SelectedIndicatorColor="{StaticResource MooPingMediumBrown}"
+                                           Margin="0,0,0,10" />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

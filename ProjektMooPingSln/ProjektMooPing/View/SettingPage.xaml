@@ -1,0 +1,100 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:ProjektMooPing.Services"
+             x:Class="ProjektMooPing.View.SettingPage"
+             BackgroundColor="#80000000">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <Border BackgroundColor="{StaticResource MooPingCream}"
+                Stroke="{StaticResource MooPingDarkBrown}"
+                StrokeThickness="3"
+                Padding="25" WidthRequest="360">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25"/>
+            </Border.StrokeShape>
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="20">
+
+                <!-- หัวข้อ -->
+                <Label Grid.Row="0"
+                       Text="{Binding PageSettings, Source={x:Static services:LocalizationService.Instance}}"
+                       FontSize="24" FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource MooPingDarkBrown}"/>
+
+                <!-- Version -->
+                <Border Grid.Row="1" BackgroundColor="#F0EBE0" Padding="15">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Label Text="{Binding LblGameVersion, Source={x:Static services:LocalizationService.Instance}}"
+                               VerticalOptions="Center" TextColor="Gray"/>
+                        <Label x:Name="VersionLabel" Text="0.0.0"
+                               FontSize="18" FontAttributes="Bold"
+                               TextColor="{StaticResource MooPingDarkBrown}"/>
+                    </HorizontalStackLayout>
+                </Border>
+
+                <!-- Language Toggle -->
+                <Border Grid.Row="2" BackgroundColor="#F0EBE0" Padding="15">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="{Binding LblLanguage, Source={x:Static services:LocalizationService.Instance}}"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource MooPingDarkBrown}"/>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                            <Button x:Name="BtnThai"
+                                    Grid.Column="0"
+                                    Text="🇹🇭  ไทย"
+                                    Clicked="OnThaiClicked"
+                                    CornerRadius="15"
+                                    HeightRequest="45"
+                                    FontAttributes="Bold"/>
+                            <Button x:Name="BtnEnglish"
+                                    Grid.Column="1"
+                                    Text="🇺🇸  English"
+                                    Clicked="OnEnglishClicked"
+                                    CornerRadius="15"
+                                    HeightRequest="45"
+                                    FontAttributes="Bold"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Danger Zone -->
+                <VerticalStackLayout Grid.Row="3" Spacing="10">
+                    <Label Text="{Binding LblDangerZone, Source={x:Static services:LocalizationService.Instance}}"
+                           FontSize="14" FontAttributes="Bold"
+                           TextColor="#B22222" HorizontalOptions="Start"/>
+
+                    <Border Stroke="#B22222" StrokeThickness="1" Padding="15" BackgroundColor="#FFF5F5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="{Binding LblResetWarning, Source={x:Static services:LocalizationService.Instance}}"
+                                   TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center"/>
+                            <Label Text="{Binding LblResetDesc, Source={x:Static services:LocalizationService.Instance}}"
+                                   FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                            <Button Text="{Binding BtnResetData, Source={x:Static services:LocalizationService.Instance}}"
+                                    Clicked="OnResetGameClicked"
+                                    BackgroundColor="#B22222" TextColor="White"
+                                    FontAttributes="Bold" HeightRequest="45" CornerRadius="15"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Close -->
+                <Button Grid.Row="4"
+                        Text="{Binding BtnClose, Source={x:Static services:LocalizationService.Instance}}"
+                        Clicked="OnBackClicked"
+                        BackgroundColor="{StaticResource MooPingDarkBrown}" TextColor="White"
+                        CornerRadius="15" HeightRequest="45"/>
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

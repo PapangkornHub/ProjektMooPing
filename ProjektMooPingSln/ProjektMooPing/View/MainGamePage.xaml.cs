@@ -1,0 +1,746 @@
+using CommunityToolkit.Mvvm.Messaging;
+using ProjektMooPing.Models;
+using ProjektMooPing.Services;
+using ProjektMooPing.View;
+using ProjektMooPing.ViewModel;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Text.Json;
+using Location = ProjektMooPing.Models.Location;
+
+namespace ProjektMooPing
+{
+	public partial class MainGamePage : ContentPage
+	{
+        #region --- Properties & Variables ---
+        public ObservableCollection<RecipeViewModel> MyRecipe { get; set; } = new();
+        public ObservableCollection<IngredientViewModel> SelectableIngredients { get; set; } = new();
+        public ObservableCollection<IngredientViewModel> MyInventory { get; set; } = new();
+        public ObservableCollection<ProjektMooPing.Models.Location> AllLocations { get; set; } = new();
+        public ObservableCollection<RecipeViewModel> MyMenu { get; set; } = new();
+        public List<Ingredient> AllIngredients { get; set; } = new();
+        public PlayerProfile Player { get; set; }
+        public List<QuestionData> AllQuestions { get; set; } = new();
+        private Location _currentLocation;
+        private int _timeScale = 1;
+        private bool _isBusy = false;
+        public Location CurrentLocation
+        {
+            get => _currentLocation;
+            set
+            {
+                _currentLocation = value;
+                OnPropertyChanged(nameof(CurrentLocation));
+
+                if (_currentLocation != null)
+                {
+                    OnPropertyChanged(nameof(CurrentGameStateImage));
+                }
+            }
+        }
+        public string CurrentGameStateImage => CurrentLocation?.ImagePath ?? "wall_rural.png";
+        #endregion
+
+        #region --- Initialization ---
+        public MainGamePage()
+        {
+            InitializeComponent();
+            _ = LoadMasterData();
+            Debug.WriteLine(">>>> SAVE FILE IS HERE: " + Path.Combine(FileSystem.AppDataDirectory, "mooping_save.json"));
+            LoadGameData();
+
+            WeakReferenceMessenger.Default.Register<NewRecipeMessage>(this, (r, m) => {
+                Player.CreatedRecipes.Add(m.Value);
+                RefreshMenuUI();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+                SaveCurrentGame();
+            });
+
+            WeakReferenceMessenger.Default.Register<RecipeUpdatedMessage>(this, (r, m) => {
+                RefreshMenuUI();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+                SaveCurrentGame();
+            });
+
+            WeakReferenceMessenger.Default.Register<RecipeDeletedMessage>(this, (r, m) =>
+            {
+                var recipeToRemove = Player.CreatedRecipes.FirstOrDefault(x => x.Id == m.Value.Id);
+                if (recipeToRemove != null)
+                {
+                    Player.CreatedRecipes.Remove(recipeToRemove);
+                }
+                RefreshMenuUI();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+                SaveCurrentGame();
+            });
+
+            WeakReferenceMessenger.Default.Register<ResetGameMessage>(this, (r, m) => {
+                LoadGameData();
+                RefreshMenuUI();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+            });
+
+            WeakReferenceMessenger.Default.Register<IngredientUnlockedMessage>(this, (r, m) => {
+                RefreshInventoryUI();
+                SaveCurrentGame();
+            });
+
+            // รีเฟรช UI ทุกส่วนเมื่อผู้ใช้สลับภาษา (ชื่อวัตถุดิบ / สูตร / สถานที่จะเปลี่ยน)
+            LocalizationService.Instance.PropertyChanged += (s, e) =>
+            {
+                RefreshMenuUI();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+                // บังคับ CarouselView รีโหลดข้อมูลสถานที่ใหม่
+                var savedLocs = AllLocations.ToList();
+                AllLocations.Clear();
+                foreach (var loc in savedLocs) AllLocations.Add(loc);
+            };
+
+            MenuTab.IsVisible = true;
+            EditTab.IsVisible = false;
+            InvTab.IsVisible = false;
+            LocTab.IsVisible = false;
+            this.BindingContext = this;
+        }
+        #endregion
+
+        #region --- Gameplay Animations ---
+        private async void StartCustomerAnimation(object sender, EventArgs e)
+        {
+            if (_isBusy)
+            {
+                SoundService.PlayClickF();
+                return;
+            }
+
+            var btn = (Button)sender;
+
+            if (!await PayDailyRent())
+            {
+                return;
+            }
+
+            btn.IsEnabled = false;
+            SoundService.PlayOpen();
+            SoundService.PlayBGM();
+            Player.Day++;
+            var daySummary = new DaySummary { DayNumber = Player.Day };
+            RefreshMenuUI();
+            RefreshInventoryUI();
+            RefreshRecipeUI();
+            OnPropertyChanged(nameof(Player));
+
+            // --- Random Customer Count ---
+            Random rnd = new Random();
+            int totalInThisRound = rnd.Next(CurrentLocation.MinTraffic, CurrentLocation.MaxTraffic + 1);
+
+            // --- Rating Tracking ---
+            int customersServed = 0;
+            bool hadStockout = false;
+
+            try
+            {
+                _isBusy = true;
+                // --- Loop ---
+                for (int i = 1; i <= totalInThisRound; i++)
+                {
+                    // Reset
+                    CustomerSprite.TranslationX = 600;
+                    CustomerSprite.Opacity = 1;
+
+                    // Walk in
+                    await CustomerSprite.TranslateToAsync(80, 0, (uint)(2000 / _timeScale), Easing.CubicOut);
+
+                    // Considering Logic
+                    await SpeechBubble.FadeTo(1, (uint)(200 / _timeScale));
+
+                    var result = await CheckSaleLogic(i, totalInThisRound);
+                    await Task.Delay(400 / _timeScale);
+
+                    if (result.Earnings > 0)
+                    {
+                        customersServed++; // นับลูกค้าที่ซื้อ
+                        SoundService.PlayCoin();
+                        OnPropertyChanged(nameof(Player));
+                        RefreshMenuUI();
+                        RefreshInventoryUI();
+                        RefreshRecipeUI();
+                        CustomerChatLabel.Text = $"{result.Summary} Total: {result.Earnings}";
+                        await Task.Delay(1000 / _timeScale);
+                    }
+                    else
+                    {
+                        SoundService.PlayHmm();
+                        CustomerChatLabel.Text = "❌";
+                        await Task.Delay(600 / _timeScale);
+                    }
+
+                    daySummary.TotalRevenue += result.Earnings;
+
+                    foreach (var item in result.Details)
+                    {
+                        daySummary.TotalCost += (item.UnitCost * item.Quantity);
+
+                        var existing = daySummary.SalesDetails.FirstOrDefault(x => x.MenuName == item.MenuName);
+                        if (existing != null)
+                        {
+                            existing.Quantity += item.Quantity;
+                            existing.Revenue += item.Revenue;
+                        }
+                        else
+                            daySummary.SalesDetails.Add(item);
+                    }
+
+                    await SpeechBubble.FadeTo(0, (uint)(100 / _timeScale));
+                    // Walk out (เดินออกพ้นจอทางซ้ายสุด)
+                    await CustomerSprite.TranslateToAsync(-700, 0, (uint)(2000 / _timeScale), Easing.CubicIn);
+
+                    CustomerChatLabel.Text = "🤔";
+
+                    if (!IsAnythingLeftToSell())
+                    {
+                        hadStockout = (i < totalInThisRound); // ยังมีลูกค้าค้างแต่ของหมด
+                        var loc = LocalizationService.Instance;
+                        await PopupPage.ShowInfo(this, "📦", loc.PopupOutOfStockTitle, loc.PopupOutOfStockMsg);
+                        break; // ปิดร้าน รวย กลับบ้าน
+                    }
+
+                    // Pause
+                    await Task.Delay(500 / _timeScale);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error in customer animation: " + ex.Message);
+            }
+            finally
+            {
+                // --- คำนวณ Rating ---
+                float avgQuality = CalcAvgQualityFromSales(daySummary);
+
+                daySummary.CustomersServed  = customersServed;
+                daySummary.TotalCustomers   = totalInThisRound;
+                daySummary.HadStockout      = hadStockout;
+                daySummary.AvgQualityScore  = avgQuality;
+
+                daySummary.ProfitScore      = RatingService.CalcProfitScore(daySummary.TotalProfit);
+                daySummary.SalesScore       = RatingService.CalcSalesScore(customersServed, totalInThisRound);
+                daySummary.QualityScore     = RatingService.CalcQualityScore(avgQuality);
+                daySummary.StockoutPenalty  = RatingService.CalcStockoutPenalty(hadStockout);
+                daySummary.DailyRating      = RatingService.CalcDailyRating(
+                                                daySummary.TotalProfit, customersServed,
+                                                totalInThisRound, avgQuality, hadStockout);
+                daySummary.StarDisplay      = RatingService.GetDailyStarDisplay(daySummary.DailyRating);
+
+                // อัปเดต TotalRating (cap ที่ 3000)
+                Player.TotalRating = Math.Min(
+                    RatingService.MaxTotalRating,
+                    Player.TotalRating + daySummary.DailyRating);
+                daySummary.NewTotalRating = Player.TotalRating;
+
+                // อัปเดต TopBar ดาว
+                TotalRatingStarsLabel.Text = RatingService.GetTotalStarDisplay(Player.TotalRating);
+
+                _isBusy = false;
+                RefreshMenuUI();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+                OnPropertyChanged(nameof(Player));
+                await Navigation.PushModalAsync(new DaySummaryPage(daySummary));
+                SoundService.PlayClose();
+                SoundService.StopBgm();
+                SaveCurrentGame();
+                btn.IsEnabled = true;
+            }
+        }
+
+        // --- คำนวณ Quality Score เฉลี่ยจากเมนูที่ขายได้วันนี้ ---
+        private float CalcAvgQualityFromSales(DaySummary summary)
+        {
+            if (!summary.SalesDetails.Any()) return 0f;
+
+            var scores = summary.SalesDetails
+                .Select(s => Player.CreatedRecipes.FirstOrDefault(r => r.Name == s.MenuName))
+                .Where(r => r != null)
+                .Select(r => RecipeService.CalculateTotalScore(r, AllIngredients))
+                .ToList();
+
+            return scores.Any() ? (float)scores.Average() : 0f;
+        }
+
+        private void OnSpeedUpClicked(object sender, EventArgs e)
+        {
+            var btn = (Button)sender;
+
+            if (_timeScale == 1) _timeScale = 2;
+            else if (_timeScale == 2) _timeScale = 4;
+            else _timeScale = 1;
+
+            btn.Text = LocalizationService.Instance.FmtSpeed(_timeScale);
+            SoundService.PlayClick1();
+        }
+        #endregion
+
+        #region --- Main Game ---
+        public class SaleResult
+        {
+            public string Summary { get; set; }
+            public double Earnings { get; set; }
+            public List<MenuSalesStats> Details { get; set; } = new();
+        }
+
+        private async Task<SaleResult> CheckSaleLogic(int currentNumber, int total)
+        {
+            var activeMenus = Player.CreatedRecipes.Where(r => r.IsAllowed).ToList();
+            if (activeMenus.Count == 0)
+                return new SaleResult { Summary = "", Earnings = 0 };
+
+            var result = new SaleResult();
+            Random rnd = new Random();
+            string orderSummary = "";
+            double totalEarnings = 0;
+
+            // Select Menu(s)
+            var availableOrderPool = activeMenus.OrderBy(x => Guid.NewGuid()).ToList();
+            int varietyCount = Math.Min(availableOrderPool.Count, rnd.Next(1, 4));
+
+            for (int v = 0; v < varietyCount; v++)
+            {
+                var recipe = availableOrderPool[v];
+                // Random Quantity
+                float basePop = RecipeService.CalculatePopularity(recipe, recipe.SellingPrice, AllIngredients);
+
+                int maxWant = rnd.Next(1, 6);
+                int actualSoldInThisMenu = 0;
+
+                for (int q = maxWant; q >= 1; q--)
+                {
+                    // basePop * (1.1 - (q * 0.1))
+                    float difficultyMult = 1.1f - (q * 0.1f);
+                    float finalChance = basePop * difficultyMult;
+
+                    if (rnd.Next(1, 101) <= finalChance)
+                    {
+                        actualSoldInThisMenu = q;
+                        break;
+                    }
+                }
+
+                if (actualSoldInThisMenu > 0)
+                {
+                    int stockAvailable = Player.RecipeInventory.ContainsKey(recipe.Id) ? Player.RecipeInventory[recipe.Id] : 0;
+                    int finalSold = Math.Min(actualSoldInThisMenu, stockAvailable);
+
+                    if (finalSold > 0)
+                    {
+                        Player.RecipeInventory[recipe.Id] -= finalSold;
+                        double subTotal = finalSold * recipe.SellingPrice;
+
+                        double unitCost = RecipeService.CalculateTotalCost(recipe, AllIngredients);
+
+                        totalEarnings += subTotal;
+                        orderSummary += $"{recipe.Name} {finalSold} Unit(s)\n";
+
+                        result.Details.Add(new MenuSalesStats
+                        {
+                            MenuName = recipe.Name,
+                            Quantity = finalSold,
+                            Revenue = subTotal,
+                            UnitCost = unitCost
+                        });
+                    }
+                }
+            }
+
+            if (totalEarnings > 0)
+            {
+                Player.Money += totalEarnings;
+                SaveCurrentGame();
+            }
+
+            result.Summary = orderSummary;
+            result.Earnings = totalEarnings;
+
+            return result;
+        }
+
+        private bool IsAnythingLeftToSell()
+        {
+            // Check if Everything is Out of Stock
+            return Player.RecipeInventory.Any(item => item.Value > 0);
+        }
+        #endregion
+
+        #region --- Tab Menu ---
+        private void UpdateTabVisuals(string activeTab)
+        {
+            var darkColor = (Color)Application.Current.Resources["MooPingDarkBrown"];
+            var mediumColor = (Color)Application.Current.Resources["MooPingMediumBrown"];
+
+            MenuTabBtn.BackgroundColor = mediumColor;
+            EditTabBtn.BackgroundColor = mediumColor;
+            InvTabBtn.BackgroundColor = mediumColor;
+            LocTabBtn.BackgroundColor = mediumColor;
+
+            switch (activeTab)
+            {
+                case "Menu": MenuTabBtn.BackgroundColor = darkColor; break;
+                case "Edit": EditTabBtn.BackgroundColor = darkColor; break;
+                case "Inv": InvTabBtn.BackgroundColor = darkColor; break;
+                case "Loc": LocTabBtn.BackgroundColor = darkColor; break;
+            }
+        }
+        private void OnMenuClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayPaper();
+            RefreshMenuUI();
+            UpdateTabVisuals("Menu");
+            MenuTab.IsVisible = true;
+            EditTab.IsVisible = false;
+            InvTab.IsVisible = false;
+            LocTab.IsVisible = false;
+        }
+        private void OnEditClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayPaper();
+            RefreshRecipeUI();
+            UpdateTabVisuals("Edit");
+            MenuTab.IsVisible = false;
+            EditTab.IsVisible = true;
+            InvTab.IsVisible = false;
+            LocTab.IsVisible = false;
+        }
+        private void OnInvClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayPaper();
+            RefreshInventoryUI();
+            UpdateTabVisuals("Inv");
+            MenuTab.IsVisible = false;
+            EditTab.IsVisible = false;
+            InvTab.IsVisible = true;
+            LocTab.IsVisible = false;
+        }
+        private void OnLocClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayPaper();
+            UpdateTabVisuals("Loc");
+            MenuTab.IsVisible = false;
+            EditTab.IsVisible = false;
+            InvTab.IsVisible = false;
+            LocTab.IsVisible = true;
+        }
+        #endregion
+
+        #region --- Save Game Data ---
+        private void SaveCurrentGame()
+        {
+            if (Player != null)
+            {
+                SaveService.SaveGame(Player);
+                Console.WriteLine(">>>> Game Saved Successfully!");
+            }
+        }
+        public class MasterDataRoot
+        {
+            public List<ProjektMooPing.Models.Location> Locations { get; set; }
+            public List<Ingredient> Ingredients { get; set; }
+            public List<QuestionData> Quizzes { get; set; }
+        }
+        #endregion
+
+        #region --- Load Game Data ---
+        public async void LoadGameData()
+        {
+            try
+            {
+                // Open MasterData.json from the app (Resources/Raw)
+                using var stream = await FileSystem.OpenAppPackageFileAsync("MasterData.json");
+                using var reader = new StreamReader(stream);
+                var contents = await reader.ReadToEndAsync();
+                var data = JsonSerializer.Deserialize<MasterDataRoot>(contents, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                if (data != null)
+                {
+                    // Locations
+                    if (data.Locations != null)
+                    {
+                        AllLocations.Clear();
+                        foreach (var loc in data.Locations)
+                        {
+                            if (!loc.ImagePath.EndsWith(".png")) loc.ImagePath += ".png";
+                            AllLocations.Add(loc);
+                        }
+                    }
+
+                    // Ingredients
+                    if (data.Ingredients != null)
+                    {
+                        AllIngredients = data.Ingredients;
+                    }
+                }
+
+                Player = SaveService.LoadGame();
+                Player.IngredientInventory ??= new Dictionary<int, int>();
+                Player.RecipeInventory ??= new Dictionary<int, int>();
+                Player.CreatedRecipes ??= new List<Recipe>();
+
+                string savePath = Path.Combine(FileSystem.AppDataDirectory, "mooping_save.json");
+                if (!File.Exists(savePath))
+                {
+                    SaveCurrentGame(); // Default
+                    Debug.WriteLine(">>>> Initial Save File Created!");
+                }
+
+                CurrentLocation = AllLocations.FirstOrDefault() ?? new Location();
+                RefreshInventoryUI();
+                RefreshRecipeUI();
+                RefreshMenuUI();
+                OnPropertyChanged(nameof(Player));
+            }
+            catch (Exception ex)
+            {
+                var loc = LocalizationService.Instance;
+                await PopupPage.ShowInfo(this, "❌", loc.PopupErrorTitle, loc.FmtLoadError(ex.Message));
+            }
+        }
+        #endregion
+
+        #region --- Menu Logic ---
+        private async void OnMenuTapped(object sender, TappedEventArgs e)
+        {
+            SoundService.PlayClick1();
+            if (e.Parameter is RecipeViewModel selectedVM)
+            {
+                var targetRecipe = selectedVM.RecipeSource;
+                await Navigation.PushModalAsync(new MenuDetailPage(targetRecipe, AllIngredients, Player));
+            }
+        }
+        public void RefreshMenuUI()
+        {
+            MyMenu.Clear();
+            foreach (var recipe in Player.CreatedRecipes)
+            {
+                if (recipe.IsAllowed)
+                {
+                    var vm = new RecipeViewModel(recipe, AllIngredients);
+                    if (Player.RecipeInventory.TryGetValue(recipe.Id, out int count))
+                    {
+                        vm.FinishedGoods = count;
+                    }
+
+                    MyMenu.Add(vm);
+                }
+            }
+        }
+        #endregion
+
+        #region --- Edit Recipe Logic ---
+        public void RefreshRecipeUI()
+        {
+            MyRecipe.Clear();
+            foreach (var recipe in Player.CreatedRecipes)
+            {
+                var vm = new RecipeViewModel(recipe, AllIngredients);
+                MyRecipe.Add(vm);
+            }
+        }
+
+        private async void OnCreateClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayClick1();
+            await Navigation.PushModalAsync(new EditDetailPage(Player, AllIngredients));
+        }
+
+        private async void OnRecipeTapped(object sender, TappedEventArgs e)
+        {
+            SoundService.PlayClick1();
+            if (e.Parameter is RecipeViewModel vm)
+                await Navigation.PushModalAsync(new EditDetailPage(Player, AllIngredients, vm.RecipeSource));
+        }
+        #endregion
+
+        #region --- Inventory ---
+        public void RefreshInventoryUI()
+        {
+            MyInventory.Clear();
+            foreach (var id in Player.UnlockedIngredientIds)
+            {
+                var master = AllIngredients.FirstOrDefault(i => i.Id == id);
+                if (master != null)
+                {
+                    int owned = Player.IngredientInventory.ContainsKey(id) ? Player.IngredientInventory[id] : 0;
+                    MyInventory.Add(new IngredientViewModel
+                    {
+                        Id = master.Id,
+                        Name = master.Name,
+                        NameTh = master.NameTh,        // สำหรับ DisplayName bilingual
+                        Category = master.Category,
+                        BasePopularity = master.BasePopularity,
+                        BaseCost = master.BaseCost,
+                        Icon = master.Icon,
+                        OwnedAmount = owned,
+                        OrderAmount = 0
+                    });
+                }
+            }
+        }
+
+        private void OnAdjustOrder(object sender, EventArgs e)
+        {
+            SoundService.PlayClick2();
+            var btn = (Button)sender;
+            var item = (IngredientViewModel)btn.BindingContext;
+            int amount = int.Parse(btn.Text); // "+1" "-5"
+            item.OrderAmount += amount;
+        }
+
+        private async void OnBuyClicked(object sender, EventArgs e)
+        {
+            var item = (IngredientViewModel)((Button)sender).BindingContext;
+            if (item.OrderAmount <= 0) return;
+
+            if (Player.Money >= item.TotalCost)
+            {
+                SoundService.PlayCashRegister();
+                Player.Money -= item.TotalCost;
+
+                // Add Ingredient Inventory
+                if (!Player.IngredientInventory.ContainsKey(item.Id))
+                    Player.IngredientInventory[item.Id] = 0;
+
+                Player.IngredientInventory[item.Id] += item.OrderAmount;
+
+                // อัปเดต UI
+                item.OwnedAmount = Player.IngredientInventory[item.Id];
+                item.OrderAmount = 0;
+
+                OnPropertyChanged(nameof(Player)); // Money Update
+                SaveCurrentGame();
+            }
+            else
+            {
+                SoundService.PlayClickF();
+                // await DisplayAlert("Failed", "Not Enough Money", "OK");
+            }
+        }
+        #endregion
+
+        #region --- Location ---
+        private async void OnRelocateClicked(object sender, EventArgs e)
+        {
+            if (_isBusy)
+            {
+                SoundService.PlayClickF();
+                return;
+            }
+            var btn = sender as Button;
+            var bgImage = this.FindByName<Image>("GameBackgroundImage");
+            if (btn == null) return;
+
+            var selectedLoc = btn.CommandParameter as ProjektMooPing.Models.Location;
+
+            if (selectedLoc != null)
+            {
+                await bgImage.FadeTo(0, 300);
+                CurrentLocation = selectedLoc;
+                SoundService.PlayMove();
+                SaveCurrentGame();
+                await bgImage.FadeTo(1, 500);
+            }
+            else
+            {
+                var loc = LocalizationService.Instance;
+                await PopupPage.ShowInfo(this, "❌", loc.PopupErrorTitle, loc.PopupLocError);
+            }
+        }
+        private void OnPrevLocationClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayClick2();
+            int prevIndex = LocationCarousel.Position - 1;
+            if (prevIndex >= 0)
+            {
+                LocationCarousel.Position = prevIndex;
+            }
+        }
+
+        private void OnNextLocationClicked(object sender, EventArgs e)
+        {
+            SoundService.PlayClick2();
+            int nextIndex = LocationCarousel.Position + 1;
+            if (nextIndex < AllLocations.Count)
+            {
+                LocationCarousel.Position = nextIndex;
+            }
+        }
+
+        private async Task<bool> PayDailyRent()
+        {
+            if (Player.Money < CurrentLocation.DailyRent)
+            {
+                SoundService.PlayClickF();
+                var loc = LocalizationService.Instance;
+                await PopupPage.ShowInfo(this, "💸", loc.PopupRentTitle,
+                    loc.FmtRentMsg(CurrentLocation.DailyRent, CurrentLocation.LocName));
+                return false;
+            }
+
+            Player.Money -= CurrentLocation.DailyRent;
+            OnPropertyChanged(nameof(Player));
+
+            return true;
+        }
+        #endregion
+
+        #region --- Discover ---
+        private async void OnDiscoverClicked(object sender, EventArgs e)
+        {
+            if (Player.Money < 200)
+            {
+                SoundService.PlayClickF();
+                var loc = LocalizationService.Instance;
+                await PopupPage.ShowInfo(this, "💸", loc.PopupDiscoverTitle, loc.PopupDiscoverMsg);
+                return;
+            }
+
+            Player.Money -= 200;
+            OnPropertyChanged(nameof(Player));
+            SaveCurrentGame();
+            SoundService.PlayClick1();
+            await Navigation.PushModalAsync(new DiscoverPage(Player, AllQuestions, AllIngredients));
+        }
+
+        private async Task LoadMasterData()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("MasterData.json");
+            using var reader = new StreamReader(stream);
+            var json = await reader.ReadToEndAsync();
+
+            var root = JsonSerializer.Deserialize<MasterDataRoot>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            if (root != null)
+            {
+                this.AllIngredients = root.Ingredients;
+                this.AllQuestions = root.Quizzes;
+            }
+        }
+        #endregion
+
+        #region --- Settings ---
+        private async void OnSettingClicked(object sender, EventArgs e)
+        {
+            if (_isBusy)
+            {
+                SoundService.PlayClickF();
+                return;
+            }
+            SoundService.PlayClick1();
+            await Navigation.PushModalAsync(new SettingPage());
+        }
+        #endregion
+    }
+}

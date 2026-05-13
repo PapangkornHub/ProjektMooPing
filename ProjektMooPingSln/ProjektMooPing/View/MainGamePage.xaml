@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:ProjektMooPing.Services"
+             x:Class="ProjektMooPing.MainGamePage"
+             Title="MainGamePage"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto, 1*, 1*">
+
+        <Grid Grid.Row="0">
+            <!-- Top Bar -->
+            <Grid ColumnDefinitions="60, *" 
+                  Padding="10" 
+                  ColumnSpacing="10" 
+                  HeightRequest="65" 
+                  BackgroundColor="{StaticResource MooPingLightBrown}">
+                <Button Grid.Column="0"
+                        Text="⚙️" 
+                        FontSize="20" 
+                        WidthRequest="50" 
+                        HeightRequest="45" 
+                        Padding="0" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center" 
+                        Clicked="OnSettingClicked"
+                        BackgroundColor="{StaticResource MooPingMediumBrown}" />
+
+                <Border Grid.Column="1" 
+                        HorizontalOptions="Fill" 
+                        HeightRequest="45" 
+                        BackgroundColor="{StaticResource MooPingDarkBrown}"
+                        Stroke="Transparent">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15,15,15,15" />
+                    </Border.StrokeShape>
+
+                    <Grid>
+                        <!-- เงิน (ซ้าย) -->
+                        <HorizontalStackLayout VerticalOptions="Center" Spacing="5">
+                            <Label x:Name="MoneyLabel"
+                                   Text="{Binding Player.Money, StringFormat='{0:N0} ฿'}"
+                                   FontSize="18"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"
+                                   Margin="15, 0, 0, 0"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Rating รวม (กลาง) -->
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                            <Label x:Name="TotalRatingStarsLabel"
+                                   Text="☆☆☆☆☆"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   TextColor="White"/>
+                            <Label x:Name="TotalRatingLabel"
+                                   Text="{Binding Player.TotalRating, StringFormat='{0} / 3000'}"
+                                   FontSize="11"
+                                   HorizontalOptions="Center"
+                                   TextColor="#FFD700"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+
+                        <!-- วัน (ขวา) -->
+                        <Label Text="{Binding Player.Day, StringFormat='Day {0}'}"
+                               FontSize="18"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               Margin="0, 0, 15, 0"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+        
+        <!-- Gameplay -->
+        <Border Grid.Row="1" 
+                BackgroundColor="{StaticResource MooPingCream}" 
+                StrokeThickness="0">
+            <Grid>
+                <Image x:Name="GameBackgroundImage" 
+                       Source="{Binding CurrentGameStateImage}" 
+                       InputTransparent="True" 
+                       Aspect="AspectFill" 
+                       VerticalOptions="End" 
+                       HorizontalOptions="Fill" 
+                       WidthRequest="400"
+                       HeightRequest="500"/>
+                <Grid>
+                    <VerticalStackLayout VerticalOptions="Start" 
+                     HorizontalOptions="End" 
+                     Margin="0,20,20,0" 
+                     Spacing="10">
+
+                        <Button Text="{Binding BtnStartDay, Source={x:Static services:LocalizationService.Instance}}"
+                                TextColor="{StaticResource MooPingCream}"
+                                BackgroundColor="{StaticResource MooPingDarkBrown}"
+                                CornerRadius="15"
+                                HeightRequest="45"
+                                Clicked="StartCustomerAnimation"/>
+
+                        <Button x:Name="SpeedBtn"
+                                Text="1x Speed" 
+                                TextColor="{StaticResource MooPingCream}"
+                                BackgroundColor="{StaticResource MooPingLightBrown}" 
+                                CornerRadius="15" 
+                                HeightRequest="40"
+                                Clicked="OnSpeedUpClicked"/>
+                    </VerticalStackLayout>
+                    <Image Source="sprite_cart.png" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End" 
+                            WidthRequest="250" 
+                            HeightRequest="250" />
+                    <Border x:Name="SpeechBubble"
+                            BackgroundColor="{StaticResource MooPingCream}"
+                            HorizontalOptions="End" 
+                            VerticalOptions="End"
+                            Margin="0,0,100,200"
+                            Padding="10,5"
+                            StrokeThickness="2"
+                            Stroke="Black"
+                            Opacity="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,15,0" />
+                        </Border.StrokeShape>
+                            <Label x:Name="CustomerChatLabel"
+                                   Text="🤔"
+                                   TextColor="Black"
+                                   FontSize="14"
+                                   FontAttributes="Bold" />
+                    </Border>
+                    <Image x:Name="CustomerSprite" 
+                            Source="sprite_customer.png" 
+                            HorizontalOptions="End" 
+                            VerticalOptions="End" 
+                            WidthRequest="250" 
+                            HeightRequest="250"
+                            TranslationX="-400"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- Bottom Menu -->
+        <Border Grid.Row="2" 
+                BackgroundColor="{StaticResource MooPingCream}" 
+                Padding="0" 
+                StrokeThickness="0" 
+                Stroke="Transparent">
+
+            <Grid RowDefinitions="Auto, *">
+                <Grid Grid.Row="0" ColumnDefinitions="*,*,*,*" HeightRequest="50" Margin="5,10,5,-1">
+
+                    <Border x:Name="MenuTabBtn" Grid.Column="0" BackgroundColor="{StaticResource MooPingDarkBrown}" HeightRequest="50" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding TabMenu, Source={x:Static services:LocalizationService.Instance}}" TextColor="{StaticResource MooPingCream}" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMenuClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <Border x:Name="EditTabBtn" Grid.Column="1" BackgroundColor="{StaticResource MooPingMediumBrown}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding TabEdit, Source={x:Static services:LocalizationService.Instance}}" TextColor="{StaticResource MooPingCream}" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnEditClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <Border x:Name="InvTabBtn" Grid.Column="2" BackgroundColor="{StaticResource MooPingMediumBrown}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding TabInventory, Source={x:Static services:LocalizationService.Instance}}" TextColor="{StaticResource MooPingCream}" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnInvClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                    <Border x:Name="LocTabBtn" Grid.Column="3" BackgroundColor="{StaticResource MooPingMediumBrown}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15,15,0,0" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding TabLocation, Source={x:Static services:LocalizationService.Instance}}" TextColor="{StaticResource MooPingCream}" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLocClicked" />
+                        </Border.GestureRecognizers>
+                    </Border>
+
+                </Grid>
+
+                <Border Grid.Row="1"
+                        BackgroundColor="{StaticResource MooPingDarkBrown}" 
+                        VerticalOptions="Fill" 
+                        StrokeThickness="0" 
+                        Stroke="Transparent"
+                        Margin="5,0,5,0">
+                    <Grid>
+                        <!-- Menu -->
+                        <CollectionView x:Name="MenuTab" ItemsSource="{Binding MyMenu}" Margin="15,5,15,5">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Margin="0,5" Padding="15,10" BackgroundColor="{StaticResource MooPingCream}">
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnMenuTapped" CommandParameter="{Binding .}"/>
+                                        </Border.GestureRecognizers>
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="20"/>
+                                        </Border.StrokeShape>
+
+                                        <Grid ColumnDefinitions="Auto, *, Auto">
+                                            <Grid Grid.Column="0" WidthRequest="70" HeightRequest="60">
+                                                <Image Source="mooping_1.png" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                                                <Border HorizontalOptions="End" 
+                                                        VerticalOptions="End" 
+                                                        BackgroundColor="#D9D9D9" 
+                                                        Stroke="{StaticResource MooPingDarkBrown}" 
+                                                        StrokeThickness="2"
+                                                        WidthRequest="26" 
+                                                        HeightRequest="26" 
+                                                        TranslationX="5" 
+                                                        TranslationY="5">
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="13"/>
+                                                    </Border.StrokeShape>
+                                                    <Label Text="{Binding FinishedGoods}" 
+                                                           FontSize="14" 
+                                                           FontAttributes="Bold"
+                                                           HorizontalOptions="Center" 
+                                                           VerticalOptions="Center" 
+                                                           TextColor="Black"/>
+                                                </Border>
+                                            </Grid>
+
+                                            <VerticalStackLayout Grid.Column="1" Margin="15,0" VerticalOptions="Center">
+                                                <Label Text="{Binding Name}" 
+                                                       FontAttributes="Bold" 
+                                                       TextColor="Black" 
+                                                       FontSize="18"/>
+                                                <Label Text="{Binding IngredientDisplay}" 
+                                                       FontSize="12" 
+                                                       TextColor="Gray" />
+                                            </VerticalStackLayout>
+
+                                            <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="10">
+                                                <Label Text="{Binding RecipeSource.SellingPrice, StringFormat='{0} ฿'}" 
+                                                       TextColor="Brown" 
+                                                       VerticalOptions="Center" 
+                                                       FontAttributes="Bold"/>
+                                                       <Image Source="arrow_right.png" 
+                                                       WidthRequest="20" 
+                                                       Opacity="0.3" 
+                                                       VerticalOptions="Center"/>
+                                            </HorizontalStackLayout>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        <!-- Edit -->
+                        <Grid x:Name="EditTab" IsVisible="True" RowDefinitions="Auto, *" Margin="15,0">
+                            <Button Grid.Row="0" Text="{Binding BtnCreate, Source={x:Static services:LocalizationService.Instance}}" BackgroundColor="#76B041"
+                                    TextColor="White" CornerRadius="15" HorizontalOptions="Start"
+                                    Padding="15,0" HeightRequest="35" Margin="0,5,0,5" Clicked="OnCreateClicked"/>
+
+                            <CollectionView Grid.Row="1" ItemsSource="{Binding MyRecipe}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="0,5" Padding="15,10" BackgroundColor="{StaticResource MooPingCream}">
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnRecipeTapped" CommandParameter="{Binding .}"/>
+                                            </Border.GestureRecognizers>
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="20"/>
+                                            </Border.StrokeShape>
+
+                                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                                <Image Grid.Column="0" Source="mooping_1.png" WidthRequest="50"/>
+                                                <VerticalStackLayout Grid.Column="1" Margin="15,0" VerticalOptions="Center">
+                                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black" FontSize="18"/>
+                                                    <Label Text="{Binding IngredientDisplay}" TextColor="Gray" FontSize="12"/>
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                        <!-- Inv -->
+                        <Grid x:Name="InvTab" IsVisible="False" RowDefinitions="Auto, *" Margin="15,0">
+                            <Button Grid.Row="0" Text="{Binding BtnDiscover, Source={x:Static services:LocalizationService.Instance}}" BackgroundColor="#76B041"
+                                    TextColor="White" CornerRadius="15" HorizontalOptions="Start"
+                                    Padding="15,0" HeightRequest="35" Margin="0,5,0,5" Clicked="OnDiscoverClicked"/>
+                            <CollectionView Grid.Row="1" ItemsSource="{Binding MyInventory}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="0,5" Padding="10" BackgroundColor="{StaticResource MooPingCream}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="15"/>
+                                            </Border.StrokeShape>
+                                            
+                                            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *, Auto">
+                                                <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Spacing="5">
+                                                    <Border BackgroundColor="Wheat" Padding="6,2" VerticalOptions="Center">
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="5"/>
+                                                        </Border.StrokeShape>
+                                                        <Label Text="{Binding Category}" FontSize="10" TextColor="#555555" FontAttributes="Bold"/>
+                                                    </Border>
+                                                    <Label Text="{Binding DisplayName}" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" FontSize="16"/>
+                                                    <Label Text="{Binding BaseCost, StringFormat='Cost: {0} / pcs'}" TextColor="Gray" VerticalOptions="Center" FontSize="12"/>
+                                                </HorizontalStackLayout>
+
+                                                <Grid Grid.Row="1" Grid.Column="0" WidthRequest="70" HeightRequest="60" Margin="0,5,0,0">
+                                                    <Label Text="{Binding Icon}" FontSize="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                                                    <Border HorizontalOptions="End" VerticalOptions="End" 
+                                                            BackgroundColor="#D9D9D9" Stroke="{Binding RarityColor}" StrokeThickness="1"
+                                                            WidthRequest="24" HeightRequest="24" TranslationX="5" TranslationY="5">
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="12"/>
+                                                        </Border.StrokeShape>
+                                                        <Label Text="{Binding OwnedAmount}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+                                                    </Border>
+                                                </Grid>
+
+                                                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="2">
+                                                    <Button Text="-5" Clicked="OnAdjustOrder" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="12"/>
+                                                    <Button Text="-1" Clicked="OnAdjustOrder" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="12"/>
+                                                    <Label Text="{Binding OrderAmount}" WidthRequest="30" HorizontalTextAlignment="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+                                                    <Button Text="+1" Clicked="OnAdjustOrder" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="12"/>
+                                                    <Button Text="+5" Clicked="OnAdjustOrder" WidthRequest="35" HeightRequest="30" Padding="0" BackgroundColor="#D9D9D9" TextColor="Black" FontSize="12"/>
+                                                </HorizontalStackLayout>
+
+                                                <VerticalStackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Spacing="5" VerticalOptions="Center">
+                                                    <Label Text="{Binding LblCost, Source={x:Static services:LocalizationService.Instance}}" TextColor="Gray" FontSize="12" HorizontalOptions="Center"/>
+                                                    <Border BackgroundColor="#CCCCCC" Padding="10,5" StrokeThickness="0">
+                                                        <Border.StrokeShape>
+                                                            <RoundRectangle CornerRadius="10"/>
+                                                        </Border.StrokeShape>
+                                                        <Label Text="{Binding TotalCost}" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center"/>
+                                                    </Border>
+                                                    <Button Text="{Binding BtnBuy, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnBuyClicked"
+                                                            BackgroundColor="#76B041"
+                                                            TextColor="White"
+                                                            FontAttributes="Bold"
+                                                            HeightRequest="30"
+                                                            CornerRadius="15"
+                                                            Padding="10,0"/>
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+                        <!-- Loc -->
+                        <Border x:Name="LocTab" IsVisible="False" Margin="10,10"
+                                BackgroundColor="{StaticResource MooPingCream}" Padding="15" StrokeThickness="0"
+                                VerticalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20"/>
+                            </Border.StrokeShape>
+
+                            <VerticalStackLayout Spacing="10">
+                                    <Label Text="{Binding Source={x:Reference LocationCarousel}, Path=CurrentItem.DisplayName}"
+                                           HorizontalOptions="Center"
+                                           FontAttributes="Bold"
+                                           FontSize="20"
+                                           TextColor="Black"/>
+
+                                    <Grid ColumnDefinitions="Auto, *, Auto">
+                                        <Label Grid.Column="0" Text="◀" VerticalOptions="Center" FontSize="35" TextColor="Black" Padding="10">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnPrevLocationClicked" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <CarouselView Grid.Column="1" 
+                                                      x:Name="LocationCarousel"
+                                                      ItemsSource="{Binding AllLocations}"
+                                                      HeightRequest="160"
+                                                      IsSwipeEnabled="False" 
+                                                      Loop="False">
+                                            <CarouselView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding ImagePath}" 
+                                                           Aspect="AspectFill"
+                                                           Margin="5,0"/>
+                                                </DataTemplate>
+                                            </CarouselView.ItemTemplate>
+                                        </CarouselView>
+
+                                        <Label Grid.Column="2" Text="▶" VerticalOptions="Center" FontSize="35" TextColor="Black" Padding="10">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnNextLocationClicked" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
+
+                                    <Grid ColumnDefinitions="*, *" Margin="0,0">
+                                        <Label Grid.Column="0" 
+                                               Text="{Binding Source={x:Reference LocationCarousel}, Path=CurrentItem.TrafficRangeDisplay}" 
+                                               FontSize="13" HorizontalOptions="Center" TextColor="DimGray"/>
+                                        <Label Grid.Column="1" 
+                                               Text="{Binding Source={x:Reference LocationCarousel}, Path=CurrentItem.RentDisplay}" 
+                                               FontSize="13" HorizontalOptions="Center" TextColor="DimGray"/>
+                                    </Grid>
+
+                                    <Button Text="{Binding BtnRelocate, Source={x:Static services:LocalizationService.Instance}}"
+                                            BackgroundColor="#76B041"
+                                            TextColor="White"
+                                            CornerRadius="20"
+                                            HorizontalOptions="Center"
+                                            WidthRequest="150"
+                                            HeightRequest="45"
+                                            Clicked="OnRelocateClicked"
+                                            CommandParameter="{Binding Source={x:Reference LocationCarousel}, Path=CurrentItem}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

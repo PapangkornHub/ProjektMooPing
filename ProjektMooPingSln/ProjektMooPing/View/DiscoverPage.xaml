@@ -1,0 +1,58 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:ProjektMooPing.Services"
+             x:Class="ProjektMooPing.View.DiscoverPage"
+             BackgroundColor="#80000000">
+
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <Border BackgroundColor="{StaticResource MooPingCream}" 
+                Stroke="{StaticResource MooPingDarkBrown}"
+                StrokeThickness="3"
+                Padding="25" 
+                WidthRequest="350">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25"/>
+            </Border.StrokeShape>
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, *, Auto" RowSpacing="15">
+                <Grid Grid.Row="0" ColumnDefinitions="*, *">
+                    <Label x:Name="QuestionCountLabel" Text="Question 1/10" 
+               FontSize="14" TextColor="{StaticResource MooPingDarkBrown}" 
+               HorizontalOptions="Start" FontAttributes="Bold" />
+
+                    <Label x:Name="ScoreLabel" Grid.Column="1" Text="Score: 0" 
+               FontSize="14" TextColor="#76B041" 
+               HorizontalOptions="End" FontAttributes="Bold" />
+                </Grid>
+
+                <Label Grid.Row="1" x:Name="TriviaLabel" Text="" FontSize="14" 
+           TextColor="Gray" HorizontalTextAlignment="Center" FontAttributes="Italic" IsVisible="False"/>
+
+                <Border Grid.Row="2" BackgroundColor="#E8F5E9" Padding="10,5">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Label x:Name="RewardHintLabel" Text="Goal: 6/10 to unlock [?]" 
+               FontSize="13" TextColor="#2E7D32" HorizontalOptions="Center" FontAttributes="Bold"/>
+                </Border>
+
+                <Label Grid.Row="3" x:Name="QuestionLabel" Text="Loading..." 
+           FontSize="20" FontAttributes="Bold" TextColor="{StaticResource MooPingDarkBrown}" HorizontalTextAlignment="Center"/>
+
+
+            <ScrollView Grid.Row="4">
+                    <VerticalStackLayout x:Name="ChoicesContainer" Spacing="10" Padding="0,10" />
+                </ScrollView>
+
+                <VerticalStackLayout Grid.Row="5" Spacing="10" Margin="0,10,0,0">
+                    <Button x:Name="NextButton" Text="{Binding LblNextQuestion, Source={x:Static services:LocalizationService.Instance}}"
+                            BackgroundColor="#76B041" TextColor="White"
+                            CornerRadius="15" HeightRequest="45" IsVisible="False" Clicked="OnNextClicked"/>
+                    <Button Text="{Binding BtnExit, Source={x:Static services:LocalizationService.Instance}}"
+                            BackgroundColor="{StaticResource MooPingMediumBrown}" TextColor="White"
+                            CornerRadius="15" HeightRequest="45" Clicked="OnExitClicked"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

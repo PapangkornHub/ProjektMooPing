@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:services="clr-namespace:ProjektMooPing.Services"
+             x:Class="ProjektMooPing.EditDetailPage"
+             BackgroundColor="#80000000">
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <Border BackgroundColor="{StaticResource MooPingCream}" 
+                Stroke="{StaticResource MooPingDarkBrown}"
+                StrokeThickness="3"
+                WidthRequest="350">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="25"/>
+            </Border.StrokeShape>
+
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, *, Auto" RowSpacing="15" Padding="20">
+
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Margin="0,0,0,5">
+                    <Label Text="{Binding RecipeName}" 
+                           FontSize="22" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource MooPingDarkBrown}" 
+                           VerticalOptions="Center"/>
+                    <Button Grid.Column="1" 
+                            Text="🖊️" 
+                            FontSize="14" 
+                            WidthRequest="40" 
+                            HeightRequest="40" 
+                            Padding="0"
+                            Clicked="OnEditNameClicked" 
+                            BackgroundColor="#D9D9D9" 
+                            TextColor="White"
+                            CornerRadius="20"/>
+                </Grid>
+
+                <Border Grid.Row="1" 
+                        HeightRequest="150" 
+                        WidthRequest="150" 
+                        BackgroundColor="White" 
+                        StrokeThickness="1" 
+                        Stroke="#E0E0E0"
+                        HorizontalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="75"/>
+                    </Border.StrokeShape>
+                    <Image Source="mooping_1.png" Aspect="AspectFit" Margin="20"/>
+                </Border>
+
+                <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="10">
+                    <Border Grid.Column="0" BackgroundColor="#F0EBE0" Padding="10,5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="{Binding LblCostAnalysis, Source={x:Static services:LocalizationService.Instance}}" FontSize="12" TextColor="Gray" HorizontalOptions="Center"/>
+                            <Label x:Name="CostLabel" Text="0.00 ฿" FontAttributes="Bold" TextColor="Brown" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Column="1" BackgroundColor="#E8F5E9" Padding="10,5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <VerticalStackLayout HorizontalOptions="Center">
+                            <Label Text="{Binding LblSynergyAnalysis, Source={x:Static services:LocalizationService.Instance}}" FontSize="12" TextColor="Gray" HorizontalOptions="Center"/>
+                            <Label x:Name="SynergyLabel" Text="+0" FontAttributes="Bold" TextColor="#76B041" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <Button Grid.Row="3" 
+                        x:Name="AllowButton" 
+                        Text="Selling: OFF" 
+                        BackgroundColor="{StaticResource MooPingMediumBrown}" 
+                        TextColor="White" 
+                        CornerRadius="15"
+                        HeightRequest="40"
+                        Clicked="OnAllowToMenuClicked"
+                        HorizontalOptions="Fill"/>
+
+                <VerticalStackLayout Grid.Row="4" Spacing="5">
+                    <Label Text="{Binding LblIngredientsSelection, Source={x:Static services:LocalizationService.Instance}}" FontSize="14" TextColor="Gray" FontAttributes="Bold"/>
+                    <Border StrokeThickness="1" Stroke="#DCDCDC" HeightRequest="200" Padding="5" BackgroundColor="#F9F9F9">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <CollectionView ItemsSource="{Binding SelectableIngredients}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid ColumnDefinitions="*, Auto" Padding="10,8">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnIngredientToggled" CommandParameter="{Binding .}"/>
+                                        </Grid.GestureRecognizers>
+
+                                        <Label Grid.Column="0" Text="{Binding DisplayName}" TextColor="Black" VerticalOptions="Center" FontSize="15"/>
+
+                                        <Border Grid.Column="1" 
+                                                WidthRequest="26" 
+                                                HeightRequest="26" 
+                                                Stroke="{StaticResource MooPingDarkBrown}" 
+                                                StrokeThickness="2"
+                                                BackgroundColor="{Binding IsSelected, Converter={StaticResource BooleanToColorConverter}}">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="13"/>
+                                            </Border.StrokeShape>
+                                            <Label Text="✓" 
+                                                   IsVisible="{Binding IsSelected}" 
+                                                   TextColor="White" 
+                                                   HorizontalOptions="Center" 
+                                                   VerticalOptions="Center"
+                                                   FontSize="14"
+                                                   FontAttributes="Bold"/>
+                                            <Border.Triggers>
+                                                <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
+                                                    <Setter Property="BackgroundColor" Value="#76B041"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="False">
+                                                    <Setter Property="BackgroundColor" Value="Transparent"/>
+                                                </DataTrigger>
+                                            </Border.Triggers>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Border>
+                </VerticalStackLayout>
+
+                <Grid Grid.Row="5" ColumnDefinitions="Auto, *, *" ColumnSpacing="10" Margin="0,10,0,0">
+                    <Button x:Name="DeleteButton" 
+                            Grid.Column="0" 
+                            Text="🗑" 
+                            BackgroundColor="#D9D9D9" 
+                            WidthRequest="50" 
+                            HeightRequest="45"
+                            CornerRadius="15" 
+                            Clicked="OnDeleteClicked"/>
+
+                    <Button Grid.Column="1"
+                            Text="{Binding BtnCancel, Source={x:Static services:LocalizationService.Instance}}"
+                            BackgroundColor="{StaticResource MooPingDarkBrown}"
+                            TextColor="White"
+                            CornerRadius="15"
+                            HeightRequest="45"
+                            Clicked="OnCancelClicked"/>
+
+                    <Button Grid.Column="2"
+                            Text="{Binding BtnAccept, Source={x:Static services:LocalizationService.Instance}}"
+                            BackgroundColor="#76B041" 
+                            TextColor="White" 
+                            FontAttributes="Bold"
+                            CornerRadius="15" 
+                            HeightRequest="45"
+                            Clicked="OnAcceptClicked"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
