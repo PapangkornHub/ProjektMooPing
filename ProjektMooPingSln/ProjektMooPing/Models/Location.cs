@@ -16,6 +16,22 @@ namespace ProjektMooPing.Models
         public string DogLucky       { get; set; }
         public string DogLuckyTh     { get; set; }
 
+        // --- Story CutScene ---
+        public string Title          { get; set; }
+        public string TitleTh        { get; set; }
+        public string Text           { get; set; }
+        public string TextTh         { get; set; }
+        public string StoryImagePath { get; set; }
+
+        public bool HasStoryCutScene => !string.IsNullOrEmpty(StoryImagePath);
+        public string DisplayStoryTitle =>
+            Loc.IsThai && !string.IsNullOrEmpty(TitleTh) ? TitleTh : Title;
+        public string DisplayStoryText =>
+            Loc.IsThai && !string.IsNullOrEmpty(TextTh) ? TextTh : Text;
+        public string DisplayStoryImagePath =>
+            string.IsNullOrEmpty(StoryImagePath) ? null
+            : StoryImagePath.EndsWith(".png") ? StoryImagePath : StoryImagePath + ".png";
+
         private static ProjektMooPing.Services.LocalizationService Loc
             => ProjektMooPing.Services.LocalizationService.Instance;
 

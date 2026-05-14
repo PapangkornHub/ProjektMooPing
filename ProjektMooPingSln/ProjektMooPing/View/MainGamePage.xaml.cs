@@ -19,6 +19,7 @@ namespace ProjektMooPing
         public ObservableCollection<ProjektMooPing.Models.Location> AllLocations { get; set; } = new();
         public ObservableCollection<RecipeViewModel> MyMenu { get; set; } = new();
         public List<Ingredient> AllIngredients { get; set; } = new();
+        public List<StoryCutScene> AllStoryCutScenes { get; set; } = new();
         public PlayerProfile Player { get; set; }
         public List<QuestionData> AllQuestions { get; set; } = new();
         private Location _currentLocation;
@@ -131,6 +132,8 @@ namespace ProjektMooPing
             btn.IsEnabled = false;
             SoundService.PlayOpen();
             SoundService.PlayBGM();
+            SmokeWrapper.IsVisible = true;
+            _ = SmokeWrapper.FadeTo(1, 800);
             Player.Day++;
             var daySummary = new DaySummary { DayNumber = Player.Day };
             RefreshMenuUI();
@@ -240,7 +243,8 @@ namespace ProjektMooPing
                                                 totalInThisRound, avgQuality, hadStockout);
                 daySummary.StarDisplay      = RatingService.GetDailyStarDisplay(daySummary.DailyRating);
 
-                // อัปเดต TotalRating (cap ที่ 3000)
+                // อัปเดต TotalRating
+                int prevRating = Player.TotalRating;
                 Player.TotalRating = Math.Clamp(
                     Player.TotalRating + daySummary.DailyRating,
                     0, RatingService.MaxTotalRating);
@@ -250,6 +254,8 @@ namespace ProjektMooPing
                 TotalRatingStarsLabel.Text = RatingService.GetTotalStarDisplay(Player.TotalRating);
 
                 _isBusy = false;
+                await SmokeWrapper.FadeTo(0, 1000);
+                SmokeWrapper.IsVisible = false;
                 RefreshMenuUI();
                 RefreshInventoryUI();
                 RefreshRecipeUI();
@@ -258,6 +264,17 @@ namespace ProjektMooPing
                 SoundService.PlayClose();
                 SoundService.StopBgm();
                 SaveCurrentGame();
+
+                // 2.3 True Ending
+                if (Player.ContractLocationId == 10
+                    && prevRating < RatingService.MaxTotalRating
+                    && Player.TotalRating >= RatingService.MaxTotalRating)
+                {
+                    var endingScene = AllStoryCutScenes.FirstOrDefault(s => s.Id == 14);
+                    if (endingScene != null)
+                        await Navigation.PushModalAsync(new CutScenePage(new List<StoryCutScene> { endingScene }));
+                }
+
                 btn.IsEnabled = true;
             }
         }
@@ -455,6 +472,7 @@ namespace ProjektMooPing
             public List<ProjektMooPing.Models.Location> Locations { get; set; }
             public List<Ingredient> Ingredients { get; set; }
             public List<QuestionData> Quizzes { get; set; }
+            public List<StoryCutScene> StoryCutScene { get; set; }
         }
         #endregion
 
@@ -484,9 +502,11 @@ namespace ProjektMooPing
 
                     // Ingredients
                     if (data.Ingredients != null)
-                    {
                         AllIngredients = data.Ingredients;
-                    }
+
+                    // StoryCutScenes
+                    if (data.StoryCutScene != null)
+                        AllStoryCutScenes = data.StoryCutScene;
                 }
 
                 Player = SaveService.LoadGame();
@@ -516,6 +536,18 @@ namespace ProjektMooPing
                 RefreshMenuUI();
                 OnPropertyChanged(nameof(Player));
                 UpdateLoanBanner();
+
+                // 2.1 Intro cutscene (แสดงครั้งเดียว)
+                if (!Player.AlreadyWatchIntro)
+                {
+                    Player.AlreadyWatchIntro = true;
+                    SaveCurrentGame();
+                    var introScenes = AllStoryCutScenes
+                        .Where(s => s.Id >= 11 && s.Id <= 13)
+                        .OrderBy(s => s.Id).ToList();
+                    if (introScenes.Any())
+                        await Navigation.PushModalAsync(new CutScenePage(introScenes));
+                }
             }
             catch (Exception ex)
             {
@@ -888,6 +920,20 @@ namespace ProjektMooPing
 
             await PopupPage.ShowInfo(this, "📋", L.IsThai ? "เซนสัญญาสำเร็จ!" : "Contract Signed!",
                 L.FmtContractSigned(selectedLoc.DisplayName, Player.ContractExpiryDay));
+
+            // 2.2 Location unlock cutscene (เฉพาะ unlock ครั้งแรก)
+            if (!alreadyUnlocked && selectedLoc.HasStoryCutScene)
+            {
+                var scene = new StoryCutScene
+                {
+                    Title        = selectedLoc.Title,
+                    TitleTh      = selectedLoc.TitleTh,
+                    Text         = selectedLoc.Text,
+                    TextTh       = selectedLoc.TextTh,
+                    StoryImagePath = selectedLoc.StoryImagePath
+                };
+                await Navigation.PushModalAsync(new CutScenePage(new List<StoryCutScene> { scene }));
+            }
         }
 
         private async Task<bool> CheckContractValid()
@@ -993,11 +1039,15 @@ namespace ProjektMooPing
 
         private async Task TriggerGameOver()
         {
-            var L = LocalizationService.Instance;
             BigLoanSprite.Opacity = 1;
             await BigLoanSprite.TranslateToAsync(80, 0, 600, Easing.CubicOut);
             SoundService.PlayClickF();
-            await PopupPage.ShowInfo(this, "💀", L.GameOverTitle, L.GameOverLoanMsg);
+
+            // 2.4 Game Over cutscene
+            var gameOverScene = AllStoryCutScenes.FirstOrDefault(s => s.Id == 15);
+            if (gameOverScene != null)
+                await Navigation.PushModalAsync(new CutScenePage(new List<StoryCutScene> { gameOverScene }));
+
             SaveService.DeleteSave();
             WeakReferenceMessenger.Default.Send(new ResetGameMessage());
             BigLoanSprite.TranslationX = 600;

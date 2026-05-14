@@ -86,6 +86,7 @@ namespace ProjektMooPing.Services
         public string LblReady      => IsThai ? "พร้อมขาย:"  : "Ready:";
         public string BtnClose      => IsThai ? "ปิด"         : "Close";
         public string BtnAccept     => IsThai ? "ยืนยัน"     : "Accept";
+        public string BtnNext       => IsThai ? "ถัดไป ▶"     : "Next ▶";
         public string BtnCookNow    => IsThai ? "ปิ้งเลย! 🔥" : "COOK NOW! 🔥";
         public string BtnCookAll    => IsThai ? "ปิ้งทั้งหมด! 🔥🔥" : "COOK ALL! 🔥🔥";
 

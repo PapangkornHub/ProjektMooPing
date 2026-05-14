@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:services="clr-namespace:ProjektMooPing.Services"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              x:Class="ProjektMooPing.MainGamePage"
              Title="MainGamePage"
              Shell.NavBarIsVisible="False">
@@ -88,7 +89,7 @@
                        HorizontalOptions="Fill" 
                        WidthRequest="400"
                        HeightRequest="500"/>
-                <Grid>
+                <Grid IsClippedToBounds="False">
                     <Grid VerticalOptions="Start" Margin="10,20,10,0"
                           ColumnDefinitions="*, Auto">
 
@@ -128,11 +129,24 @@
                                     Clicked="OnSpeedUpClicked"/>
                         </VerticalStackLayout>
                     </Grid>
-                    <Image Source="sprite_cart.png" 
-                            HorizontalOptions="Center" 
-                            VerticalOptions="End" 
-                            WidthRequest="250" 
-                            HeightRequest="250" />
+                    <Grid x:Name="SmokeWrapper"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            WidthRequest="180"
+                            HeightRequest="180"
+                            TranslationY="-120"
+                            Opacity="0"
+                            IsVisible="False"
+                            InputTransparent="True">
+                        <skia:SKLottieView x:Name="SmokeAnimation"
+                                Source="smoke.json"
+                                RepeatCount="-1"/>
+                    </Grid>
+                    <Image Source="sprite_cart.png"
+                            HorizontalOptions="Center"
+                            VerticalOptions="End"
+                            WidthRequest="250"
+                            HeightRequest="250"/>
                     <Border x:Name="SpeechBubble"
                             BackgroundColor="{StaticResource MooPingCream}"
                             HorizontalOptions="End" 
