@@ -130,28 +130,61 @@ public partial class MenuDetailPage : ContentPage
             if (!_player.IngredientInventory.ContainsKey(id) || _player.IngredientInventory[id] <= 0)
             {
                 SoundService.PlayClickF();
-                var master = _masterData.FirstOrDefault(i => i.Id == id);
-                //await DisplayAlert("Failed", $"Ingredients '{master?.Name}' Out of Stock!", "OK");
                 return;
             }
         }
 
         SoundService.PlayGrill();
         foreach (var id in _recipe.IngredientIds)
-        {
             _player.IngredientInventory[id] -= 1;
-        }
 
         if (_player.RecipeInventory.ContainsKey(_recipe.Id))
-        {
             _player.RecipeInventory[_recipe.Id] += 1;
-        }
         else
-        {
             _player.RecipeInventory.Add(_recipe.Id, 1);
-        }
+
         LoadIngredientData();
         UpdateFinishedGoodsDisplay();
+        WeakReferenceMessenger.Default.Send(new RecipeUpdatedMessage(_recipe));
+    }
+
+    private void OnCookAllClicked(object sender, EventArgs e)
+    {
+        if (_recipe.IngredientIds.Count == 0) return;
+
+        // นับจำนวน occurrence ของแต่ละ ingredient ในสูตร
+        var needed = _recipe.IngredientIds
+            .GroupBy(id => id)
+            .ToDictionary(g => g.Key, g => g.Count());
+
+        // หา batch ที่ทำได้สูงสุดจาก limiting ingredient
+        int maxBatches = needed.Min(kv =>
+        {
+            int stock = _player.IngredientInventory.GetValueOrDefault(kv.Key, 0);
+            return stock / kv.Value;
+        });
+
+        if (maxBatches <= 0)
+        {
+            SoundService.PlayClickF();
+            return;
+        }
+
+        SoundService.PlayGrill();
+
+        // หัก ingredient
+        foreach (var kv in needed)
+            _player.IngredientInventory[kv.Key] -= kv.Value * maxBatches;
+
+        // เพิ่ม finished goods
+        if (_player.RecipeInventory.ContainsKey(_recipe.Id))
+            _player.RecipeInventory[_recipe.Id] += maxBatches;
+        else
+            _player.RecipeInventory.Add(_recipe.Id, maxBatches);
+
+        LoadIngredientData();
+        UpdateFinishedGoodsDisplay();
+        WeakReferenceMessenger.Default.Send(new RecipeUpdatedMessage(_recipe));
     }
 
     private async void OnCancelClicked(object sender, EventArgs e)

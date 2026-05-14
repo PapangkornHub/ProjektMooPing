@@ -20,7 +20,7 @@ public partial class DiscoverPage : ContentPage
         _player = player;
         _allQuestions = questions;
         _allIngredients = ingredients;
-        _currentSessionQuestions = _allQuestions.OrderBy(x => Guid.NewGuid()).Take(10).ToList();
+        _currentSessionQuestions = _allQuestions.OrderBy(x => Guid.NewGuid()).Take(5).ToList();
         SetupPotentialReward();
         ShowQuestion();
     }
@@ -46,7 +46,7 @@ public partial class DiscoverPage : ContentPage
     {
         var q = _currentSessionQuestions[_currentIndex];
         var loc = LocalizationService.Instance;
-        QuestionCountLabel.Text = loc.FmtQuestionCount(_currentIndex + 1, 10);
+        QuestionCountLabel.Text = loc.FmtQuestionCount(_currentIndex + 1, 5);
         ScoreLabel.Text = loc.FmtScore(_score);
         QuestionLabel.Text = q.DisplayQuestion;   // ภาษาตาม LocalizationService
         ChoicesContainer.Clear();
@@ -107,7 +107,7 @@ public partial class DiscoverPage : ContentPage
         btn.IsEnabled = false;
         _currentIndex++;
 
-        if (_currentIndex < 10)
+        if (_currentIndex < 5)
         {
             TriviaLabel.IsVisible = false;
             NextButton.IsVisible = false;
@@ -125,7 +125,7 @@ public partial class DiscoverPage : ContentPage
 
     private async Task FinishQuiz()
     {
-        bool passed = _score >= 6;
+        bool passed = _score >= 3;
         string icon, title, resultMsg;
         var loc = LocalizationService.Instance;
 
