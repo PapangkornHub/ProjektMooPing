@@ -238,9 +238,9 @@ namespace ProjektMooPing
                 daySummary.StarDisplay      = RatingService.GetDailyStarDisplay(daySummary.DailyRating);
 
                 // อัปเดต TotalRating (cap ที่ 3000)
-                Player.TotalRating = Math.Min(
-                    RatingService.MaxTotalRating,
-                    Player.TotalRating + daySummary.DailyRating);
+                Player.TotalRating = Math.Clamp(
+                    Player.TotalRating + daySummary.DailyRating,
+                    0, RatingService.MaxTotalRating);
                 daySummary.NewTotalRating = Player.TotalRating;
 
                 // อัปเดต TopBar ดาว
