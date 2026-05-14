@@ -29,6 +29,11 @@ namespace ProjektMooPing.Models
         // --- Rating ---
         public int TotalRating { get; set; } = 0;
 
+        // --- Location Contract ---
+        public HashSet<int> UnlockedLocationIds { get; set; } = new HashSet<int> { 1 };
+        public int ContractLocationId  { get; set; } = 1;
+        public int ContractExpiryDay   { get; set; } = 8;
+
         public PlayerProfile()
         {
             // Starting Money

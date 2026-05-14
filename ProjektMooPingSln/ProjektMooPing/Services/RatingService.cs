@@ -2,7 +2,7 @@ namespace ProjektMooPing.Services
 {
     public static class RatingService
     {
-        public const int MaxTotalRating = 3000;
+        public const int MaxTotalRating = 8000;
         public const int MaxDailyRating = 80;
 
         // --- Profit Score ---
@@ -70,10 +70,10 @@ namespace ProjektMooPing.Services
                  + string.Concat(Enumerable.Repeat("☆", 5 - stars));
         }
 
-        // --- string ดาว Total (5 ดาว, แต่ละดาว = 600 pts) ---
+        // --- string ดาว Total (5 ดาว, แต่ละดาว = 1600 pts) ---
         public static string GetTotalStarDisplay(int totalRating)
         {
-            int stars = Math.Min(5, totalRating / 600);
+            int stars = Math.Min(5, totalRating / 1600);
             return string.Concat(Enumerable.Repeat("⭐", stars))
                  + string.Concat(Enumerable.Repeat("☆", 5 - stars));
         }

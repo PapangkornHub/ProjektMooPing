@@ -94,7 +94,7 @@ public partial class MenuDetailPage : ContentPage
         {
             SoundService.PlayClick2();
             _currentPrice += adjust;
-            if (_currentPrice < 0) _currentPrice = 0;
+            if (_currentPrice < 1) _currentPrice = 1;
             PriceEntry.Text = _currentPrice.ToString();
         }
     }
@@ -112,6 +112,8 @@ public partial class MenuDetailPage : ContentPage
     #region --- Save & Action Actions ---
     private async void OnAcceptClicked(object sender, EventArgs e)
     {
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
         if (double.TryParse(PriceEntry.Text, out double newPrice))
         {
             _recipe.SellingPrice = (int)newPrice;
@@ -154,6 +156,8 @@ public partial class MenuDetailPage : ContentPage
 
     private async void OnCancelClicked(object sender, EventArgs e)
     {
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
         SoundService.PlayClickB();
         await Navigation.PopModalAsync();
     }

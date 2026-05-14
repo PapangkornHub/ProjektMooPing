@@ -207,12 +207,15 @@ public partial class EditDetailPage : ContentPage
     #region --- Accept Button ---
     private async void OnAcceptClicked(object sender, EventArgs e)
     {
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
         var selectedIds = SelectableIngredients.Where(i => i.IsSelected).Select(s => s.Id).ToList();
 
         if (selectedIds.Count == 0)
         {
             var loc = LocalizationService.Instance;
             await PopupPage.ShowInfo(this, "⚠️", loc.EditWarnIngTitle, loc.EditWarnIngMsg);
+            btn.IsEnabled = true;
             return;
         }
 
@@ -222,9 +225,10 @@ public partial class EditDetailPage : ContentPage
 
         if (!hasMeat)
         {
-            SoundService.PlayClickF(); // เล่นเสียง Error
+            SoundService.PlayClickF();
             var loc = LocalizationService.Instance;
             await PopupPage.ShowInfo(this, "🥩", loc.EditWarnMeatTitle, loc.EditWarnMeatMsg);
+            btn.IsEnabled = true;
             return;
         }
 
@@ -264,6 +268,7 @@ public partial class EditDetailPage : ContentPage
                 SoundService.PlayClickF();
                 var loc = LocalizationService.Instance;
                 await PopupPage.ShowInfo(this, "🔒", loc.EditCannotEditTitle, loc.EditCannotEditMsg);
+                btn.IsEnabled = true;
                 return;
             }
 
@@ -283,6 +288,9 @@ public partial class EditDetailPage : ContentPage
     #region --- Delete Button ---
     private async void OnDeleteClicked(object sender, EventArgs e)
     {
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
+
         if (_recipeToEdit == null)
         {
             await Navigation.PopModalAsync();
@@ -298,6 +306,7 @@ public partial class EditDetailPage : ContentPage
             SoundService.PlayClickF();
             var loc = LocalizationService.Instance;
             await PopupPage.ShowInfo(this, "🔒", loc.EditCannotDelTitle, loc.EditCannotDelMsg);
+            btn.IsEnabled = true;
             return;
         }
 
@@ -310,7 +319,8 @@ public partial class EditDetailPage : ContentPage
     #region --- Cancel Button ---
     private async void OnCancelClicked(object sender, EventArgs e)
     {
-
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
         SoundService.PlayClickB();
         await Navigation.PopModalAsync();
     }

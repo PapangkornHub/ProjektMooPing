@@ -24,6 +24,7 @@ namespace ProjektMooPing
         private Location _currentLocation;
         private int _timeScale = 1;
         private bool _isBusy = false;
+        private bool _isNavigating = false;
         public Location CurrentLocation
         {
             get => _currentLocation;
@@ -120,7 +121,7 @@ namespace ProjektMooPing
 
             var btn = (Button)sender;
 
-            if (!await PayDailyRent())
+            if (!await CheckContractValid())
             {
                 return;
             }
@@ -433,6 +434,7 @@ namespace ProjektMooPing
             EditTab.IsVisible = false;
             InvTab.IsVisible = false;
             LocTab.IsVisible = true;
+            UpdateLocTabUI();
         }
         #endregion
 
@@ -489,14 +491,22 @@ namespace ProjektMooPing
                 Player.RecipeInventory ??= new Dictionary<int, int>();
                 Player.CreatedRecipes ??= new List<Recipe>();
 
+                // backward-compat: save ก่อนมีระบบสัญญา
+                Player.UnlockedLocationIds ??= new HashSet<int> { 1 };
+                if (Player.UnlockedLocationIds.Count == 0) Player.UnlockedLocationIds.Add(1);
+                if (Player.ContractLocationId == 0)  Player.ContractLocationId = 1;
+                if (Player.ContractExpiryDay  == 0)  Player.ContractExpiryDay  = Player.Day + 7;
+
                 string savePath = Path.Combine(FileSystem.AppDataDirectory, "mooping_save.json");
                 if (!File.Exists(savePath))
                 {
-                    SaveCurrentGame(); // Default
+                    SaveCurrentGame();
                     Debug.WriteLine(">>>> Initial Save File Created!");
                 }
 
-                CurrentLocation = AllLocations.FirstOrDefault() ?? new Location();
+                CurrentLocation = AllLocations.FirstOrDefault(l => l.Id == Player.ContractLocationId)
+                               ?? AllLocations.FirstOrDefault()
+                               ?? new Location();
                 RefreshInventoryUI();
                 RefreshRecipeUI();
                 RefreshMenuUI();
@@ -513,12 +523,15 @@ namespace ProjektMooPing
         #region --- Menu Logic ---
         private async void OnMenuTapped(object sender, TappedEventArgs e)
         {
-            SoundService.PlayClick1();
-            if (e.Parameter is RecipeViewModel selectedVM)
+            if (_isNavigating) return;
+            if (e.Parameter is not RecipeViewModel selectedVM) return;
+            _isNavigating = true;
+            try
             {
-                var targetRecipe = selectedVM.RecipeSource;
-                await Navigation.PushModalAsync(new MenuDetailPage(targetRecipe, AllIngredients, Player));
+                SoundService.PlayClick1();
+                await Navigation.PushModalAsync(new MenuDetailPage(selectedVM.RecipeSource, AllIngredients, Player));
             }
+            finally { _isNavigating = false; }
         }
         public void RefreshMenuUI()
         {
@@ -552,15 +565,27 @@ namespace ProjektMooPing
 
         private async void OnCreateClicked(object sender, EventArgs e)
         {
-            SoundService.PlayClick1();
-            await Navigation.PushModalAsync(new EditDetailPage(Player, AllIngredients));
+            if (_isNavigating) return;
+            _isNavigating = true;
+            try
+            {
+                SoundService.PlayClick1();
+                await Navigation.PushModalAsync(new EditDetailPage(Player, AllIngredients));
+            }
+            finally { _isNavigating = false; }
         }
 
         private async void OnRecipeTapped(object sender, TappedEventArgs e)
         {
-            SoundService.PlayClick1();
-            if (e.Parameter is RecipeViewModel vm)
+            if (_isNavigating) return;
+            if (e.Parameter is not RecipeViewModel vm) return;
+            _isNavigating = true;
+            try
+            {
+                SoundService.PlayClick1();
                 await Navigation.PushModalAsync(new EditDetailPage(Player, AllIngredients, vm.RecipeSource));
+            }
+            finally { _isNavigating = false; }
         }
         #endregion
 
@@ -631,87 +656,233 @@ namespace ProjektMooPing
         #endregion
 
         #region --- Location ---
-        private async void OnRelocateClicked(object sender, EventArgs e)
+
+        private void OnLocationPositionChanged(object sender, PositionChangedEventArgs e)
         {
-            if (_isBusy)
-            {
-                SoundService.PlayClickF();
-                return;
-            }
-            var btn = sender as Button;
-            var bgImage = this.FindByName<Image>("GameBackgroundImage");
-            if (btn == null) return;
-
-            var selectedLoc = btn.CommandParameter as ProjektMooPing.Models.Location;
-
-            if (selectedLoc != null)
-            {
-                await bgImage.FadeTo(0, 300);
-                CurrentLocation = selectedLoc;
-                SoundService.PlayMove();
-                SaveCurrentGame();
-                await bgImage.FadeTo(1, 500);
-            }
-            else
-            {
-                var loc = LocalizationService.Instance;
-                await PopupPage.ShowInfo(this, "❌", loc.PopupErrorTitle, loc.PopupLocError);
-            }
+            UpdateLocTabUI(e.CurrentPosition);
         }
+
         private void OnPrevLocationClicked(object sender, EventArgs e)
         {
             SoundService.PlayClick2();
-            int prevIndex = LocationCarousel.Position - 1;
-            if (prevIndex >= 0)
-            {
-                LocationCarousel.Position = prevIndex;
-            }
+            int prev = LocationCarousel.Position - 1;
+            if (prev >= 0) LocationCarousel.Position = prev;
         }
 
         private void OnNextLocationClicked(object sender, EventArgs e)
         {
             SoundService.PlayClick2();
-            int nextIndex = LocationCarousel.Position + 1;
-            if (nextIndex < AllLocations.Count)
+            int next = LocationCarousel.Position + 1;
+            if (next < AllLocations.Count) LocationCarousel.Position = next;
+        }
+
+        private void UpdateLocTabUI(int? position = null)
+        {
+            if (Player == null || AllLocations.Count == 0) return;
+
+            int idx = position ?? LocationCarousel.Position;
+            if (idx < 0 || idx >= AllLocations.Count) return;
+            var loc = AllLocations[idx];
+
+            var L = LocalizationService.Instance;
+
+            LocNameLabel.Text    = loc.DisplayName;
+            LocTrafficLabel.Text = loc.TrafficRangeDisplay;
+            LocRentLabel.Text    = loc.WeeklyRentDisplay;
+            LocRatingLabel.Text  = loc.RequiredRating == 0 ? L.LblFree : $"{loc.RequiredRating:N0}";
+
+            bool isContracted    = (loc.Id == Player.ContractLocationId);
+            bool isActive        = isContracted && Player.Day < Player.ContractExpiryDay;
+            bool alreadyUnlocked = Player.UnlockedLocationIds.Contains(loc.Id);
+            bool isDowngrade     = loc.Id < Player.ContractLocationId;
+
+            // #5 ตรวจว่าปลดล็อคที่ก่อนหน้าครบหรือยัง (เฉพาะที่ยังไม่เคยปลดล็อค)
+            bool sequentialOk = alreadyUnlocked
+                || AllLocations.Where(l => l.Id < loc.Id).All(l => Player.UnlockedLocationIds.Contains(l.Id));
+
+            // #3 rating ตรวจเฉพาะครั้งแรก
+            bool ratingOk = alreadyUnlocked || Player.TotalRating >= loc.RequiredRating;
+
+            // ค่าใช้จ่าย: UnlockCost เฉพาะครั้งแรก + WeeklyRent เสมอ
+            int signCost = loc.WeeklyRent + (alreadyUnlocked ? 0 : loc.UnlockCost);
+            LocCostLabel.Text = signCost == 0 ? L.LblFree : $"{signCost:N0}฿";
+
+            // สถานะสัญญา
+            if (isActive)
             {
-                LocationCarousel.Position = nextIndex;
+                LocStatusLabel.Text      = L.FmtContractExpiry(Player.ContractExpiryDay);
+                LocStatusLabel.TextColor = Color.FromArgb("#76B041");
+            }
+            else if (isContracted)
+            {
+                LocStatusLabel.Text      = L.LblContractExpired;
+                LocStatusLabel.TextColor = Color.FromArgb("#CC3333");
+            }
+            else
+            {
+                LocStatusLabel.Text      = alreadyUnlocked ? (L.IsThai ? "ปลดล็อคแล้ว" : "Unlocked") : "";
+                LocStatusLabel.TextColor = Color.FromArgb("#888888");
+            }
+
+            // ปุ่มเซนสัญญา — ตรวจตามลำดับความสำคัญ
+            if (isActive)
+            {
+                SetContractBtn(L.BtnContractActive, false, "#AAAAAA");
+            }
+            else if (isDowngrade)                          // #6 ถอยหลังไม่ได้
+            {
+                SetContractBtn(L.LblCannotDowngrade, false, "#AAAAAA");
+            }
+            else if (!sequentialOk)                        // #5 ต้องปลดล็อคก่อนหน้าก่อน
+            {
+                SetContractBtn(L.LblSequentialLocked, false, "#AAAAAA");
+            }
+            else if (!ratingOk)                            // #3 rating เฉพาะครั้งแรก
+            {
+                SetContractBtn(L.LblLockedRating, false, "#AAAAAA");
+            }
+            else if (Player.Money < signCost)
+            {
+                SetContractBtn(L.IsThai ? "💸 เงินไม่พอ" : "💸 Not Enough", false, "#AAAAAA");
+            }
+            else
+            {
+                SetContractBtn(isContracted ? L.BtnContractRenew : L.BtnSignContract, true, "#76B041");
             }
         }
 
-        private async Task<bool> PayDailyRent()
+        private void SetContractBtn(string text, bool enabled, string hex)
         {
-            if (Player.Money < CurrentLocation.DailyRent)
+            SignContractBtn.Text            = text;
+            SignContractBtn.IsEnabled       = enabled;
+            SignContractBtn.BackgroundColor = Color.FromArgb(hex);
+        }
+
+        private async void OnSignContractClicked(object sender, EventArgs e)
+        {
+            if (_isBusy || _isNavigating) { SoundService.PlayClickF(); return; }
+            _isNavigating = true;
+            try { await DoSignContract(); }
+            finally { _isNavigating = false; }
+        }
+
+        private async Task DoSignContract()
+        {
+
+            int idx = LocationCarousel.Position;
+            if (idx < 0 || idx >= AllLocations.Count) return;
+            var selectedLoc = AllLocations[idx];
+
+            var L = LocalizationService.Instance;
+
+            // #6 ถอยหลังไม่ได้
+            if (selectedLoc.Id < Player.ContractLocationId)
             {
                 SoundService.PlayClickF();
-                var loc = LocalizationService.Instance;
-                await PopupPage.ShowInfo(this, "💸", loc.PopupRentTitle,
-                    loc.FmtRentMsg(CurrentLocation.DailyRent, CurrentLocation.LocName));
-                return false;
+                await PopupPage.ShowInfo(this, "⛔", L.PopupErrorTitle, L.LblCannotDowngrade);
+                return;
             }
 
-            Player.Money -= CurrentLocation.DailyRent;
-            OnPropertyChanged(nameof(Player));
+            bool alreadyUnlocked = Player.UnlockedLocationIds.Contains(selectedLoc.Id);
 
-            return true;
+            // #5 ต้องปลดล็อคที่ก่อนหน้าครบก่อน
+            bool sequentialOk = alreadyUnlocked
+                || AllLocations.Where(l => l.Id < selectedLoc.Id).All(l => Player.UnlockedLocationIds.Contains(l.Id));
+            if (!sequentialOk)
+            {
+                SoundService.PlayClickF();
+                await PopupPage.ShowInfo(this, "🔒", L.PopupErrorTitle, L.LblSequentialLocked);
+                return;
+            }
+
+            // #3 rating เฉพาะครั้งแรก
+            if (!alreadyUnlocked && Player.TotalRating < selectedLoc.RequiredRating)
+            {
+                SoundService.PlayClickF();
+                await PopupPage.ShowInfo(this, "⭐", L.PopupContractRatingTitle,
+                    L.FmtContractRatingMsg(selectedLoc.RequiredRating, Player.TotalRating));
+                return;
+            }
+
+            int signCost = selectedLoc.WeeklyRent + (alreadyUnlocked ? 0 : selectedLoc.UnlockCost);
+
+            if (Player.Money < signCost)
+            {
+                SoundService.PlayClickF();
+                await PopupPage.ShowInfo(this, "💸", L.PopupRentTitle,
+                    L.PopupContractMoneyMsg(signCost));
+                return;
+            }
+
+            // ตัดเงิน + อัปเดตสัญญา
+            Player.Money -= signCost;
+            Player.UnlockedLocationIds.Add(selectedLoc.Id);
+            Player.ContractLocationId = selectedLoc.Id;
+            Player.ContractExpiryDay  = Player.Day + 7;
+
+            // เปลี่ยน background
+            var bgImage = this.FindByName<Image>("GameBackgroundImage");
+            await bgImage.FadeTo(0, 300);
+            CurrentLocation = selectedLoc;
+            SoundService.PlayMove();
+            await bgImage.FadeTo(1, 500);
+
+            OnPropertyChanged(nameof(Player));
+            SaveCurrentGame();
+            UpdateLocTabUI();
+
+            await PopupPage.ShowInfo(this, "📋", L.IsThai ? "เซนสัญญาสำเร็จ!" : "Contract Signed!",
+                L.FmtContractSigned(selectedLoc.DisplayName, Player.ContractExpiryDay));
         }
+
+        private async Task<bool> CheckContractValid()
+        {
+            if (Player.Day < Player.ContractExpiryDay) return true;
+
+            // #2 สัญญาหมด — ลอง auto-renew
+            var contractLoc = AllLocations.FirstOrDefault(l => l.Id == Player.ContractLocationId);
+            var L = LocalizationService.Instance;
+
+            if (contractLoc != null && Player.Money >= contractLoc.WeeklyRent)
+            {
+                Player.Money -= contractLoc.WeeklyRent;
+                Player.ContractExpiryDay = Player.Day + 7;
+                OnPropertyChanged(nameof(Player));
+                SaveCurrentGame();
+                await PopupPage.ShowInfo(this, "📋", L.LblAutoRenewTitle,
+                    L.FmtAutoRenewMsg(contractLoc.DisplayName, Player.ContractExpiryDay));
+                return true;
+            }
+
+            // เงินไม่พอ auto-renew
+            SoundService.PlayClickF();
+            await PopupPage.ShowInfo(this, "📋", L.PopupContractExpiredTitle, L.PopupContractExpiredMsg);
+            return false;
+        }
+
         #endregion
 
         #region --- Discover ---
         private async void OnDiscoverClicked(object sender, EventArgs e)
         {
-            if (Player.Money < 200)
+            if (_isNavigating) return;
+            _isNavigating = true;
+            try
             {
-                SoundService.PlayClickF();
-                var loc = LocalizationService.Instance;
-                await PopupPage.ShowInfo(this, "💸", loc.PopupDiscoverTitle, loc.PopupDiscoverMsg);
-                return;
+                if (Player.Money < 200)
+                {
+                    SoundService.PlayClickF();
+                    var loc = LocalizationService.Instance;
+                    await PopupPage.ShowInfo(this, "💸", loc.PopupDiscoverTitle, loc.PopupDiscoverMsg);
+                    return;
+                }
+                Player.Money -= 200;
+                OnPropertyChanged(nameof(Player));
+                SaveCurrentGame();
+                SoundService.PlayClick1();
+                await Navigation.PushModalAsync(new DiscoverPage(Player, AllQuestions, AllIngredients));
             }
-
-            Player.Money -= 200;
-            OnPropertyChanged(nameof(Player));
-            SaveCurrentGame();
-            SoundService.PlayClick1();
-            await Navigation.PushModalAsync(new DiscoverPage(Player, AllQuestions, AllIngredients));
+            finally { _isNavigating = false; }
         }
 
         private async Task LoadMasterData()
@@ -733,13 +904,14 @@ namespace ProjektMooPing
         #region --- Settings ---
         private async void OnSettingClicked(object sender, EventArgs e)
         {
-            if (_isBusy)
+            if (_isBusy || _isNavigating) { SoundService.PlayClickF(); return; }
+            _isNavigating = true;
+            try
             {
-                SoundService.PlayClickF();
-                return;
+                SoundService.PlayClick1();
+                await Navigation.PushModalAsync(new SettingPage());
             }
-            SoundService.PlayClick1();
-            await Navigation.PushModalAsync(new SettingPage());
+            finally { _isNavigating = false; }
         }
         #endregion
     }

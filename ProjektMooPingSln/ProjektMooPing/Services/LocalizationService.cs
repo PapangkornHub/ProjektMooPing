@@ -46,6 +46,9 @@ namespace ProjektMooPing.Services
         public string BtnDiscover  => IsThai ? "ค้นพบ (200 ฿)" : "Discover (200 ฿)";
         public string BtnBuy       => IsThai ? "ซื้อ"           : "Buy";
         public string BtnRelocate  => IsThai ? "ย้ายมาที่นี่"  : "Relocate";
+        public string BtnSignContract   => IsThai ? "เซนสัญญา / ย้ายมาที่นี่" : "Sign Contract";
+        public string BtnContractActive => IsThai ? "✅ สัญญาใช้อยู่"          : "✅ Active Contract";
+        public string BtnContractRenew  => IsThai ? "ต่อสัญญา"                 : "Renew Contract";
         public string LblCost      => IsThai ? "ต้นทุน"         : "Cost";
 
         // Speed button — ใส่ _timeScale แล้วเรียกใช้ใน code-behind
@@ -57,8 +60,10 @@ namespace ProjektMooPing.Services
         public string LblTotalIncome => IsThai ? "รายได้รวม:"    : "Total Income:";
         public string LblTotalProfit => IsThai ? "กำไรสุทธิ:"    : "Total Profit:";
         public string LblTodayRating => IsThai ? "Rating วันนี้" : "Today's Rating";
-        public string FmtDailyPts(int pts)  => IsThai ? $"+{pts} คะแนน วันนี้" : $"+{pts} pts today";
-        public string FmtTotalRating(int n) => IsThai ? $"รวม {n}/3000"       : $"Total {n}/3000";
+        public string FmtDailyPts(int pts)  => pts >= 0
+            ? (IsThai ? $"+{pts} คะแนน วันนี้" : $"+{pts} pts today")
+            : (IsThai ? $"{pts} คะแนน วันนี้"  : $"{pts} pts today");
+        public string FmtTotalRating(int n) => IsThai ? $"รวม {n}/8000"       : $"Total {n}/8000";
         public string LblProfit      => IsThai ? "กำไร"            : "Profit";
         public string LblSatisfy     => IsThai ? "ลูกค้าพอใจ"     : "Satisfaction";
         public string LblQuality     => IsThai ? "คุณภาพสูตร"     : "Recipe Quality";
@@ -119,6 +124,35 @@ namespace ProjektMooPing.Services
         public string FmtRentMsg(int rent, string loc) =>
             IsThai ? $"ต้องมีเงินอย่างน้อย {rent}฿\nเพื่อจ่ายค่าเช่าที่ {loc}"
                    : $"Need at least {rent}฿\nto pay rent at {loc}";
+        public string PopupContractExpiredTitle => IsThai ? "สัญญาหมดอายุ!"      : "Contract Expired!";
+        public string PopupContractExpiredMsg   =>
+            IsThai ? "กรุณาเซนสัญญาใหม่ที่แท็บ 'สถานที่' ก่อนเริ่มวัน"
+                   : "Please sign a new contract in the 'Loc' tab before starting the day.";
+        public string PopupContractRatingTitle  => IsThai ? "Rating ไม่พอ!"       : "Rating Too Low!";
+        public string FmtContractRatingMsg(int required, int current) =>
+            IsThai ? $"ต้องการ Rating {required} คะแนน\nปัจจุบันมี {current} คะแนน"
+                   : $"Requires {required} Rating\nYou have {current}";
+        public string PopupContractMoneyMsg(int cost) =>
+            IsThai ? $"ต้องการเงิน {cost}฿ เพื่อเซนสัญญา" : $"Need {cost}฿ to sign contract.";
+        public string FmtContractSigned(string locName, int expiryDay) =>
+            IsThai ? $"เซนสัญญาที่ {locName} สำเร็จ!\nสัญญาใช้ได้ถึงวันที่ {expiryDay}"
+                   : $"Contract signed at {locName}!\nValid until Day {expiryDay}";
+        public string FmtContractExpiry(int day) =>
+            IsThai ? $"สัญญาถึง: วันที่ {day}" : $"Contract until: Day {day}";
+        public string LblContractExpired  => IsThai ? "⚠️ สัญญาหมดอายุ!" : "⚠️ Contract Expired!";
+        public string LblLockedRating     => IsThai ? "🔒 Rating ไม่เพียงพอ" : "🔒 Rating Required";
+        public string LblRequiredRating   => IsThai ? "Rating ที่ต้องการ:"   : "Required Rating:";
+        public string LblWeeklyRent       => IsThai ? "ค่าเช่า/สัปดาห์:"    : "Weekly Rent:";
+        public string LblSignCost         => IsThai ? "ค่าเซนสัญญา:"        : "Sign Cost:";
+        public string LblFree             => IsThai ? "ฟรี"                  : "Free";
+        public string LblCannotDowngrade  =>
+            IsThai ? "⛔ ย้ายถอยหลังไม่ได้" : "⛔ Cannot go back";
+        public string LblSequentialLocked =>
+            IsThai ? "🔒 ต้องปลดล็อคที่ก่อนหน้าก่อน" : "🔒 Unlock previous locations first";
+        public string LblAutoRenewTitle   => IsThai ? "ต่อสัญญาอัตโนมัติ!"  : "Auto-Renewed!";
+        public string FmtAutoRenewMsg(string locName, int expiryDay) =>
+            IsThai ? $"หักค่าเช่าอัตโนมัติที่ {locName}\nสัญญาใช้ได้ถึงวันที่ {expiryDay}"
+                   : $"Rent auto-deducted at {locName}\nValid until Day {expiryDay}";
         public string PopupDiscoverTitle   => IsThai ? "เงินไม่พอ!"         : "Not Enough Money!";
         public string PopupDiscoverMsg     =>
             IsThai ? "ต้องการ 200฿ เพื่อเริ่ม Discover วัตถุดิบใหม่"

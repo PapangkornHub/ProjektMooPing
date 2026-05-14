@@ -66,13 +66,17 @@ public partial class PopupPage : ContentPage
     // ---------------------------------------------------------------
     private async void OnConfirmClicked(object sender, EventArgs e)
     {
-        await Navigation.PopModalAsync(animated: false); // pop ก่อน
-        _tcs.TrySetResult(true);                        // แล้วค่อย signal caller
+        ConfirmButton.IsEnabled = false;
+        CancelButton.IsEnabled  = false;
+        await Navigation.PopModalAsync(animated: false);
+        _tcs.TrySetResult(true);
     }
 
     private async void OnCancelClicked(object sender, EventArgs e)
     {
-        await Navigation.PopModalAsync(animated: false); // pop ก่อน
-        _tcs.TrySetResult(false);                       // แล้วค่อย signal caller
+        ConfirmButton.IsEnabled = false;
+        CancelButton.IsEnabled  = false;
+        await Navigation.PopModalAsync(animated: false);
+        _tcs.TrySetResult(false);
     }
 }

@@ -103,6 +103,8 @@ public partial class DiscoverPage : ContentPage
 
     private async void OnNextClicked(object sender, EventArgs e)
     {
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
         _currentIndex++;
 
         if (_currentIndex < 10)
@@ -113,6 +115,7 @@ public partial class DiscoverPage : ContentPage
             QuestionLabel.TextColor = Colors.Black;
             SoundService.PlayClick1();
             ShowQuestion();
+            btn.IsEnabled = true;
         }
         else
         {
@@ -161,10 +164,14 @@ public partial class DiscoverPage : ContentPage
 
     private async void OnExitClicked(object sender, EventArgs e)
     {
+        var btn = (Button)sender;
+        btn.IsEnabled = false;
         SoundService.PlayClickB();
         var loc = LocalizationService.Instance;
         bool confirm = await PopupPage.ShowConfirm(this, "❓", loc.QuizQuitTitle, loc.QuizQuitMsg, loc.BtnQuit, loc.BtnStay);
         if (confirm)
             await Navigation.PopModalAsync();
+        else
+            btn.IsEnabled = true;
     }
 }
