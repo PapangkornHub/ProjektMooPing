@@ -12,6 +12,8 @@ public partial class EditDetailPage : ContentPage
 {
     #region --- Properties & Variables ---
     public ObservableCollection<IngredientViewModel> SelectableIngredients { get; set; } = new();
+    public ObservableCollection<IngredientViewModel> FilteredEditIngredients { get; set; } = new();
+    private string _editCategoryFilter = "All";
     private Recipe _recipeToEdit;
     private PlayerProfile _player;
     private List<Ingredient> _masterData;
@@ -50,8 +52,10 @@ public partial class EditDetailPage : ContentPage
                 UpdateAllowButtonVisual(_isNewRecipeAllowed);
 
             InitializeIngredients();
+            BuildEditFilterButtons();
+            ApplyEditFilter();
 
-            if (_recipeToEdit != null) 
+            if (_recipeToEdit != null)
                 RecipeName = _recipeToEdit.Name;
 
             BindingContext = this;
@@ -92,6 +96,7 @@ public partial class EditDetailPage : ContentPage
                     Id = master.Id,
                     Name = master.Name ?? "Unknown",
                     NameTh = master.NameTh,
+                    Category = master.Category,
                     Icon = master.Icon
                 };
 
@@ -109,6 +114,52 @@ public partial class EditDetailPage : ContentPage
     #endregion
 
     #region --- Logic & Analysis ---
+    private void BuildEditFilterButtons()
+    {
+        if (EditFilterRow == null) return;
+        EditFilterRow.Children.Clear();
+        var L = LocalizationService.Instance;
+        var darkBrown = (Color)Application.Current.Resources["MooPingDarkBrown"];
+
+        var categories = new[] { "All" }
+            .Concat(SelectableIngredients.Select(i => i.Category).Distinct().OrderBy(c => c))
+            .ToList();
+
+        foreach (var cat in categories)
+        {
+            bool isActive = cat == _editCategoryFilter;
+            var btn = new Button
+            {
+                Text = cat == "All" ? (L.IsThai ? "ทั้งหมด" : "All") : cat,
+                HeightRequest = 28,
+                Padding = new Thickness(8, 0),
+                CornerRadius = 14,
+                FontSize = 11,
+                BackgroundColor = isActive ? darkBrown : Color.FromArgb("#CCCCCC"),
+                TextColor = isActive ? Colors.White : Colors.Black
+            };
+            string captured = cat;
+            btn.Clicked += (s, e) =>
+            {
+                _editCategoryFilter = captured;
+                SoundService.PlayClick2();
+                BuildEditFilterButtons();
+                ApplyEditFilter();
+            };
+            EditFilterRow.Children.Add(btn);
+        }
+    }
+
+    private void ApplyEditFilter()
+    {
+        FilteredEditIngredients.Clear();
+        foreach (var vm in SelectableIngredients)
+        {
+            if (_editCategoryFilter == "All" || vm.Category == _editCategoryFilter)
+                FilteredEditIngredients.Add(vm);
+        }
+    }
+
     private void UpdateAnalysis()
     {
         try

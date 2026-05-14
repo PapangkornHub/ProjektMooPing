@@ -322,9 +322,16 @@
                         </Grid>
                         <!-- Inv -->
                         <Grid x:Name="InvTab" IsVisible="False" RowDefinitions="Auto, *" Margin="15,0">
-                            <Button Grid.Row="0" Text="{Binding BtnDiscover, Source={x:Static services:LocalizationService.Instance}}" BackgroundColor="#76B041"
-                                    TextColor="White" CornerRadius="15" HorizontalOptions="Start"
-                                    Padding="15,0" HeightRequest="35" Margin="0,5,0,5" Clicked="OnDiscoverClicked"/>
+                            <Grid Grid.Row="0" ColumnDefinitions="Auto, *" Margin="0,5,0,5">
+                                <Button Grid.Column="0"
+                                        Text="{Binding BtnDiscover, Source={x:Static services:LocalizationService.Instance}}"
+                                        BackgroundColor="#76B041" TextColor="White" CornerRadius="15"
+                                        Padding="15,0" HeightRequest="35" Clicked="OnDiscoverClicked"/>
+                                <ScrollView Grid.Column="1" Orientation="Horizontal"
+                                            HorizontalScrollBarVisibility="Never" Margin="8,0,0,0">
+                                    <HorizontalStackLayout x:Name="InvFilterRow" Spacing="6" VerticalOptions="Center"/>
+                                </ScrollView>
+                            </Grid>
                             <CollectionView Grid.Row="1" ItemsSource="{Binding MyInventory}">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>

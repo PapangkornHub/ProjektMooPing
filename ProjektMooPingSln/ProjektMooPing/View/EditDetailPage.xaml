@@ -79,12 +79,20 @@
                         HorizontalOptions="Fill"/>
 
                 <VerticalStackLayout Grid.Row="4" Spacing="5">
-                    <Label Text="{Binding LblIngredientsSelection, Source={x:Static services:LocalizationService.Instance}}" FontSize="14" TextColor="Gray" FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Label Grid.Column="0"
+                               Text="{Binding LblIngredientsSelection, Source={x:Static services:LocalizationService.Instance}}"
+                               FontSize="14" TextColor="Gray" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <ScrollView Grid.Column="1" Orientation="Horizontal"
+                                    HorizontalScrollBarVisibility="Never" Margin="8,0,0,0">
+                            <HorizontalStackLayout x:Name="EditFilterRow" Spacing="6" VerticalOptions="Center"/>
+                        </ScrollView>
+                    </Grid>
                     <Border StrokeThickness="1" Stroke="#DCDCDC" HeightRequest="200" Padding="5" BackgroundColor="#F9F9F9">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="15"/>
                         </Border.StrokeShape>
-                        <CollectionView ItemsSource="{Binding SelectableIngredients}">
+                        <CollectionView ItemsSource="{Binding FilteredEditIngredients}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid ColumnDefinitions="*, Auto" Padding="10,8">
@@ -92,7 +100,15 @@
                                             <TapGestureRecognizer Tapped="OnIngredientToggled" CommandParameter="{Binding .}"/>
                                         </Grid.GestureRecognizers>
 
-                                        <Label Grid.Column="0" Text="{Binding DisplayName}" TextColor="Black" VerticalOptions="Center" FontSize="15"/>
+                                        <HorizontalStackLayout Grid.Column="0" Spacing="6" VerticalOptions="Center">
+                                            <Label Text="{Binding DisplayName}" TextColor="Black" VerticalOptions="Center" FontSize="15"/>
+                                            <Border BackgroundColor="Wheat" Padding="4,2" VerticalOptions="Center" StrokeThickness="0">
+                                                <Border.StrokeShape>
+                                                    <RoundRectangle CornerRadius="5"/>
+                                                </Border.StrokeShape>
+                                                <Label Text="{Binding Category}" FontSize="10" TextColor="#555555" FontAttributes="Bold"/>
+                                            </Border>
+                                        </HorizontalStackLayout>
 
                                         <Border Grid.Column="1" 
                                                 WidthRequest="26" 

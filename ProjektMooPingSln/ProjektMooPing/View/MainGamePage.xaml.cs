@@ -25,6 +25,7 @@ namespace ProjektMooPing
         private int _timeScale = 1;
         private bool _isBusy = false;
         private bool _isNavigating = false;
+        private string _invCategoryFilter = "All";
         public Location CurrentLocation
         {
             get => _currentLocation;
@@ -420,12 +421,13 @@ namespace ProjektMooPing
         private void OnInvClicked(object sender, EventArgs e)
         {
             SoundService.PlayPaper();
-            RefreshInventoryUI();
             UpdateTabVisuals("Inv");
             MenuTab.IsVisible = false;
             EditTab.IsVisible = false;
             InvTab.IsVisible = true;
             LocTab.IsVisible = false;
+            BuildInvFilterButtons();
+            RefreshInventoryUI();
         }
         private void OnLocClicked(object sender, EventArgs e)
         {
@@ -508,6 +510,7 @@ namespace ProjektMooPing
                 CurrentLocation = AllLocations.FirstOrDefault(l => l.Id == Player.ContractLocationId)
                                ?? AllLocations.FirstOrDefault()
                                ?? new Location();
+                BuildInvFilterButtons();
                 RefreshInventoryUI();
                 RefreshRecipeUI();
                 RefreshMenuUI();
@@ -598,22 +601,61 @@ namespace ProjektMooPing
             foreach (var id in Player.UnlockedIngredientIds)
             {
                 var master = AllIngredients.FirstOrDefault(i => i.Id == id);
-                if (master != null)
+                if (master == null) continue;
+                if (_invCategoryFilter != "All" && master.Category != _invCategoryFilter) continue;
+
+                int owned = Player.IngredientInventory.ContainsKey(id) ? Player.IngredientInventory[id] : 0;
+                MyInventory.Add(new IngredientViewModel
                 {
-                    int owned = Player.IngredientInventory.ContainsKey(id) ? Player.IngredientInventory[id] : 0;
-                    MyInventory.Add(new IngredientViewModel
-                    {
-                        Id = master.Id,
-                        Name = master.Name,
-                        NameTh = master.NameTh,        // สำหรับ DisplayName bilingual
-                        Category = master.Category,
-                        BasePopularity = master.BasePopularity,
-                        BaseCost = master.BaseCost,
-                        Icon = master.Icon,
-                        OwnedAmount = owned,
-                        OrderAmount = 0
-                    });
-                }
+                    Id = master.Id,
+                    Name = master.Name,
+                    NameTh = master.NameTh,
+                    Category = master.Category,
+                    BasePopularity = master.BasePopularity,
+                    BaseCost = master.BaseCost,
+                    Icon = master.Icon,
+                    OwnedAmount = owned,
+                    OrderAmount = 0
+                });
+            }
+        }
+
+        private void BuildInvFilterButtons()
+        {
+            if (AllIngredients == null || InvFilterRow == null) return;
+            InvFilterRow.Children.Clear();
+            var L = LocalizationService.Instance;
+            var activeColor   = (Color)Application.Current.Resources["MooPingLightBrown"];
+            var inactiveColor = (Color)Application.Current.Resources["MooPingCream"];
+
+            var categories = new[] { "All" }
+                .Concat(AllIngredients
+                    .Where(i => Player.UnlockedIngredientIds.Contains(i.Id))
+                    .Select(i => i.Category).Distinct().OrderBy(c => c))
+                .ToList();
+
+            foreach (var cat in categories)
+            {
+                bool isActive = cat == _invCategoryFilter;
+                var btn = new Button
+                {
+                    Text = cat == "All" ? (L.IsThai ? "ทั้งหมด" : "All") : cat,
+                    HeightRequest = 30,
+                    Padding = new Thickness(10, 0),
+                    CornerRadius = 15,
+                    FontSize = 12,
+                    BackgroundColor = isActive ? activeColor : inactiveColor,
+                    TextColor = Colors.Black
+                };
+                string captured = cat;
+                btn.Clicked += (s, e) =>
+                {
+                    _invCategoryFilter = captured;
+                    SoundService.PlayClick2();
+                    BuildInvFilterButtons();
+                    RefreshInventoryUI();
+                };
+                InvFilterRow.Children.Add(btn);
             }
         }
 
