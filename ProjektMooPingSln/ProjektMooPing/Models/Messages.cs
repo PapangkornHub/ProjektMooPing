@@ -20,6 +20,8 @@ namespace ProjektMooPing.Models
     }
     public class ResetGameMessage { }
 
+    public class AddRatingMessage { public int Amount { get; init; } }
+
     public class IngredientUnlockedMessage : ValueChangedMessage<Ingredient>
     {
         public IngredientUnlockedMessage(Ingredient value) : base(value) { }

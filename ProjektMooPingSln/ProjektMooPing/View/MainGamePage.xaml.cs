@@ -87,6 +87,13 @@ namespace ProjektMooPing
                 RefreshRecipeUI();
             });
 
+            WeakReferenceMessenger.Default.Register<AddRatingMessage>(this, (r, m) => {
+                Player.TotalRating = Math.Clamp(Player.TotalRating + m.Amount, 0, RatingService.MaxTotalRating);
+                TotalRatingStarsLabel.Text = RatingService.GetTotalStarDisplay(Player.TotalRating);
+                OnPropertyChanged(nameof(Player));
+                SaveCurrentGame();
+            });
+
             WeakReferenceMessenger.Default.Register<IngredientUnlockedMessage>(this, (r, m) => {
                 RefreshInventoryUI();
                 SaveCurrentGame();
@@ -1107,7 +1114,11 @@ namespace ProjektMooPing
             // 2.4 Game Over cutscene
             var gameOverScene = AllStoryCutScenes.FirstOrDefault(s => s.Id == 15);
             if (gameOverScene != null)
-                await Navigation.PushModalAsync(new CutScenePage(new List<StoryCutScene> { gameOverScene }));
+            {
+                var gameOverPage = new CutScenePage(new List<StoryCutScene> { gameOverScene });
+                await Navigation.PushModalAsync(gameOverPage);
+                await gameOverPage.WaitForDismissAsync();
+            }
 
             SaveService.DeleteSave();
             WeakReferenceMessenger.Default.Send(new ResetGameMessage());

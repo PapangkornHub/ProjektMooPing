@@ -10,6 +10,15 @@ public partial class CutScenePage : ContentPage
     private CancellationTokenSource? _typewriterCts;
     private bool _isTyping = false;
     private string _fullText = string.Empty;
+    private readonly TaskCompletionSource _dismissed = new();
+
+    public Task WaitForDismissAsync() => _dismissed.Task;
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _dismissed.TrySetResult();
+    }
 
     // milliseconds per character
     private const int TypewriterDelayMs = 35;
