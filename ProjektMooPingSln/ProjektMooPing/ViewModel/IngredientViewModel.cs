@@ -24,17 +24,17 @@ namespace ProjektMooPing.ViewModel
         #region --- Rarity Logic ---
         public string RarityName => BasePopularity switch
         {
-            >= 100 => "Legendary",
-            >= 80 => "Epic",
-            >= 60 => "Rare",
+            >= 80 => "Legendary",
+            >= 60 => "Epic",
+            >= 40 => "Rare",
             _ => "Common"
         };
 
         public Color RarityColor => BasePopularity switch
         {
-            >= 100 => Color.FromArgb("#FF8C00"), // ส้ม
-            >= 80 => Color.FromArgb("#A335EE"), // ม่วง
-            >= 60 => Color.FromArgb("#0070DD"), // ฟ้า
+            >= 80 => Color.FromArgb("#FF8C00"), // ส้ม
+            >= 60 => Color.FromArgb("#A335EE"), // ม่วง
+            >= 40 => Color.FromArgb("#0070DD"), // ฟ้า
             _ => Color.FromArgb("#555555")      // เทาเข้ม
         };
         #endregion

@@ -141,9 +141,20 @@ namespace ProjektMooPing
             RefreshRecipeUI();
             OnPropertyChanged(nameof(Player));
 
+            // --- ลัคกี้แห่งความอดทน: stock +3 ต่อสูตรที่มีอยู่ ---
+            if (BuffService.HasEnduranceBuff(Player))
+            {
+                foreach (var key in Player.RecipeInventory.Keys.ToList())
+                    if (Player.RecipeInventory[key] > 0)
+                        Player.RecipeInventory[key] += 3;
+            }
+
             // --- Random Customer Count ---
             Random rnd = new Random();
             int totalInThisRound = rnd.Next(CurrentLocation.MinTraffic, CurrentLocation.MaxTraffic + 1);
+
+            // --- ลัคกี้แห่งการโหยหา: ลูกค้าประจำ +3 คน ---
+            if (BuffService.HasLongingBuff(Player)) totalInThisRound += 3;
 
             // --- Rating Tracking ---
             int customersServed = 0;
@@ -234,13 +245,24 @@ namespace ProjektMooPing
                 daySummary.HadStockout      = hadStockout;
                 daySummary.AvgQualityScore  = avgQuality;
 
-                daySummary.ProfitScore      = RatingService.CalcProfitScore(daySummary.TotalProfit);
-                daySummary.SalesScore       = RatingService.CalcSalesScore(customersServed, totalInThisRound);
-                daySummary.QualityScore     = RatingService.CalcQualityScore(avgQuality);
-                daySummary.StockoutPenalty  = RatingService.CalcStockoutPenalty(hadStockout);
-                daySummary.DailyRating      = RatingService.CalcDailyRating(
-                                                daySummary.TotalProfit, customersServed,
-                                                totalInThisRound, avgQuality, hadStockout);
+                // --- Buff flags สำหรับ Rating ---
+                bool hasResilience = BuffService.HasResilienceBuff(Player);
+                bool hasSuccess    = BuffService.HasSuccessBuff(Player);
+                bool hasEuphoria   = BuffService.HasEuphoriaBuff(Player);
+
+                daySummary.ProfitScore  = RatingService.CalcProfitScore(daySummary.TotalProfit);
+                // ลัคกี้แห่งความสำเร็จ: Profit Score ×2
+                if (hasSuccess) daySummary.ProfitScore *= 2;
+
+                daySummary.SalesScore    = RatingService.CalcSalesScore(customersServed, totalInThisRound);
+                daySummary.QualityScore  = RatingService.CalcQualityScore(avgQuality);
+                // ลัคกี้แห่งความทรหด: ยกเว้นโทษขาดสต็อก
+                daySummary.StockoutPenalty = hasResilience ? 0 : RatingService.CalcStockoutPenalty(hadStockout);
+
+                daySummary.DailyRating = daySummary.ProfitScore + daySummary.SalesScore
+                                       + daySummary.QualityScore - daySummary.StockoutPenalty;
+                // ลัคกี้แห่งความหรรษา: Daily Rating ×1.2
+                if (hasEuphoria) daySummary.DailyRating = (int)(daySummary.DailyRating * 1.2f);
                 daySummary.StarDisplay      = RatingService.GetDailyStarDisplay(daySummary.DailyRating);
 
                 // อัปเดต TotalRating
@@ -325,6 +347,13 @@ namespace ProjektMooPing
             string orderSummary = "";
             double totalEarnings = 0;
 
+            // --- Buff flags ---
+            bool hasMischief    = BuffService.HasMischiefBuff(Player);
+            bool hasNegotiation = BuffService.HasNegotiationBuff(Player);
+            bool hasCivilization = BuffService.HasCivilizationBuff(Player);
+            bool hasLettingGo   = BuffService.HasLettingGoBuff(Player);
+            double costMultiplier = hasCivilization ? 0.9 : 1.0;
+
             // Select Menu(s)
             var availableOrderPool = activeMenus.OrderBy(x => Guid.NewGuid()).ToList();
             int varietyCount = Math.Min(availableOrderPool.Count, rnd.Next(1, 4));
@@ -333,7 +362,7 @@ namespace ProjektMooPing
             {
                 var recipe = availableOrderPool[v];
                 // Random Quantity
-                float basePop = RecipeService.CalculatePopularity(recipe, recipe.SellingPrice, AllIngredients);
+                float basePop = RecipeService.CalculatePopularity(recipe, recipe.SellingPrice, AllIngredients, hasLettingGo, costMultiplier);
 
                 int maxWant = rnd.Next(1, 6);
                 int actualSoldInThisMenu = 0;
@@ -351,6 +380,10 @@ namespace ProjektMooPing
                     }
                 }
 
+                // ลัคกี้แห่งความซุกซน: การันตีซื้อขั้นต่ำ 1 ไม้ (เฉพาะเมื่อ Popularity > 0)
+                if (actualSoldInThisMenu == 0 && hasMischief && basePop > 0)
+                    actualSoldInThisMenu = 1;
+
                 if (actualSoldInThisMenu > 0)
                 {
                     int stockAvailable = Player.RecipeInventory.ContainsKey(recipe.Id) ? Player.RecipeInventory[recipe.Id] : 0;
@@ -359,8 +392,19 @@ namespace ProjektMooPing
                     if (finalSold > 0)
                     {
                         Player.RecipeInventory[recipe.Id] -= finalSold;
-                        double subTotal = finalSold * recipe.SellingPrice;
 
+                        // ลัคกี้แห่งการเจรจา: 25% โอกาส +1 ไม้ฟรี
+                        if (hasNegotiation && rnd.Next(1, 101) <= 25)
+                        {
+                            int remaining = Player.RecipeInventory.ContainsKey(recipe.Id) ? Player.RecipeInventory[recipe.Id] : 0;
+                            if (remaining > 0)
+                            {
+                                Player.RecipeInventory[recipe.Id]--;
+                                finalSold++;
+                            }
+                        }
+
+                        double subTotal = finalSold * recipe.SellingPrice;
                         double unitCost = RecipeService.CalculateTotalCost(recipe, AllIngredients);
 
                         totalEarnings += subTotal;
@@ -926,13 +970,30 @@ namespace ProjektMooPing
             {
                 var scene = new StoryCutScene
                 {
-                    Title        = selectedLoc.Title,
-                    TitleTh      = selectedLoc.TitleTh,
-                    Text         = selectedLoc.Text,
-                    TextTh       = selectedLoc.TextTh,
+                    Title          = selectedLoc.Title,
+                    TitleTh        = selectedLoc.TitleTh,
+                    Text           = selectedLoc.Text,
+                    TextTh         = selectedLoc.TextTh,
                     StoryImagePath = selectedLoc.StoryImagePath
                 };
-                await Navigation.PushModalAsync(new CutScenePage(new List<StoryCutScene> { scene }));
+
+                var scenes = new List<StoryCutScene> { scene };
+
+                // Scene 2: แสดง Buff ที่ได้รับจากลัคกี้นี้
+                var (titleTh, titleEn, descTh, descEn) = BuffService.GetBuffDescription(selectedLoc.Id);
+                if (!string.IsNullOrEmpty(titleTh))
+                {
+                    scenes.Add(new StoryCutScene
+                    {
+                        Title          = titleEn,
+                        TitleTh        = titleTh,
+                        Text           = descEn,
+                        TextTh         = descTh,
+                        StoryImagePath = selectedLoc.StoryImagePath
+                    });
+                }
+
+                await Navigation.PushModalAsync(new CutScenePage(scenes));
             }
         }
 

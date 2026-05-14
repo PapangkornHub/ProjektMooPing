@@ -7,6 +7,12 @@ public partial class CutScenePage : ContentPage
 {
     private readonly List<StoryCutScene> _scenes;
     private int _currentIndex = 0;
+    private CancellationTokenSource? _typewriterCts;
+    private bool _isTyping = false;
+    private string _fullText = string.Empty;
+
+    // milliseconds per character
+    private const int TypewriterDelayMs = 35;
 
     public CutScenePage(List<StoryCutScene> scenes)
     {
@@ -21,7 +27,6 @@ public partial class CutScenePage : ContentPage
         var L = LocalizationService.Instance;
 
         TitleLabel.Text = scene.DisplayTitle;
-        TextLabel.Text  = scene.DisplayText;
         StoryImage.Source = scene.DisplayImagePath;
 
         bool isLast = index >= _scenes.Count - 1;
@@ -29,13 +34,56 @@ public partial class CutScenePage : ContentPage
 
         PageIndicatorLabel.IsVisible = _scenes.Count > 1;
         PageIndicatorLabel.Text = $"{index + 1} / {_scenes.Count}";
+
+        _fullText = scene.DisplayText;
+        TextLabel.Text = string.Empty;
+        SoundService.PlayTypewriter();
+        StartTypewriter(_fullText);
+    }
+
+    private void StartTypewriter(string text)
+    {
+        _typewriterCts?.Cancel();
+        _typewriterCts = new CancellationTokenSource();
+        _isTyping = true;
+        _ = RunTypewriterAsync(text, _typewriterCts.Token);
+    }
+
+    private async Task RunTypewriterAsync(string text, CancellationToken ct)
+    {
+        try
+        {
+            for (int i = 1; i <= text.Length; i++)
+            {
+                ct.ThrowIfCancellationRequested();
+                TextLabel.Text = text[..i];
+                await Task.Delay(TypewriterDelayMs, ct);
+            }
+        }
+        catch (OperationCanceledException) { }
+        finally
+        {
+            _isTyping = false;
+            SoundService.StopTypewriter();
+        }
     }
 
     private async void OnActionClicked(object sender, EventArgs e)
     {
+        SoundService.PlayClick1();
+
+        // Skip typewriter → show full text first
+        if (_isTyping)
+        {
+            _typewriterCts?.Cancel();
+            _isTyping = false;
+            SoundService.StopTypewriter();
+            TextLabel.Text = _fullText;
+            return;
+        }
+
         var btn = (Button)sender;
         btn.IsEnabled = false;
-        SoundService.PlayClick1();
 
         _currentIndex++;
         if (_currentIndex < _scenes.Count)

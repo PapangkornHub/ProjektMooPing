@@ -8,6 +8,7 @@ namespace ProjektMooPing.Services
         private static IAudioManager _audioManager = AudioManager.Current;
         private static IAudioPlayer _singleSfxPlayer;
         private static IAudioPlayer _bgmPlayer;
+        private static IAudioPlayer? _typewriterPlayer;
 
         public static async Task PlaySfx(string fileName)
         {
@@ -90,6 +91,46 @@ namespace ProjektMooPing.Services
                 Debug.WriteLine($"Error stopping BGM: {ex.Message}");
             }
         }
+
+        public static async Task PlayTypewriterSound()
+        {
+            try
+            {
+                if (_typewriterPlayer != null)
+                {
+                    _typewriterPlayer.Stop();
+                    _typewriterPlayer.Dispose();
+                    _typewriterPlayer = null;
+                }
+                var stream = await FileSystem.OpenAppPackageFileAsync("typewriter.mp3");
+                _typewriterPlayer = _audioManager.CreatePlayer(stream);
+                _typewriterPlayer.Loop = true;
+                _typewriterPlayer.Volume = 0.6;
+                _typewriterPlayer.Play();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error playing typewriter sound: {ex.Message}");
+            }
+        }
+
+        public static void StopTypewriterSound()
+        {
+            try
+            {
+                if (_typewriterPlayer == null) return;
+                _typewriterPlayer.Stop();
+                _typewriterPlayer.Dispose();
+                _typewriterPlayer = null;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error stopping typewriter sound: {ex.Message}");
+            }
+        }
+
+        public static void PlayTypewriter() => _ = PlayTypewriterSound();
+        public static void StopTypewriter() => StopTypewriterSound();
 
         public static void PlayBGM() => _ = PlayBgm("bgm.mp3");
         public static void PlayCashRegister() => _ = PlaySfx("chaching.mp3");

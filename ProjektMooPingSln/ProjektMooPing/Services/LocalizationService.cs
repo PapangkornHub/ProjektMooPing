@@ -187,7 +187,7 @@ namespace ProjektMooPing.Services
         // ─── Popup: Quiz ────────────────────────────────────────────────
         public string QuizPassTitle => IsThai ? "ผ่านแล้ว!" : "Passed!";
         public string QuizFailTitle => IsThai ? "ไม่ผ่าน"   : "Failed";
-        public string FmtQuizScore(int s) => IsThai ? $"คะแนน {s}/10" : $"Score: {s}/10";
+        public string FmtQuizScore(int s) => IsThai ? $"คะแนน {s}/5" : $"Score: {s}/5";
         public string FmtQuizPass(string reward) =>
             IsThai ? $"ปลดล็อกวัตถุดิบใหม่: {reward}" : $"New ingredient unlocked: {reward}";
         public string QuizAllUnlocked => IsThai ? "ปลดล็อกวัตถุดิบครบหมดแล้ว!" : "All ingredients unlocked!";

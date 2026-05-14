@@ -8,7 +8,7 @@ namespace ProjektMooPing.Services
     public static class RecipeService
     {
         // สูตร Popularity = max(0, (avg(BasePopularity) + synergyBonus) - (sellingPrice - cost))
-        public static float CalculateTotalScore(Recipe recipe, List<Ingredient> masterData)
+        public static float CalculateTotalScore(Recipe recipe, List<Ingredient> masterData, bool ignoreNegativeSynergy = false)
         {
             var myIngredients = masterData
                 .Where(i => recipe.IngredientIds.Contains(i.Id))
@@ -58,13 +58,16 @@ namespace ProjektMooPing.Services
                 if (ids.Contains(9)) synergyBonus += 10;  // พริกไทยดำ + เนื้อ
             }
 
-            // --- Penalty ไม่อร่อย ---
-            // น้ำผึ้ง + ผงชูรส
-            if (ids.Contains(23) && ids.Contains(18)) synergyBonus -= 15;
-            // น้ำปลา + นมสด
-            if (ids.Contains(13) && ids.Contains(20)) synergyBonus -= 20;
-            // สับปะรด + นม
-            if (ids.Contains(24) && ids.Contains(20)) synergyBonus -= 25;
+            // --- Penalty ไม่อร่อย (ยกเว้นถ้ามี ลัคกี้แห่งการปล่อยวาง) ---
+            if (!ignoreNegativeSynergy)
+            {
+                // น้ำผึ้ง + ผงชูรส
+                if (ids.Contains(23) && ids.Contains(18)) synergyBonus -= 15;
+                // น้ำปลา + นมสด
+                if (ids.Contains(13) && ids.Contains(20)) synergyBonus -= 20;
+                // สับปะรด + นม
+                if (ids.Contains(24) && ids.Contains(20)) synergyBonus -= 25;
+            }
 
             return baseScore + synergyBonus;
         }
@@ -75,10 +78,11 @@ namespace ProjektMooPing.Services
                 .Sum(i => i.BaseCost);
         }
 
-        public static float CalculatePopularity(Recipe recipe, double sellingPrice, List<Ingredient> masterData)
+        public static float CalculatePopularity(Recipe recipe, double sellingPrice, List<Ingredient> masterData,
+            bool ignoreNegativeSynergy = false, double costMultiplier = 1.0)
         {
-            float qualityScore = CalculateTotalScore(recipe, masterData);
-            double cost = CalculateTotalCost(recipe, masterData);
+            float qualityScore = CalculateTotalScore(recipe, masterData, ignoreNegativeSynergy);
+            double cost = CalculateTotalCost(recipe, masterData) * costMultiplier;
 
             double profitMargin = sellingPrice - cost;
             float finalPopularity = qualityScore - (float)profitMargin;
