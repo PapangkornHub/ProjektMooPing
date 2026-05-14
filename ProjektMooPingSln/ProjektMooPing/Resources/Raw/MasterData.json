@@ -302,7 +302,7 @@
       "TitleTh": "ฉากจบที่แท้จริง: โชคลาภที่สร้างด้วยมือ",
       "Text": "Lucky is home. You realized that true luck isn't from magic, but from the hearts of those who loved your food. You are now the King of Moo Ping!",
       "TextTh": "ลัคกี้กลับมาสู่อ้อมกอดคุณอีกครั้ง... คุณได้เรียนรู้ว่าโชคลาภที่แท้จริงไม่ได้มาจากเวทมนตร์ แต่มาจากความสุขของผู้คนที่ได้ทานหมูปิ้งของคุณ บัดนี้ คุณคือ 'เจ้าสัวหมูปิ้ง' ผู้มั่งคั่งที่สุดในปฐพี!",
-      "StoryImagePath": "sprite_happy_ending"
+      "StoryImagePath": "sprite_lucky"
     },
     {
       "Id": 15,
