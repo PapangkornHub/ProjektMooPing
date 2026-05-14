@@ -34,6 +34,11 @@ namespace ProjektMooPing.Models
         public int ContractLocationId  { get; set; } = 1;
         public int ContractExpiryDay   { get; set; } = 8;
 
+        // --- Loan Shark ---
+        public bool   HasLoan      { get; set; } = false;
+        public int    LoanRepayDay { get; set; } = 0;
+        public double LoanAmount   { get; set; } = 0;
+
         public PlayerProfile()
         {
             // Starting Money

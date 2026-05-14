@@ -121,10 +121,11 @@ namespace ProjektMooPing
 
             var btn = (Button)sender;
 
-            if (!await CheckContractValid())
-            {
+            if (!await CheckLoanRepayment())
                 return;
-            }
+
+            if (!await CheckContractValid())
+                return;
 
             btn.IsEnabled = false;
             SoundService.PlayOpen();
@@ -511,6 +512,7 @@ namespace ProjektMooPing
                 RefreshRecipeUI();
                 RefreshMenuUI();
                 OnPropertyChanged(nameof(Player));
+                UpdateLoanBanner();
             }
             catch (Exception ex)
             {
@@ -751,6 +753,17 @@ namespace ProjektMooPing
             }
         }
 
+        private void UpdateLoanBanner()
+        {
+            if (Player == null) return;
+            LoanBanner.IsVisible = Player.HasLoan;
+            if (!Player.HasLoan) return;
+            var L = LocalizationService.Instance;
+            LoanBannerLabel.Text = L.IsThai
+                ? $"💸 หนี้: {Player.LoanAmount:N0}฿ | จ่ายวันที่ {Player.LoanRepayDay}"
+                : $"💸 Debt: {Player.LoanAmount:N0}฿ | Due Day {Player.LoanRepayDay}";
+        }
+
         private void SetContractBtn(string text, bool enabled, string hex)
         {
             SignContractBtn.Text            = text;
@@ -854,10 +867,99 @@ namespace ProjektMooPing
                 return true;
             }
 
-            // เงินไม่พอ auto-renew
+            // เงินไม่พอ auto-renew — เรียกเฮียบิ๊ก
+            if (contractLoc != null)
+                return await TriggerLoanShark(contractLoc);
+
             SoundService.PlayClickF();
             await PopupPage.ShowInfo(this, "📋", L.PopupContractExpiredTitle, L.PopupContractExpiredMsg);
             return false;
+        }
+
+        private async Task<bool> TriggerLoanShark(Location contractLoc)
+        {
+            var L = LocalizationService.Instance;
+
+            if (Player.HasLoan)
+            {
+                await TriggerGameOver();
+                return false;
+            }
+
+            BigLoanSprite.Opacity = 1;
+            await BigLoanSprite.TranslateToAsync(80, 0, 600, Easing.CubicOut);
+            SoundService.PlayClick1();
+
+            double repayAmount = contractLoc.WeeklyRent * 1.5;
+            int repayDay = Player.Day + 7;
+
+            bool accepted = await PopupPage.ShowConfirm(this, "🦈",
+                L.LoanSharkTitle,
+                L.FmtLoanSharkOffer(contractLoc.WeeklyRent, repayAmount, repayDay),
+                L.BtnAcceptLoan, L.BtnRefuseLoan);
+
+            if (accepted)
+            {
+                Player.ContractExpiryDay = Player.Day + 7;
+                Player.HasLoan = true;
+                Player.LoanAmount = repayAmount;
+                Player.LoanRepayDay = repayDay;
+                OnPropertyChanged(nameof(Player));
+                SaveCurrentGame();
+                UpdateLoanBanner();
+
+                await BigLoanSprite.TranslateToAsync(600, 0, 600, Easing.CubicIn);
+                BigLoanSprite.Opacity = 0;
+                return true;
+            }
+            else
+            {
+                await TriggerGameOver();
+                return false;
+            }
+        }
+
+        private async Task<bool> CheckLoanRepayment()
+        {
+            if (!Player.HasLoan) return true;
+            var L = LocalizationService.Instance;
+
+            if (Player.Day >= Player.LoanRepayDay)
+            {
+                if (Player.Money >= Player.LoanAmount)
+                {
+                    double paid = Player.LoanAmount;
+                    Player.Money -= paid;
+                    Player.HasLoan = false;
+                    Player.LoanAmount = 0;
+                    Player.LoanRepayDay = 0;
+                    OnPropertyChanged(nameof(Player));
+                    SaveCurrentGame();
+                    UpdateLoanBanner();
+                    await PopupPage.ShowInfo(this, "💰", L.LoanRepaidTitle, L.FmtLoanRepaid(paid));
+                    return true;
+                }
+                else
+                {
+                    await TriggerGameOver();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private async Task TriggerGameOver()
+        {
+            var L = LocalizationService.Instance;
+            BigLoanSprite.Opacity = 1;
+            await BigLoanSprite.TranslateToAsync(80, 0, 600, Easing.CubicOut);
+            SoundService.PlayClickF();
+            await PopupPage.ShowInfo(this, "💀", L.GameOverTitle, L.GameOverLoanMsg);
+            SaveService.DeleteSave();
+            WeakReferenceMessenger.Default.Send(new ResetGameMessage());
+            BigLoanSprite.TranslationX = 600;
+            BigLoanSprite.Opacity = 0;
         }
 
         #endregion
@@ -869,14 +971,14 @@ namespace ProjektMooPing
             _isNavigating = true;
             try
             {
-                if (Player.Money < 200)
+                if (Player.Money < 100)
                 {
                     SoundService.PlayClickF();
                     var loc = LocalizationService.Instance;
                     await PopupPage.ShowInfo(this, "💸", loc.PopupDiscoverTitle, loc.PopupDiscoverMsg);
                     return;
                 }
-                Player.Money -= 200;
+                Player.Money -= 100;
                 OnPropertyChanged(nameof(Player));
                 SaveCurrentGame();
                 SoundService.PlayClick1();

@@ -43,7 +43,7 @@ namespace ProjektMooPing.Services
         // ─── MainGame Buttons ───────────────────────────────────────────
         public string BtnStartDay  => IsThai ? "เริ่มวัน"       : "Start Day";
         public string BtnCreate    => IsThai ? "สร้าง"          : "Create";
-        public string BtnDiscover  => IsThai ? "ค้นพบ (200 ฿)" : "Discover (200 ฿)";
+        public string BtnDiscover  => IsThai ? "ค้นพบ (100 ฿)" : "Discover (100 ฿)";
         public string BtnBuy       => IsThai ? "ซื้อ"           : "Buy";
         public string BtnRelocate  => IsThai ? "ย้ายมาที่นี่"  : "Relocate";
         public string BtnSignContract   => IsThai ? "เซนสัญญา / ย้ายมาที่นี่" : "Sign Contract";
@@ -73,10 +73,10 @@ namespace ProjektMooPing.Services
         public string LblNextQuestion => IsThai ? "คำถามถัดไป ➔"  : "Next Question ➔";
         public string BtnExit         => IsThai ? "ออก"            : "Exit";
         public string FmtGoal(string reward) =>
-            IsThai ? $"เป้าหมาย: 6/10 เพื่อปลดล็อก [{reward}]!"
-                   : $"Goal: Score 6/10 to unlock [{reward}]!";
+            IsThai ? $"เป้าหมาย: 3/5 เพื่อปลดล็อก [{reward}]!"
+                   : $"Goal: Score 3/5 to unlock [{reward}]!";
         public string LblGoalComplete =>
-            IsThai ? "เป้าหมาย: 6/10 เพื่อชนะ!" : "Goal: Score 6/10 to win!";
+            IsThai ? "เป้าหมาย: 3/5 เพื่อชนะ!" : "Goal: Score 3/5 to win!";
         public string FmtQuestionCount(int cur, int total) =>
             IsThai ? $"คำถามที่ {cur}/{total}" : $"Question {cur}/{total}";
         public string FmtScore(int s) => IsThai ? $"คะแนน: {s}" : $"Score: {s}";
@@ -87,6 +87,7 @@ namespace ProjektMooPing.Services
         public string BtnClose      => IsThai ? "ปิด"         : "Close";
         public string BtnAccept     => IsThai ? "ยืนยัน"     : "Accept";
         public string BtnCookNow    => IsThai ? "ปิ้งเลย! 🔥" : "COOK NOW! 🔥";
+        public string BtnCookAll    => IsThai ? "ปิ้งทั้งหมด! 🔥🔥" : "COOK ALL! 🔥🔥";
 
         // ─── EditDetail ─────────────────────────────────────────────────
         public string LblCostAnalysis         => IsThai ? "ต้นทุน"          : "Cost";
@@ -142,9 +143,31 @@ namespace ProjektMooPing.Services
         public string LblContractExpired  => IsThai ? "⚠️ สัญญาหมดอายุ!" : "⚠️ Contract Expired!";
         public string LblLockedRating     => IsThai ? "🔒 Rating ไม่เพียงพอ" : "🔒 Rating Required";
         public string LblRequiredRating   => IsThai ? "Rating ที่ต้องการ:"   : "Required Rating:";
+        public string LblTraffic          => IsThai ? "จำนวนลูกค้า:"        : "Customers:";
+        public string LblRequirements     => IsThai ? "🎯 เงื่อนไขการเซนสัญญา" : "🎯 Requirements";
         public string LblWeeklyRent       => IsThai ? "ค่าเช่า/สัปดาห์:"    : "Weekly Rent:";
         public string LblSignCost         => IsThai ? "ค่าเซนสัญญา:"        : "Sign Cost:";
         public string LblFree             => IsThai ? "ฟรี"                  : "Free";
+
+        // ─── Loan Shark ─────────────────────────────────────────────────
+        public string LoanSharkTitle => IsThai ? "เฮียบิ๊กเงินกู้!" : "Big Loan Shark!";
+        public string FmtLoanSharkOffer(int rentCost, double repayAmount, int repayDay) =>
+            IsThai ? $"เฮียจ่ายค่าเช่า {rentCost}฿ให้ก่อน\nแต่ต้องคืน {repayAmount:N0}฿ ภายในวันที่ {repayDay}\nรับไหม?"
+                   : $"I'll cover {rentCost}฿ rent for you.\nRepay {repayAmount:N0}฿ by Day {repayDay}.\nAccept?";
+        public string BtnAcceptLoan    => IsThai ? "ตกลงเฮีย 🙏" : "Deal! 🙏";
+        public string BtnRefuseLoan    => IsThai ? "ไม่เอา"        : "Refuse";
+        public string LoanRepaidTitle  => IsThai ? "ใช้หนี้สำเร็จ!" : "Loan Repaid!";
+        public string FmtLoanRepaid(double amount) =>
+            IsThai ? $"หักเงิน {amount:N0}฿ คืนเฮียบิ๊กแล้ว"
+                   : $"Repaid {amount:N0}฿ to the loan shark.";
+        public string GameOverTitle    => IsThai ? "เกมโอเวอร์!" : "Game Over!";
+        public string GameOverLoanMsg  =>
+            IsThai ? "เงินไม่พอคืนเฮียบิ๊ก...\nร้านมูปิ้งถูกยึดไปแล้ว!"
+                   : "Can't repay the loan shark...\nYour stall has been seized!";
+        public string LoanReminderTitle => IsThai ? "⚠️ เตือนหนี้" : "⚠️ Debt Reminder";
+        public string FmtLoanReminder(double amount, int repayDay) =>
+            IsThai ? $"ยังค้างหนี้เฮียบิ๊ก {amount:N0}฿\nต้องคืนภายในวันที่ {repayDay}"
+                   : $"You owe the shark {amount:N0}฿\nDue by Day {repayDay}";
         public string LblCannotDowngrade  =>
             IsThai ? "⛔ ย้ายถอยหลังไม่ได้" : "⛔ Cannot go back";
         public string LblSequentialLocked =>
@@ -155,8 +178,8 @@ namespace ProjektMooPing.Services
                    : $"Rent auto-deducted at {locName}\nValid until Day {expiryDay}";
         public string PopupDiscoverTitle   => IsThai ? "เงินไม่พอ!"         : "Not Enough Money!";
         public string PopupDiscoverMsg     =>
-            IsThai ? "ต้องการ 200฿ เพื่อเริ่ม Discover วัตถุดิบใหม่"
-                   : "Need 200฿ to start discovering ingredients.";
+            IsThai ? "ต้องการ 100฿ เพื่อเริ่ม Discover วัตถุดิบใหม่"
+                   : "Need 100฿ to start discovering ingredients.";
         public string FmtLoadError(string msg) =>
             IsThai ? $"โหลดข้อมูลไม่สำเร็จ: {msg}" : $"Cannot load data: {msg}";
 

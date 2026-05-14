@@ -89,26 +89,45 @@
                        WidthRequest="400"
                        HeightRequest="500"/>
                 <Grid>
-                    <VerticalStackLayout VerticalOptions="Start" 
-                     HorizontalOptions="End" 
-                     Margin="0,20,20,0" 
-                     Spacing="10">
+                    <Grid VerticalOptions="Start" Margin="10,20,10,0"
+                          ColumnDefinitions="*, Auto">
 
-                        <Button Text="{Binding BtnStartDay, Source={x:Static services:LocalizationService.Instance}}"
-                                TextColor="{StaticResource MooPingCream}"
-                                BackgroundColor="{StaticResource MooPingDarkBrown}"
-                                CornerRadius="15"
-                                HeightRequest="45"
-                                Clicked="StartCustomerAnimation"/>
+                        <!-- Left: Loan Banner -->
+                        <Border x:Name="LoanBanner"
+                                Grid.Column="0"
+                                BackgroundColor="#CC3333"
+                                Padding="8,5"
+                                IsVisible="False"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                            <Label x:Name="LoanBannerLabel"
+                                   Text=""
+                                   TextColor="White"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                        </Border>
 
-                        <Button x:Name="SpeedBtn"
-                                Text="1x Speed" 
-                                TextColor="{StaticResource MooPingCream}"
-                                BackgroundColor="{StaticResource MooPingLightBrown}" 
-                                CornerRadius="15" 
-                                HeightRequest="40"
-                                Clicked="OnSpeedUpClicked"/>
-                    </VerticalStackLayout>
+                        <!-- Right: Start Day + Speed -->
+                        <VerticalStackLayout Grid.Column="1" Spacing="10">
+                            <Button Text="{Binding BtnStartDay, Source={x:Static services:LocalizationService.Instance}}"
+                                    TextColor="{StaticResource MooPingCream}"
+                                    BackgroundColor="{StaticResource MooPingDarkBrown}"
+                                    CornerRadius="15"
+                                    HeightRequest="45"
+                                    Clicked="StartCustomerAnimation"/>
+                            <Button x:Name="SpeedBtn"
+                                    Text="1x Speed"
+                                    TextColor="{StaticResource MooPingCream}"
+                                    BackgroundColor="{StaticResource MooPingLightBrown}"
+                                    CornerRadius="15"
+                                    HeightRequest="40"
+                                    Clicked="OnSpeedUpClicked"/>
+                        </VerticalStackLayout>
+                    </Grid>
                     <Image Source="sprite_cart.png" 
                             HorizontalOptions="Center" 
                             VerticalOptions="End" 
@@ -132,13 +151,21 @@
                                    FontSize="14"
                                    FontAttributes="Bold" />
                     </Border>
-                    <Image x:Name="CustomerSprite" 
-                            Source="sprite_customer.png" 
-                            HorizontalOptions="End" 
-                            VerticalOptions="End" 
-                            WidthRequest="250" 
+                    <Image x:Name="CustomerSprite"
+                            Source="sprite_customer.png"
+                            HorizontalOptions="End"
+                            VerticalOptions="End"
+                            WidthRequest="250"
                             HeightRequest="250"
                             TranslationX="-400"/>
+                    <Image x:Name="BigLoanSprite"
+                            Source="sprite_bigloan.png"
+                            HorizontalOptions="End"
+                            VerticalOptions="End"
+                            WidthRequest="250"
+                            HeightRequest="250"
+                            TranslationX="600"
+                            Opacity="0"/>
                 </Grid>
             </Grid>
         </Border>
@@ -391,7 +418,7 @@
                                     <CarouselView Grid.Column="1"
                                                   x:Name="LocationCarousel"
                                                   ItemsSource="{Binding AllLocations}"
-                                                  HeightRequest="150"
+                                                  HeightRequest="130"
                                                   IsSwipeEnabled="False"
                                                   Loop="False"
                                                   PositionChanged="OnLocationPositionChanged">
@@ -410,35 +437,47 @@
                                     </Label>
                                 </Grid>
 
-                                <!-- จำนวนคน | ค่าเช่า/สัปดาห์ -->
-                                <Grid ColumnDefinitions="*, *">
-                                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="1">
-                                        <Label Text="👥" HorizontalOptions="Center" FontSize="14"/>
+                                <!-- จำนวนลูกค้า + ค่าเช่า -->
+                                <VerticalStackLayout Spacing="4" Padding="4,0">
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="👥" VerticalOptions="Center"/>
+                                        <Label Text="{Binding LblTraffic, Source={x:Static services:LocalizationService.Instance}}"
+                                               TextColor="Gray" VerticalOptions="Center" FontSize="13"/>
                                         <Label x:Name="LocTrafficLabel"
-                                               FontSize="12" HorizontalOptions="Center" TextColor="DimGray"/>
-                                    </VerticalStackLayout>
-                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="1">
-                                        <Label Text="🏠" HorizontalOptions="Center" FontSize="14"/>
+                                               FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" FontSize="13"/>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="🏠" VerticalOptions="Center"/>
+                                        <Label Text="{Binding LblWeeklyRent, Source={x:Static services:LocalizationService.Instance}}"
+                                               TextColor="Gray" VerticalOptions="Center" FontSize="13"/>
                                         <Label x:Name="LocRentLabel"
-                                               FontSize="12" HorizontalOptions="Center" TextColor="DimGray"/>
-                                    </VerticalStackLayout>
-                                </Grid>
+                                               FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" FontSize="13"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
 
                                 <BoxView HeightRequest="1" Color="{StaticResource MooPingDarkBrown}" Opacity="0.2"/>
 
-                                <!-- Rating ที่ต้องการ | เงินสำหรับเซนสัญญา -->
-                                <Grid ColumnDefinitions="*, *">
-                                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="1">
-                                        <Label Text="⭐" HorizontalOptions="Center" FontSize="14"/>
+                                <!-- เงื่อนไขการเซนสัญญา -->
+                                <Label Text="{Binding LblRequirements, Source={x:Static services:LocalizationService.Instance}}"
+                                       FontAttributes="Bold" FontSize="13"
+                                       TextColor="{StaticResource MooPingDarkBrown}"/>
+
+                                <VerticalStackLayout Spacing="4" Padding="4,0">
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="⭐" VerticalOptions="Center"/>
+                                        <Label Text="{Binding LblRequiredRating, Source={x:Static services:LocalizationService.Instance}}"
+                                               TextColor="Gray" VerticalOptions="Center" FontSize="13"/>
                                         <Label x:Name="LocRatingLabel"
-                                               FontSize="12" HorizontalOptions="Center" TextColor="DimGray"/>
-                                    </VerticalStackLayout>
-                                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="1">
-                                        <Label Text="💰" HorizontalOptions="Center" FontSize="14"/>
+                                               FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" FontSize="13"/>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Spacing="6">
+                                        <Label Text="💰" VerticalOptions="Center"/>
+                                        <Label Text="{Binding LblSignCost, Source={x:Static services:LocalizationService.Instance}}"
+                                               TextColor="Gray" VerticalOptions="Center" FontSize="13"/>
                                         <Label x:Name="LocCostLabel"
-                                               FontSize="12" HorizontalOptions="Center" TextColor="DimGray"/>
-                                    </VerticalStackLayout>
-                                </Grid>
+                                               FontAttributes="Bold" TextColor="Black" VerticalOptions="Center" FontSize="13"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
 
                                 <!-- สถานะสัญญา -->
                                 <Label x:Name="LocStatusLabel"
@@ -453,7 +492,7 @@
                                         TextColor="White"
                                         CornerRadius="20"
                                         HorizontalOptions="Center"
-                                        WidthRequest="200"
+                                        WidthRequest="220"
                                         HeightRequest="45"
                                         Clicked="OnSignContractClicked"/>
 

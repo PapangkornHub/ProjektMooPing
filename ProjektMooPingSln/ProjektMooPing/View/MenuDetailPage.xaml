@@ -63,10 +63,11 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
-                <Grid Grid.Row="4" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="10">
+                <Grid Grid.Row="4" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto" ColumnSpacing="10" RowSpacing="10">
                     <Button Grid.Row="0" Grid.Column="0" Text="{Binding BtnClose, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnCancelClicked" BackgroundColor="{StaticResource MooPingDarkBrown}" TextColor="White" CornerRadius="15"/>
                     <Button Grid.Row="0" Grid.Column="1" Text="{Binding BtnAccept, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnAcceptClicked" BackgroundColor="{StaticResource MooPingMediumBrown}" TextColor="White" CornerRadius="15"/>
                     <Button Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding BtnCookNow, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnCookClicked" BackgroundColor="#76B041" TextColor="White" FontAttributes="Bold" HeightRequest="50" CornerRadius="15"/>
+                    <Button Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding BtnCookAll, Source={x:Static services:LocalizationService.Instance}}" Clicked="OnCookAllClicked" BackgroundColor="#E07B00" TextColor="White" FontAttributes="Bold" HeightRequest="50" CornerRadius="15"/>
                 </Grid>
             </Grid>
         </Border>
