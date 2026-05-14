@@ -145,9 +145,9 @@ namespace ProjektMooPing.Services
         public string LblLockedRating     => IsThai ? "🔒 Rating ไม่เพียงพอ" : "🔒 Rating Required";
         public string LblRequiredRating   => IsThai ? "Rating ที่ต้องการ:"   : "Required Rating:";
         public string LblTraffic          => IsThai ? "จำนวนลูกค้า:"        : "Customers:";
-        public string LblRequirements     => IsThai ? "🎯 เงื่อนไขการเซนสัญญา" : "🎯 Requirements";
+        public string LblRequirements     => IsThai ? "🎯 เงื่อนไขการเซ็นสัญญา" : "🎯 Requirements";
         public string LblWeeklyRent       => IsThai ? "ค่าเช่า/สัปดาห์:"    : "Weekly Rent:";
-        public string LblSignCost         => IsThai ? "ค่าเซนสัญญา:"        : "Sign Cost:";
+        public string LblSignCost         => IsThai ? "ค่าเซ็นสัญญา:" : "Sign Cost:";
         public string LblFree             => IsThai ? "ฟรี"                  : "Free";
 
         // ─── Loan Shark ─────────────────────────────────────────────────
@@ -163,7 +163,7 @@ namespace ProjektMooPing.Services
                    : $"Repaid {amount:N0}฿ to the loan shark.";
         public string GameOverTitle    => IsThai ? "เกมโอเวอร์!" : "Game Over!";
         public string GameOverLoanMsg  =>
-            IsThai ? "เงินไม่พอคืนเฮียบิ๊ก...\nร้านมูปิ้งถูกยึดไปแล้ว!"
+            IsThai ? "เงินไม่พอคืนเฮียบิ๊ก...\nร้านหมูปิ้งถูกยึดไปแล้ว!"
                    : "Can't repay the loan shark...\nYour stall has been seized!";
         public string LoanReminderTitle => IsThai ? "⚠️ เตือนหนี้" : "⚠️ Debt Reminder";
         public string FmtLoanReminder(double amount, int repayDay) =>
