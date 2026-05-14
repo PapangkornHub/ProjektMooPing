@@ -48,7 +48,7 @@ namespace ProjektMooPing.Services
                       + CalcSalesScore(served, total)
                       + CalcQualityScore(avgQuality)
                       - CalcStockoutPenalty(hadStockout);
-            return Math.Max(0, score);
+            return score;
         }
 
         // --- แปลงคะแนนเป็นจำนวนดาว (0–5) ---
