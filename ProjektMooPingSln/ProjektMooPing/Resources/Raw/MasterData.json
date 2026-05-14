@@ -271,6 +271,48 @@
       "Icon": "🌿"
     }
   ],
+  "StoryCutScene": [
+    {
+      "Id": 11,
+      "Title": "Intro 1: The Legend",
+      "TitleTh": "บทนำ 1: ตำนานเจ้าสัว",
+      "Text": "You were once a billionaire tycoon with 'Lucky', the legendary dog who brought fortune to everything you touched.",
+      "TextTh": "กาลครั้งหนึ่งคุณคือเจ้าสัวอสังหาฯ หมื่นล้าน ผู้มีสุนัขในตำนาน 'ลัคกี้' ที่แผ่รัศมีโชคลาภทำให้หยิบจับอะไรก็เป็นเงินเป็นทองไปเสียหมด",
+      "StoryImagePath": "sprite_lucky"
+    },
+    {
+      "Id": 12,
+      "Title": "Intro 2: The Challenge",
+      "TitleTh": "บทนำ 2: คำสาปจากเงามืด",
+      "Text": "A wicked rival used dark magic to steal Lucky and cursed you to lose everything, leaving you with only your grandfather's old grill cart.",
+      "TextTh": "แต่แล้วเจ้าสัวคู่แข่งชั่วร้ายได้ใช้ศาสตร์มืดชิงตัวลัคกี้ไป และร่ายคำสาปให้คุณสูญสิ้นมิตรสหายและทรัพย์สิน จนเหลือเพียง 'รถเข็นหมูปิ้งเก่าๆ' ของคุณปู่เป็นสมบัติชิ้นสุดท้าย",
+      "StoryImagePath": "sprite_villain"
+    },
+    {
+      "Id": 13,
+      "Title": "Intro 3: The Mission",
+      "TitleTh": "บทนำ 3: ภารกิจกู้ศรัทธา",
+      "Text": "To save Lucky, you must grill the perfect Moo Ping to summon Lucky's ancestors and reclaim your lost fortune!",
+      "TextTh": "โชคดีที่วิญญาณบรรพบุรุษของลัคกี้ยังคอยชี้นำ... พวกท่านหลงใหลในรสชาติหมูปิ้งยิ่งนัก! คุณต้องปรุงหมูปิ้งที่อร่อยที่สุดเพื่อรวบรวมเศษเสี้ยวแห่งโชคลาภกลับคืนมา และบุกไปชิงตัวลัคกี้คืนจากปราสาทเจ้าสัวให้ได้!",
+      "StoryImagePath": "sprite_cart"
+    },
+    {
+      "Id": 14,
+      "Title": "TrueEnding",
+      "TitleTh": "ฉากจบที่แท้จริง: โชคลาภที่สร้างด้วยมือ",
+      "Text": "Lucky is home. You realized that true luck isn't from magic, but from the hearts of those who loved your food. You are now the King of Moo Ping!",
+      "TextTh": "ลัคกี้กลับมาสู่อ้อมกอดคุณอีกครั้ง... คุณได้เรียนรู้ว่าโชคลาภที่แท้จริงไม่ได้มาจากเวทมนตร์ แต่มาจากความสุขของผู้คนที่ได้ทานหมูปิ้งของคุณ บัดนี้ คุณคือ 'เจ้าสัวหมูปิ้ง' ผู้มั่งคั่งที่สุดในปฐพี!",
+      "StoryImagePath": "sprite_happy_ending"
+    },
+    {
+      "Id": 15,
+      "Title": "BigBadEnding",
+      "TitleTh": "ฉากจบที่เลวร้าย: หนี้ท่วมหัว",
+      "Text": "Game Over. You couldn't pay the debt. The grill is cold, and Lucky is lost forever.",
+      "TextTh": "บ้าเอ๊ย! ไม่มีเงินจ่ายหนี้เจ้าสัวบิ๊กซะได้! รถเข็นถูกยึด เตาถ่านมอดดับลง... ลัคกี้คงต้องตกอยู่ในเงื้อมมือมารไปตลอดกาล",
+      "StoryImagePath": "sprite_bigloan"
+    }
+  ],
   "Locations": [
     {
       "Id": 1,
@@ -282,8 +324,12 @@
       "MaxTraffic": 5,
       "ImagePath": "wall_rural",
       "RequiredRating": 0,
-      "DogLucky": "Lucky of Simplicity",
-      "DogLuckyTh": "ลัคกี้แห่งความเรียบง่าย"
+
+      "Title": "Lucky of Simplicity",
+      "TitleTh": "ลัคกี้แห่งความเรียบง่าย",
+      "Text": "This is where I first ran free... Simple happiness is the most enduring fortune. You've earned a fragment of luck.",
+      "TextTh": "'ที่นี่คือที่ๆ ข้าเริ่มวิ่งเล่นครั้งแรก... ความสุขที่เรียบง่าย คือโชคลาภที่ยั่งยืนที่สุด' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 2,
@@ -295,8 +341,12 @@
       "MaxTraffic": 9,
       "ImagePath": "wall_marketgarden",
       "RequiredRating": 200,
-      "DogLucky": "Lucky of Negotiation",
-      "DogLuckyTh": "ลัคกี้แห่งการเจรจา"
+
+      "Title": "Lucky of Negotiation",
+      "TitleTh": "ลัคกี้แห่งการเจรจา",
+      "Text": "The shouts and laughter of trade... Negotiation with a sincere heart wins more than just gold. Your luck grows stronger.",
+      "TextTh": "'เสียงตะโกนและเสียงหัวเราะ... การเจรจาด้วยใจ จะทำให้คนรักเจ้ามากกว่าเงินทอง' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 3,
@@ -308,8 +358,12 @@
       "MaxTraffic": 12,
       "ImagePath": "wall_footpath",
       "RequiredRating": 500,
-      "DogLucky": "Lucky of Resilience",
-      "DogLuckyTh": "ลัคกี้แห่งความทรหด"
+
+      "Title": "Lucky of Resilience",
+      "TitleTh": "ลัคกี้แห่งความทรหด",
+      "Text": "Burning sun, pouring rain... Resilience turns exhaustion into power. Reclaim your strength through this fragment.",
+      "TextTh": "'แดดร้อน ฝนตก คนเดินผ่าน... ความทรหดจะเปลี่ยนความเหนื่อยล้าให้เป็นพลัง' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 4,
@@ -321,8 +375,12 @@
       "MaxTraffic": 14,
       "ImagePath": "wall_school",
       "RequiredRating": 900,
-      "DogLucky": "Lucky of Mischief",
-      "DogLuckyTh": "ลัคกี้แห่งความซุกซน"
+
+      "Title": "Lucky of Mischief",
+      "TitleTh": "ลัคกี้แห่งความซุกซน",
+      "Text": "Children's joy is pure energy... Infuse that fun into your flavor! A spark of luck has been ignited.",
+      "TextTh": "'ความซุกซนของเด็กๆ คือพลังงานที่บริสุทธิ์... จงใส่ความสนุกลงไปในรสชาติสิ!' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 5,
@@ -334,8 +392,12 @@
       "MaxTraffic": 16,
       "ImagePath": "wall_mall",
       "RequiredRating": 1500,
-      "DogLucky": "Lucky of Civilization",
-      "DogLuckyTh": "ลัคกี้แห่งความศิวิไลซ์"
+
+      "Title": "Lucky of Civilization",
+      "TitleTh": "ลัคกี้แห่งความศิวิไลซ์",
+      "Text": "City lights can be blinding... Never forget the scent of charcoal that started your journey. Keep the flame alive.",
+      "TextTh": "'แสงสีศิวิไลซ์อาจบังตา... แต่อย่าลืมกลิ่นหอมของถ่านที่ทำให้เจ้าเริ่มเดินมา' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 6,
@@ -347,8 +409,12 @@
       "MaxTraffic": 17,
       "ImagePath": "wall_office",
       "RequiredRating": 2300,
-      "DogLucky": "Lucky of Endurance",
-      "DogLuckyTh": "ลัคกี้แห่งความอดทน"
+
+      "Title": "Lucky of Endurance",
+      "TitleTh": "ลัคกี้แห่งความอดทน",
+      "Text": "The rush of the world makes people forget joy. Your skewers are their moment of rest. You are becoming a beacon of hope.",
+      "TextTh": "'ความเร่งรีบทำให้คนลืมความสุข... หมูปิ้งของเจ้าคือนาทีแห่งการพักผ่อนของพวกเขา' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 7,
@@ -360,8 +426,12 @@
       "MaxTraffic": 18,
       "ImagePath": "wall_beach",
       "RequiredRating": 3300,
-      "DogLucky": "Lucky of Longing",
-      "DogLuckyTh": "ลัคกี้แห่งการโหยหา"
+
+      "Title": "Lucky of Longing",
+      "TitleTh": "ลัคกี้แห่งการโหยหา",
+      "Text": "The ocean waves wash away sorrow... Someone is waiting for the taste they long for. Destiny calls.",
+      "TextTh": "'เสียงคลื่นชะล้างความโศกเศร้า... ใครบางคนกำลังรอคอยรสชาติที่เขาโหยหาอยู่' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 8,
@@ -373,8 +443,12 @@
       "MaxTraffic": 19,
       "ImagePath": "wall_amuse",
       "RequiredRating": 4500,
-      "DogLucky": "Lucky of Euphoria",
-      "DogLuckyTh": "ลัคกี้แห่งความหรรษา"
+
+      "Title": "Lucky of Euphoria",
+      "TitleTh": "ลัคกี้แห่งความหรรษา",
+      "Text": "The screams of delight! Fortune dwells among those who share happiness. Your mission is nearly complete.",
+      "TextTh": "'เสียงกรีดร้องด้วยความหรรษา! โชคลาภจะสถิตอยู่กับผู้ที่แบ่งปันความสุข' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 9,
@@ -386,8 +460,12 @@
       "MaxTraffic": 20,
       "ImagePath": "wall_resort",
       "RequiredRating": 6000,
-      "DogLucky": "Lucky of Letting Go",
-      "DogLuckyTh": "ลัคกี้แห่งการปล่อยวาง"
+
+      "Title": "Lucky of Letting Go",
+      "TitleTh": "ลัคกี้แห่งการปล่อยวาง",
+      "Text": "Time to let go of hatred... Cook with a peaceful mind, and the taste will transcend. The final piece is yours.",
+      "TextTh": "'ถึงเวลาปล่อยวางความแค้น... แล้วปิ้งหมูด้วยจิตใจที่สงบ รสชาติจะล้ำลึกขึ้น' คุณได้เศษเสี้ยวพลังและเดินทางไปยังสถานที่ถัดไป",
+      "StoryImagePath": "sprite_luckygod"
     },
     {
       "Id": 10,
@@ -399,8 +477,12 @@
       "MaxTraffic": 20,
       "ImagePath": "wall_villainhouse",
       "RequiredRating": 7200,
-      "DogLucky": "Lucky of Success",
-      "DogLuckyTh": "ลัคกี้แห่งความสำเร็จ"
+
+      "Title": "Lucky of Success",
+      "TitleTh": "ลัคกี้แห่งความสำเร็จ",
+      "Text": "All fragments are united! Reclaim your true fortune. Storm the castle and bring Lucky home!",
+      "TextTh": "'รวมพลังแห่ง Luck ครบถ้วนแล้ว! ถึงเวลาบุกชิง 'โชคลาภที่แท้จริง' กลับคืนมา!' คุณได้เศษเสี้ยวพลังสุดท้าย พร้อมไปช่วยลัคกี้และกระทืบเจ้าสัว!",
+      "StoryImagePath": "sprite_lucky"
     }
   ],
   "Quizzes": [
