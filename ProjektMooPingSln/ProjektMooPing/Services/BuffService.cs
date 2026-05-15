@@ -53,7 +53,7 @@ namespace ProjektMooPing.Services
                 5 => ("ลัคกี้แห่งความศิวิไลซ์",
                       "Lucky of Civilization",
                       "ต้นทุนวัตถุดิบลดลง 10% ในการคำนวณความนิยม ขายแพงขึ้นได้โดยไม่เสีย Pop!",
-                      "Ingredient costs are 10% lower in popularity calculation. Price higher without losing Pop!"),
+                      "Ingredient costs are 10% lower in popularity calculation. Price higher without losing Popularity!"),
 
                 6 => ("ลัคกี้แห่งความอดทน",
                       "Lucky of Endurance",

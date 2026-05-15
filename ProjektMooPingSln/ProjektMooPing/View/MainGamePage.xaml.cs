@@ -45,12 +45,11 @@ namespace ProjektMooPing
         #endregion
 
         #region --- Initialization ---
+        private bool _initialized = false;
+
         public MainGamePage()
         {
             InitializeComponent();
-            _ = LoadMasterData();
-            Debug.WriteLine(">>>> SAVE FILE IS HERE: " + Path.Combine(FileSystem.AppDataDirectory, "mooping_save.json"));
-            LoadGameData();
 
             WeakReferenceMessenger.Default.Register<NewRecipeMessage>(this, (r, m) => {
                 Player.CreatedRecipes.Add(m.Value);
@@ -116,6 +115,17 @@ namespace ProjektMooPing
             InvTab.IsVisible = false;
             LocTab.IsVisible = false;
             this.BindingContext = this;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            if (_initialized) return;
+            _initialized = true;
+
+            Debug.WriteLine(">>>> SAVE FILE IS HERE: " + Path.Combine(FileSystem.AppDataDirectory, "mooping_save.json"));
+            await LoadMasterData();
+            LoadGameData();
         }
         #endregion
 

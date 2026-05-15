@@ -46,7 +46,7 @@ namespace ProjektMooPing.Services
         public string BtnDiscover  => IsThai ? "ค้นพบ (100 ฿)" : "Discover (100 ฿)";
         public string BtnBuy       => IsThai ? "ซื้อ"           : "Buy";
         public string BtnRelocate  => IsThai ? "ย้ายมาที่นี่"  : "Relocate";
-        public string BtnSignContract   => IsThai ? "เซนสัญญา / ย้ายมาที่นี่" : "Sign Contract";
+        public string BtnSignContract   => IsThai ? "เซ็นสัญญา / ย้ายมาที่นี่" : "Sign Contract";
         public string BtnContractActive => IsThai ? "✅ สัญญาใช้อยู่"          : "✅ Active Contract";
         public string BtnContractRenew  => IsThai ? "ต่อสัญญา"                 : "Renew Contract";
         public string LblCost      => IsThai ? "ต้นทุน"         : "Cost";
@@ -128,16 +128,16 @@ namespace ProjektMooPing.Services
                    : $"Need at least {rent}฿\nto pay rent at {loc}";
         public string PopupContractExpiredTitle => IsThai ? "สัญญาหมดอายุ!"      : "Contract Expired!";
         public string PopupContractExpiredMsg   =>
-            IsThai ? "กรุณาเซนสัญญาใหม่ที่แท็บ 'สถานที่' ก่อนเริ่มวัน"
+            IsThai ? "กรุณาเซ็นสัญญาใหม่ที่แท็บ 'สถานที่' ก่อนเริ่มวัน"
                    : "Please sign a new contract in the 'Loc' tab before starting the day.";
         public string PopupContractRatingTitle  => IsThai ? "Rating ไม่พอ!"       : "Rating Too Low!";
         public string FmtContractRatingMsg(int required, int current) =>
             IsThai ? $"ต้องการ Rating {required} คะแนน\nปัจจุบันมี {current} คะแนน"
                    : $"Requires {required} Rating\nYou have {current}";
         public string PopupContractMoneyMsg(int cost) =>
-            IsThai ? $"ต้องการเงิน {cost}฿ เพื่อเซนสัญญา" : $"Need {cost}฿ to sign contract.";
+            IsThai ? $"ต้องการเงิน {cost}฿ เพื่อเซ็นสัญญา" : $"Need {cost}฿ to sign contract.";
         public string FmtContractSigned(string locName, int expiryDay) =>
-            IsThai ? $"เซนสัญญาที่ {locName} สำเร็จ!\nสัญญาใช้ได้ถึงวันที่ {expiryDay}"
+            IsThai ? $"เซ็นสัญญาที่ {locName} สำเร็จ!\nสัญญาใช้ได้ถึงวันที่ {expiryDay}"
                    : $"Contract signed at {locName}!\nValid until Day {expiryDay}";
         public string FmtContractExpiry(int day) =>
             IsThai ? $"สัญญาถึง: วันที่ {day}" : $"Contract until: Day {day}";
