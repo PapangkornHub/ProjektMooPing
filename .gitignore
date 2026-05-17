@@ -427,3 +427,29 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Secrets — API keys, credentials (ห้าม commit)
+**/AiSecrets.cs
+**/secrets.json
+*.env
+.env.*
+appsettings.Secrets.json
+appsettings.*.local.json
+
+# Android signing — Keystore สำหรับ sign apk/aab (ห้ามรั่ว!)
+*.keystore
+*.jks
+*.p12
+*.pfx
+keystore.properties
+signing.properties
+
+# IDE / OS / Backup
+.vscode/
+.idea/
+*.user
+*.suo
+*.bak
+*~
+.DS_Store
+Thumbs.db
