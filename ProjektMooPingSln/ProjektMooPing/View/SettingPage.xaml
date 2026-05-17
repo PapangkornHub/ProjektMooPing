@@ -13,7 +13,7 @@
                 <RoundRectangle CornerRadius="25"/>
             </Border.StrokeShape>
 
-            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="20">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="20">
 
                 <!-- หัวข้อ -->
                 <Label Grid.Row="0"
@@ -88,8 +88,34 @@
                     </Border>
                 </VerticalStackLayout>
 
+                <!-- Dev Tools (PlayTest) -->
+                <VerticalStackLayout Grid.Row="4" Spacing="10">
+                    <Label Text="🛠️ Dev Tools (PlayTest)"
+                           FontSize="14" FontAttributes="Bold"
+                           TextColor="#E67E22" HorizontalOptions="Start"/>
+                    <Border Stroke="#E67E22" StrokeThickness="1" Padding="15" BackgroundColor="#FFF8E7">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+                        </Border.StrokeShape>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                            <Button x:Name="BtnAddMoney"
+                                    Grid.Column="0"
+                                    Text="+1,000 ฿"
+                                    Clicked="OnAddMoneyClicked"
+                                    BackgroundColor="#27AE60" TextColor="White"
+                                    FontAttributes="Bold" HeightRequest="45" CornerRadius="15"/>
+                            <Button x:Name="BtnAddRating"
+                                    Grid.Column="1"
+                                    Text="+500 ⭐"
+                                    Clicked="OnAddRatingClicked"
+                                    BackgroundColor="#F39C12" TextColor="White"
+                                    FontAttributes="Bold" HeightRequest="45" CornerRadius="15"/>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
                 <!-- Close -->
-                <Button Grid.Row="4"
+                <Button Grid.Row="5"
                         Text="{Binding BtnClose, Source={x:Static services:LocalizationService.Instance}}"
                         Clicked="OnBackClicked"
                         BackgroundColor="{StaticResource MooPingDarkBrown}" TextColor="White"

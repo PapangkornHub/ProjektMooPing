@@ -52,6 +52,19 @@ public partial class SettingPage : ContentPage
         }
     }
 
+    // ─── Dev Tools (PlayTest) ──────────────────────────────────────────
+    private void OnAddMoneyClicked(object sender, EventArgs e)
+    {
+        SoundService.PlayClick1();
+        WeakReferenceMessenger.Default.Send(new AddMoneyMessage { Amount = 1000 });
+    }
+
+    private void OnAddRatingClicked(object sender, EventArgs e)
+    {
+        SoundService.PlayClick1();
+        WeakReferenceMessenger.Default.Send(new AddRatingMessage { Amount = 500 });
+    }
+
     // ─── Reset Game ────────────────────────────────────────────────────
     private async void OnResetGameClicked(object sender, EventArgs e)
     {

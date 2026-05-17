@@ -25,8 +25,25 @@
                HorizontalOptions="End" FontAttributes="Bold" />
                 </Grid>
 
-                <Label Grid.Row="1" x:Name="TriviaLabel" Text="" FontSize="14" 
-           TextColor="Gray" HorizontalTextAlignment="Center" FontAttributes="Italic" IsVisible="False"/>
+                <VerticalStackLayout Grid.Row="1" Spacing="6">
+                    <Label x:Name="TriviaLabel" Text="" FontSize="14"
+                           TextColor="Gray" HorizontalTextAlignment="Center" FontAttributes="Italic" IsVisible="False"/>
+
+                    <HorizontalStackLayout x:Name="AiLoadingLayout" Spacing="6" HorizontalOptions="Center" IsVisible="False">
+                        <ActivityIndicator IsRunning="True" Color="#1976D2" HeightRequest="16" WidthRequest="16"/>
+                        <Label Text="🤖 AI กำลังคิด..." FontSize="12" TextColor="#1976D2"/>
+                    </HorizontalStackLayout>
+
+                    <Border x:Name="AiExplanationBorder"
+                            BackgroundColor="#E3F2FD" Padding="10" IsVisible="False">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Label x:Name="AiExplanationLabel" Text=""
+                               FontSize="13" TextColor="#0D47A1"
+                               HorizontalTextAlignment="Start"/>
+                    </Border>
+                </VerticalStackLayout>
 
                 <Border Grid.Row="2" BackgroundColor="#E8F5E9" Padding="10,5">
                     <Border.StrokeShape>

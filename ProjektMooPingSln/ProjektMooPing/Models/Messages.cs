@@ -22,6 +22,8 @@ namespace ProjektMooPing.Models
 
     public class AddRatingMessage { public int Amount { get; init; } }
 
+    public class AddMoneyMessage { public double Amount { get; init; } }
+
     public class IngredientUnlockedMessage : ValueChangedMessage<Ingredient>
     {
         public IngredientUnlockedMessage(Ingredient value) : base(value) { }

@@ -93,6 +93,12 @@ namespace ProjektMooPing
                 SaveCurrentGame();
             });
 
+            WeakReferenceMessenger.Default.Register<AddMoneyMessage>(this, (r, m) => {
+                Player.Money += m.Amount;
+                OnPropertyChanged(nameof(Player));
+                SaveCurrentGame();
+            });
+
             WeakReferenceMessenger.Default.Register<IngredientUnlockedMessage>(this, (r, m) => {
                 RefreshInventoryUI();
                 SaveCurrentGame();

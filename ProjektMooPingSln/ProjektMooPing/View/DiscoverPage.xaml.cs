@@ -13,6 +13,7 @@ public partial class DiscoverPage : ContentPage
     private PlayerProfile _player;
     private List<Ingredient> _allIngredients;
     private Ingredient _potentialReward;
+    private CancellationTokenSource _aiCts;
 
     public DiscoverPage(PlayerProfile player, List<QuestionData> questions, List<Ingredient> ingredients)
     {
@@ -99,6 +100,38 @@ public partial class DiscoverPage : ContentPage
         TriviaLabel.Text = q.DisplayTrivia;       // Trivia ตามภาษา
         TriviaLabel.IsVisible = true;
         NextButton.IsVisible = true;
+
+        // เรียก AI ขอคำอธิบายเพิ่มเติม (auto หลังตอบ)
+        _ = LoadAiExplanationAsync(q, q.DisplayChoices[q.CorrectIndex]);
+    }
+
+    private async Task LoadAiExplanationAsync(QuestionData q, string correctAnswer)
+    {
+        _aiCts?.Cancel();
+        _aiCts = new CancellationTokenSource();
+        var ct = _aiCts.Token;
+
+        AiExplanationBorder.IsVisible = false;
+        AiExplanationLabel.Text = string.Empty;
+        AiLoadingLayout.IsVisible = true;
+
+        try
+        {
+            bool isThai = LocalizationService.Instance.IsThai;
+            string text = await AiExplainService.ExplainAsync(
+                q.Id, q.DisplayQuestion, correctAnswer, isThai, ct);
+
+            if (ct.IsCancellationRequested) return;
+
+            AiExplanationLabel.Text = text;
+            AiExplanationBorder.IsVisible = true;
+        }
+        catch (OperationCanceledException) { /* user moved on */ }
+        finally
+        {
+            if (!ct.IsCancellationRequested)
+                AiLoadingLayout.IsVisible = false;
+        }
     }
 
     private async void OnNextClicked(object sender, EventArgs e)
@@ -109,7 +142,10 @@ public partial class DiscoverPage : ContentPage
 
         if (_currentIndex < 5)
         {
+            _aiCts?.Cancel();
             TriviaLabel.IsVisible = false;
+            AiLoadingLayout.IsVisible = false;
+            AiExplanationBorder.IsVisible = false;
             NextButton.IsVisible = false;
             ChoicesContainer.IsVisible = true;
             QuestionLabel.TextColor = Colors.Black;
